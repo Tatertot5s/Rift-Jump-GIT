@@ -7,7 +7,7 @@ const ACCELERATION = 40.0
 var coyote_time = 0
 var jump_buffer = 0
 var debug_mode = false
-var debug_fly_speed = 20
+var debug_fly_speed = 15
 
 func _physics_process(delta: float) -> void:
 	#Game Settings
@@ -19,6 +19,8 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 	if Input.is_action_just_pressed("debug_mode"):
 		debug_mode = !debug_mode
+		velocity.x = 0
+		velocity.y = 0
 	
 	if not is_on_floor():
 		if !debug_mode:

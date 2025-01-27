@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -475.0
 const ACCELERATION = 40.0
 
 var jump_buffer = 0
-
+signal switch_levels(level_name)
 
 func _physics_process(delta: float) -> void:
 	#Game Settings
