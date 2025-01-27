@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://csb0dksi5eqfj"]
+
+[ext_resource type="PackedScene" uid="uid://dhtgtvuvg144g" path="res://levels/MainMenu.tscn" id="1_l0vqa"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_thvck"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_thvck")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_l0vqa")]
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 199.0
+offset_bottom = 120.0
+text = "Button1"
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
