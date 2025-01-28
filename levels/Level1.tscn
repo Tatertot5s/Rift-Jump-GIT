@@ -52,6 +52,6 @@ position = Vector2(3415, 202)
 LevelName = "Level2"
 
 [node name="character" parent="." instance=ExtResource("4_75va5")]
-position = Vector2(48, 507)
+position = Vector2(42, -58)
 
 [connection signal="body_entered" from="death_plane" to="character" method="_on_death_plane_body_entered"]

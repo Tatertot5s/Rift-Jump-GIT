@@ -13,7 +13,7 @@ color = Color(0.000502843, 0.0928186, 0.157977, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="character" parent="." instance=ExtResource("1_3qtb1")]
-position = Vector2(97, 380)
+position = Vector2(42, -30)
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(1.67424, 1.67424)
@@ -23,3 +23,6 @@ tile_set = ExtResource("2_6fufu")
 [node name="exit_portal" parent="." instance=ExtResource("3_hnrpx")]
 position = Vector2(2255, 437)
 LevelName = "Level4"
+
+[node name="respawn_point" type="Node2D" parent="."]
+position = Vector2(49, -24)
