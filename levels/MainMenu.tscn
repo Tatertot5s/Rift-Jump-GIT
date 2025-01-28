@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dhtgtvuvg144g"]
+[gd_scene load_steps=9 format=4 uid="uid://naqg0addupht"]
 
 [ext_resource type="Texture2D" uid="uid://rde3vwg81a1t" path="res://assets/example_tilesheet.png" id="1_82l54"]
 [ext_resource type="Texture2D" uid="uid://db8hg02ssx4yb" path="res://assets/clouds.png" id="1_uaw6a"]
@@ -754,3 +754,41 @@ offset_top = 246.983
 offset_right = 685.627
 offset_bottom = 349.983
 text = "START GAME"
+
+[node name="Node" type="Label" parent="."]
+visible = false
+text = "debug mode enabled"
+
+[node name="Button" type="Button" parent="Node"]
+offset_left = 15.0
+offset_top = 43.0
+offset_right = 175.0
+offset_bottom = 88.0
+text = "level 1"
+
+[node name="Button2" type="Button" parent="Node"]
+offset_left = 207.0
+offset_top = 43.0
+offset_right = 367.0
+offset_bottom = 88.0
+text = "level 2"
+
+[node name="Button3" type="Button" parent="Node"]
+offset_left = 395.0
+offset_top = 43.0
+offset_right = 555.0
+offset_bottom = 88.0
+text = "level 3"
+
+[node name="Button4" type="Button" parent="Node"]
+offset_left = 568.0
+offset_top = 42.0
+offset_right = 741.0
+offset_bottom = 88.0
+text = "level 4"
+
+[connection signal="pressed" from="Button" to="Menu_Player" method="_on_button_pressed"]
+[connection signal="pressed" from="Node/Button" to="Menu_Player" method="_on_button_pressed"]
+[connection signal="pressed" from="Node/Button2" to="Menu_Player" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Node/Button3" to="Menu_Player" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Node/Button4" to="Menu_Player" method="_on_button_4_pressed"]

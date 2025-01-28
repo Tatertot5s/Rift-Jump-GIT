@@ -5,7 +5,6 @@ const JUMP_VELOCITY = -475.0
 const ACCELERATION = 40.0
 
 var jump_buffer = 0
-signal switch_levels(level_name)
 
 func _physics_process(delta: float) -> void:
 	#Game Settings
@@ -15,6 +14,8 @@ func _physics_process(delta: float) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
+	if Input.is_action_just_pressed("debug_mode"):
+		$"../Node".visible = !$"../Node".visible
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -32,3 +33,16 @@ func _physics_process(delta: float) -> void:
 		position.x = -72
 	
 	move_and_slide()
+	
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://levels/Level1.tscn")
+
+func _on_button_2_pressed():
+	get_tree().change_scene_to_file("res://levels/Level2.tscn")
+
+func _on_button_3_pressed():
+	get_tree().change_scene_to_file("res://levels/Level3.tscn")
+
+func _on_button_4_pressed():
+	get_tree().change_scene_to_file("res://levels/Level4.tscn")
