@@ -9,6 +9,9 @@ var jump_buffer = 0
 var debug_mode = false
 var debug_fly_speed = 15
 
+func _ready() -> void:
+	$Camera2D.limit_right = get_parent().get_node("exit_portal").position.x + 40
+
 func _physics_process(delta: float) -> void:
 	#Game Settings
 	if Input.is_action_just_pressed("fullscreen"):
@@ -22,8 +25,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.y = 0
 		$Camera2D/Label.visible = !$Camera2D/Label.visible
-	print(get_parent().get_node("exit_portal"))
-	#WORKING ON THIS NOW POG
 	
 	if not is_on_floor():
 		if !debug_mode:
@@ -82,3 +83,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.modulate = "4880ff"
 	else:
 		$AnimatedSprite2D.modulate = "ffffff"
+
+func _on_death_plane_body_entered(body: Node2D) -> void:
+	if is_in_group("Player"):
+		self.position = $"../respawn_point".position

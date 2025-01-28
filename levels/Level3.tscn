@@ -21,5 +21,5 @@ tile_map_data = PackedByteArray("AAAAABcAAAABAAIAAAABABcAAAABAAIAAAACABcAAAABAAI
 tile_set = ExtResource("2_6fufu")
 
 [node name="exit_portal" parent="." instance=ExtResource("3_hnrpx")]
-position = Vector2(399, 437)
+position = Vector2(2255, 437)
 LevelName = "Level4"

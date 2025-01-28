@@ -21,4 +21,4 @@ tile_map_data = PackedByteArray("AAAAABcAAAABAAAAAAABABcAAAABAAAAAAACABcAAAABAAA
 tile_set = ExtResource("2_shxr8")
 
 [node name="exit_portal" parent="." instance=ExtResource("3_j277c")]
-position = Vector2(385, 463)
+position = Vector2(2261, 497)
