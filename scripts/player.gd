@@ -21,6 +21,9 @@ func _physics_process(delta: float) -> void:
 		debug_mode = !debug_mode
 		velocity.x = 0
 		velocity.y = 0
+		$Camera2D/Label.visible = !$Camera2D/Label.visible
+	print(get_parent().get_node("exit_portal"))
+	#WORKING ON THIS NOW POG
 	
 	if not is_on_floor():
 		if !debug_mode:
@@ -63,6 +66,16 @@ func _physics_process(delta: float) -> void:
 			position.y -= debug_fly_speed
 		if Input.is_action_pressed("ui_down"):
 			position.y += debug_fly_speed
+		if Input.is_action_just_pressed("1"):
+			get_tree().change_scene_to_file("res://levels/Level1.tscn")
+		if Input.is_action_just_pressed("2"):
+			get_tree().change_scene_to_file("res://levels/Level2.tscn")
+		if Input.is_action_just_pressed("3"):
+			get_tree().change_scene_to_file("res://levels/Level3.tscn")
+		if Input.is_action_just_pressed("4"):
+			get_tree().change_scene_to_file("res://levels/Level4.tscn")
+		if Input.is_action_just_pressed("`"):
+			get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
 
 	#debug, to test variables & timings.
 	if false:

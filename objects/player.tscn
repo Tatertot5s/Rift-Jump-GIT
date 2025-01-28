@@ -81,3 +81,13 @@ limit_right = 3450
 limit_bottom = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="Label" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -179.0
+offset_top = -110.0
+offset_right = 178.0
+offset_bottom = -61.0
+text = "Debug mode enabled. 
+Use 1-4 to TP, or use arrow keys to noClip"
+horizontal_alignment = 1
