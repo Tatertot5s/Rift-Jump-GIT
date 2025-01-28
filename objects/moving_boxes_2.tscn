@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://8u4plwsat4hv"]
+
+[ext_resource type="Script" path="res://scripts/moving_boxes_2.gd" id="1_w5qsx"]
+[ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_vt08j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55pin"]
+atlas = ExtResource("2_vt08j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7w6n"]
+size = Vector2(53.8217, 26.8897)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52uh4"]
+size = Vector2(53.3991, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4i5x"]
+size = Vector2(57.6431, 17.1465)
+
+[node name="moving_boxes2" type="AnimatableBody2D"]
+script = ExtResource("1_w5qsx")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-13.409, 0)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_55pin")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(13.41, 0)
+scale = Vector2(1.688, 1.688)
+texture = SubResource("AtlasTexture_55pin")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.0657387, 0.036931)
+shape = SubResource("RectangleShape2D_s7w6n")
+
+[node name="top_player_detection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="top_player_detection"]
+position = Vector2(0.277023, -16.1487)
+shape = SubResource("RectangleShape2D_52uh4")
+
+[node name="bottom_squish_protection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="bottom_squish_protection"]
+position = Vector2(0.5, 19.625)
+shape = SubResource("RectangleShape2D_g4i5x")
+
+[connection signal="body_entered" from="top_player_detection" to="." method="_on_top_player_detection_body_entered"]
+[connection signal="body_exited" from="top_player_detection" to="." method="_on_top_player_detection_body_exited"]
+[connection signal="body_entered" from="bottom_squish_protection" to="." method="_on_bottom_squish_protection_body_entered"]
+[connection signal="body_exited" from="bottom_squish_protection" to="." method="_on_bottom_squish_protection_body_exited"]
