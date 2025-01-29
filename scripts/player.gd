@@ -67,16 +67,16 @@ func _physics_process(delta: float) -> void:
 			position.y -= debug_fly_speed
 		if Input.is_action_pressed("ui_down"):
 			position.y += debug_fly_speed
-		if Input.is_action_just_pressed("1"):
-			get_tree().change_scene_to_file("res://levels/Level1.tscn")
-		if Input.is_action_just_pressed("2"):
-			get_tree().change_scene_to_file("res://levels/Level2.tscn")
-		if Input.is_action_just_pressed("3"):
-			get_tree().change_scene_to_file("res://levels/Level3.tscn")
-		if Input.is_action_just_pressed("4"):
-			get_tree().change_scene_to_file("res://levels/Level4.tscn")
-		if Input.is_action_just_pressed("`"):
-			get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
+	if Input.is_action_just_pressed("1"):
+		get_tree().change_scene_to_file("res://levels/Level1.tscn")
+	if Input.is_action_just_pressed("2"):
+		get_tree().change_scene_to_file("res://levels/Level2.tscn")
+	if Input.is_action_just_pressed("3"):
+		get_tree().change_scene_to_file("res://levels/Level3.tscn")
+	if Input.is_action_just_pressed("4"):
+		get_tree().change_scene_to_file("res://levels/Level4.tscn")
+	if Input.is_action_just_pressed("`"):
+		get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
 
 	#debug, to test variables & timings.
 	if false:
