@@ -13,20 +13,12 @@ func _ready() -> void:
 	$Camera2D.limit_right = get_parent().get_node("camera_limit").position.x
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("fullscreen"):
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	if Input.is_action_just_pressed("unfullscreen"):
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
 	if Input.is_action_just_pressed("debug_mode"):
 		debug_mode = !debug_mode
 		velocity.x = 0
 		velocity.y = 0
 		$Camera2D/Label.visible = !$Camera2D/Label.visible
-	if Input.is_action_pressed("ui_cancel"):
-		pass
-	
+
 	if not is_on_floor():
 		if !debug_mode:
 			velocity += get_gravity() * delta

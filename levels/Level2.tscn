@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://dcdp867f2rdir"]
+[gd_scene load_steps=9 format=4 uid="uid://dcdp867f2rdir"]
 
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tile_set.tres" id="1_c7g2q"]
+[ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/pause_menu.tscn" id="2_0bmrl"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="3_w5op2"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/moving_box.tscn" id="5_asg68"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="5_wm48h"]
@@ -35,6 +36,12 @@ position = Vector2(49, -24)
 
 [node name="camera_limit" type="Node2D" parent="."]
 position = Vector2(2303, 260)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("2_0bmrl")]
+offset_left = 1.0
+offset_right = 1.0
 
 [node name="character" parent="." instance=ExtResource("3_w5op2")]
 position = Vector2(48, -35)

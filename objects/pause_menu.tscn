@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_22fjo"]
 
-[node name="Control" type="Control"]
+[node name="pause_menu" type="Control"]
 process_mode = 3
 visible = false
 layout_mode = 3
