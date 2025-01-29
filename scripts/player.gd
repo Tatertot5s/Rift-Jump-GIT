@@ -85,5 +85,5 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.modulate = "ffffff"
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
-	if is_in_group("Player"):
+	if body.is_in_group("Player"):
 		self.position = $"../respawn_point".position

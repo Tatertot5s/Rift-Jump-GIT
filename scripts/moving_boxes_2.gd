@@ -5,20 +5,18 @@ extends AnimatableBody2D
 ## The speed the platform travels at
 @export var TRAVEL_SPEED = 3
 
-var running = false
 var travel = 0
+var running = false
 var paused = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if running and not paused:
 		if travel < MAX_TRAVEL:
+			travel = move_toward(travel, MAX_TRAVEL, 1)
 			position.y -= TRAVEL_SPEED
-			travel += 1
-	else:
-		if travel > 0 and not paused:
-			position.y += TRAVEL_SPEED
-			travel -= 1
+	elif travel > 0 and not paused:
+		travel = move_toward(travel, 0, 1)
+		position.y += TRAVEL_SPEED
 
 func _on_top_player_detection_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
