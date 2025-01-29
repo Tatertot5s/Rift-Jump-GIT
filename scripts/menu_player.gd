@@ -7,19 +7,12 @@ const ACCELERATION = 40.0
 var jump_buffer = 0
 
 func _physics_process(delta: float) -> void:
-	#Game Settings
-	if Input.is_action_just_pressed("fullscreen"):
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	if Input.is_action_just_pressed("unfullscreen"):
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
-	if Input.is_action_just_pressed("debug_mode"):
-		$"../Node".visible = !$"../Node".visible
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	if Input.is_action_just_pressed("ui_up"):
 		jump_buffer = 5
 	if jump_buffer > 0:
@@ -34,15 +27,16 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	if Input.is_action_just_pressed("1"):
+		get_tree().change_scene_to_file("res://levels/Level1.tscn")
+	if Input.is_action_just_pressed("2"):
+		get_tree().change_scene_to_file("res://levels/Level2.tscn")
+	if Input.is_action_just_pressed("3"):
+		get_tree().change_scene_to_file("res://levels/Level3.tscn")
+	if Input.is_action_just_pressed("4"):
+		get_tree().change_scene_to_file("res://levels/Level4.tscn")
+	if Input.is_action_just_pressed("`"):
+		get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://levels/Level1.tscn")
-
-func _on_button_2_pressed():
-	get_tree().change_scene_to_file("res://levels/Level2.tscn")
-
-func _on_button_3_pressed():
-	get_tree().change_scene_to_file("res://levels/Level3.tscn")
-
-func _on_button_4_pressed():
-	get_tree().change_scene_to_file("res://levels/Level4.tscn")

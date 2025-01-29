@@ -4,16 +4,15 @@ const MAX_SPEED = 300.0
 const JUMP_VELOCITY = -475.0
 const ACCELERATION = 40.0
 
-var coyote_time = 0
+var coyote_time = 9
 var jump_buffer = 0
 var debug_mode = false
 var debug_fly_speed = 15
 
 func _ready() -> void:
-	$Camera2D.limit_right = get_parent().get_node("exit_portal").position.x + 40
+	$Camera2D.limit_right = get_parent().get_node("camera_limit").position.x
 
 func _physics_process(delta: float) -> void:
-	#Game Settings
 	if Input.is_action_just_pressed("fullscreen"):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if Input.is_action_just_pressed("unfullscreen"):
@@ -25,6 +24,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.y = 0
 		$Camera2D/Label.visible = !$Camera2D/Label.visible
+	if Input.is_action_pressed("ui_cancel"):
+		pass
 	
 	if not is_on_floor():
 		if !debug_mode:
