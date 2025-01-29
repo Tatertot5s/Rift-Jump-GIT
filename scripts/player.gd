@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 		debug_mode = !debug_mode
 		velocity.x = 0
 		velocity.y = 0
-		$Camera2D/Label.visible = !$Camera2D/Label.visible
 
 	if not is_on_floor():
 		if !debug_mode:
@@ -72,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
 
 	#debug, to test variables & timings.
-	if false:
+	if debug_mode:
 		$AnimatedSprite2D.modulate = "4880ff"
 	else:
 		$AnimatedSprite2D.modulate = "ffffff"

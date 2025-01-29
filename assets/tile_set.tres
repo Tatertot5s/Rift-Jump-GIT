@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://5y0g25fp2pmg"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://5y0g25fp2pmg"]
 
 [ext_resource type="Texture2D" uid="uid://db8hg02ssx4yb" path="res://assets/clouds.png" id="1_3np6c"]
 [ext_resource type="Texture2D" uid="uid://rde3vwg81a1t" path="res://assets/example_tilesheet.png" id="2_ewhfk"]
 [ext_resource type="Texture2D" uid="uid://47c4p8ch4i8y" path="res://assets/grass.png" id="3_nn0t3"]
 [ext_resource type="Texture2D" uid="uid://c32nemiqqekdg" path="res://assets/ice.png" id="4_kkphj"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="5_esiuj"]
+[ext_resource type="Texture2D" uid="uid://ca5a4r0w0n2il" path="res://assets/lava.png" id="6_puxdx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jexu"]
 texture = ExtResource("1_3np6c")
@@ -1022,6 +1023,18 @@ texture = ExtResource("5_esiuj")
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ggo2"]
+texture = ExtResource("6_puxdx")
+1:0/animation_columns = 6
+1:0/animation_frame_0/duration = 0.15
+1:0/animation_frame_1/duration = 0.15
+1:0/animation_frame_2/duration = 0.15
+1:0/animation_frame_3/duration = 0.15
+1:0/animation_frame_4/duration = 0.15
+1:0/animation_frame_5/duration = 0.15
+1:0/0 = 0
+0:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -1038,3 +1051,4 @@ sources/2 = SubResource("TileSetAtlasSource_2yrag")
 sources/0 = SubResource("TileSetAtlasSource_6jexu")
 sources/3 = SubResource("TileSetAtlasSource_pah40")
 sources/4 = SubResource("TileSetAtlasSource_u5omk")
+sources/5 = SubResource("TileSetAtlasSource_5ggo2")

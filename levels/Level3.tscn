@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://b2y7ye3gexnl5"]
+[gd_scene load_steps=8 format=4 uid="uid://b2y7ye3gexnl5"]
 
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="1_3qtb1"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tile_set.tres" id="2_6fufu"]
 [ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/pause_menu.tscn" id="3_apnf3"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="3_hnrpx"]
+[ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/spike.tscn" id="6_0qg51"]
 [ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="6_616a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj8o8"]
@@ -48,5 +49,38 @@ LevelName = "Level4"
 
 [node name="flag" parent="." instance=ExtResource("6_616a1")]
 position = Vector2(1210, 561)
+
+[node name="spike" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(416, 548)
+
+[node name="spike2" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(442, 548)
+
+[node name="spike3" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(468, 548)
+
+[node name="spike4" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(684, 548)
+
+[node name="spike5" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(710, 548)
+
+[node name="spike6" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(736, 548)
+
+[node name="spike8" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(388, 41)
+rotation = -3.14159
+
+[node name="spike9" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(415, 41)
+rotation = -3.14159
+
+[node name="spike10" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(442, 41)
+rotation = -3.14159
+
+[node name="spike7" parent="." instance=ExtResource("6_0qg51")]
+position = Vector2(1353, 227)
 
 [connection signal="body_entered" from="death_plane" to="character" method="_on_death_plane_body_entered"]
