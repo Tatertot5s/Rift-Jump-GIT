@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://dcdp867f2rdir"]
+[gd_scene load_steps=11 format=4 uid="uid://dcdp867f2rdir"]
 
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tile_set.tres" id="1_c7g2q"]
-[ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/pause_menu.tscn" id="2_0bmrl"]
+[ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/game functions/pause_menu.tscn" id="2_0bmrl"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="3_w5op2"]
-[ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/moving_box.tscn" id="5_asg68"]
+[ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="5_asg68"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="5_wm48h"]
 [ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="6_ek7tn"]
-[ext_resource type="PackedScene" uid="uid://8u4plwsat4hv" path="res://objects/moving_boxes_2.tscn" id="6_wp5v3"]
-[ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/spike.tscn" id="8_yaopt"]
+[ext_resource type="PackedScene" uid="uid://8u4plwsat4hv" path="res://objects/boxes/moving_boxes_2.tscn" id="6_wp5v3"]
+[ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/enemies/spike.tscn" id="8_yaopt"]
+[ext_resource type="PackedScene" uid="uid://2r3baglcyxuq" path="res://objects/enemies/turtle.tscn" id="9_s7t1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmsk4"]
 size = Vector2(2334, 28)
@@ -89,5 +90,23 @@ position = Vector2(1352, 200)
 
 [node name="spike3" parent="." instance=ExtResource("8_yaopt")]
 position = Vector2(1486, 200)
+
+[node name="turtle" parent="." instance=ExtResource("9_s7t1j")]
+position = Vector2(202, 441)
+
+[node name="turtle2" parent="." instance=ExtResource("9_s7t1j")]
+position = Vector2(1032, 468)
+
+[node name="turtle3" parent="." instance=ExtResource("9_s7t1j")]
+position = Vector2(1004, 306)
+
+[node name="turtle4" parent="." instance=ExtResource("9_s7t1j")]
+position = Vector2(1487, 441)
+
+[node name="turtle5" parent="." instance=ExtResource("9_s7t1j")]
+position = Vector2(1782, 441)
+
+[node name="turtle6" parent="." instance=ExtResource("9_s7t1j")]
+position = Vector2(1834, 172)
 
 [connection signal="body_entered" from="death_plane" to="character" method="_on_death_plane_body_entered"]

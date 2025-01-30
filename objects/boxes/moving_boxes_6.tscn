@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://y6o8n7vigh8j"]
+
+[ext_resource type="Script" path="res://scripts/moving_box.gd" id="1_c21sp"]
+[ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="1_vtjjn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14wb1"]
+atlas = ExtResource("1_vtjjn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kvke"]
+size = Vector2(162.058, 27.0068)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtkod"]
+size = Vector2(161.895, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgbcr"]
+size = Vector2(167.066, 15.2531)
+
+[node name="Node2D" type="AnimatableBody2D"]
+script = ExtResource("1_c21sp")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-67.5654, 0.500002)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_14wb1")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(-40.5586, 0.500002)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_14wb1")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+position = Vector2(-13.5585, 0.500002)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_14wb1")
+
+[node name="Sprite4" type="Sprite2D" parent="."]
+position = Vector2(13.4414, 0.500002)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_14wb1")
+
+[node name="Sprite5" type="Sprite2D" parent="."]
+position = Vector2(40.4414, 0.500002)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_14wb1")
+
+[node name="Sprite6" type="Sprite2D" parent="."]
+position = Vector2(67.4526, 0.500002)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_14wb1")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0513344, 0.510437)
+shape = SubResource("RectangleShape2D_3kvke")
+
+[node name="top_player_detection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="top_player_detection"]
+position = Vector2(-0.0338631, -15.6023)
+shape = SubResource("RectangleShape2D_wtkod")
+
+[node name="bottom_squish_protection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="bottom_squish_protection"]
+position = Vector2(-0.751865, 17.8765)
+shape = SubResource("RectangleShape2D_lgbcr")
+
+[connection signal="body_entered" from="top_player_detection" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="top_player_detection" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="bottom_squish_protection" to="." method="_on_bottom_squish_protection_body_entered"]
+[connection signal="body_exited" from="bottom_squish_protection" to="." method="_on_bottom_squish_protection_body_exited"]

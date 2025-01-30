@@ -1,23 +1,24 @@
-[gd_scene load_steps=9 format=4 uid="uid://bm0isoxid63pf"]
+[gd_scene load_steps=10 format=4 uid="uid://bm0isoxid63pf"]
 
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tile_set.tres" id="1_qfq0r"]
-[ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/moving_box.tscn" id="3_1tms6"]
+[ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="3_1tms6"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="4_75va5"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="4_a6jvp"]
 [ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="5_llpif"]
-[ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/pause_menu.tscn" id="6_1vkqn"]
-[ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/spike.tscn" id="7_loe0e"]
+[ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/game functions/pause_menu.tscn" id="6_1vkqn"]
+[ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/enemies/spike.tscn" id="7_loe0e"]
+[ext_resource type="PackedScene" uid="uid://1fonolhprumw" path="res://objects/enemies/cactus.tscn" id="10_gksmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ed4v"]
 size = Vector2(3475.5, 20)
 
 [node name="Level1" type="Node2D"]
 
-[node name="background" type="ColorRect" parent="."]
-offset_right = 3456.0
-offset_bottom = 648.0
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -40.0
+offset_right = 3460.0
+offset_bottom = 650.0
 color = Color(0, 0.827451, 1, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="death_plane" type="Area2D" parent="."]
 
@@ -31,37 +32,21 @@ tile_map_data = PackedByteArray("AAAAABQAAgABAAAAAAAAABUAAgABAAEAAAAAABYAAgABAAE
 tile_set = ExtResource("1_qfq0r")
 
 [node name="camera_limit" type="Node2D" parent="."]
-position = Vector2(3455, 262)
+position = Vector2(3455, 330)
 
 [node name="respawn_point" type="Node2D" parent="."]
 position = Vector2(49, -24)
+
+[node name="character" parent="." instance=ExtResource("4_75va5")]
+position = Vector2(42, -58)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("6_1vkqn")]
 
-[node name="moving_box" parent="." instance=ExtResource("3_1tms6")]
-position = Vector2(361, 388)
-MAX_TRAVEL = 89
-
-[node name="moving_box2" parent="." instance=ExtResource("3_1tms6")]
-position = Vector2(2826, 361)
-
-[node name="moving_box3" parent="." instance=ExtResource("3_1tms6")]
-position = Vector2(3361, 602)
-
-[node name="flag" parent="." instance=ExtResource("5_llpif")]
-position = Vector2(1192, 455)
-
-[node name="flag2" parent="." instance=ExtResource("5_llpif")]
-position = Vector2(2343, 321)
-
 [node name="exit_portal" parent="." instance=ExtResource("4_a6jvp")]
-position = Vector2(3415, 202)
+position = Vector2(3415, 200)
 LevelName = "Level2"
-
-[node name="character" parent="." instance=ExtResource("4_75va5")]
-position = Vector2(42, -58)
 
 [node name="spike" parent="." instance=ExtResource("7_loe0e")]
 position = Vector2(978, 522)
@@ -86,5 +71,36 @@ position = Vector2(3015, 602)
 
 [node name="spike8" parent="." instance=ExtResource("7_loe0e")]
 position = Vector2(3043, 602)
+
+[node name="flag" parent="." instance=ExtResource("5_llpif")]
+position = Vector2(1192, 455)
+
+[node name="flag2" parent="." instance=ExtResource("5_llpif")]
+position = Vector2(2343, 321)
+
+[node name="moving_box" parent="." instance=ExtResource("3_1tms6")]
+position = Vector2(361, 388)
+MAX_TRAVEL = 89
+
+[node name="moving_box2" parent="." instance=ExtResource("3_1tms6")]
+position = Vector2(2826, 361)
+
+[node name="moving_box3" parent="." instance=ExtResource("3_1tms6")]
+position = Vector2(3361, 602)
+
+[node name="cactus" parent="." instance=ExtResource("10_gksmw")]
+position = Vector2(603, 226)
+
+[node name="cactus2" parent="." instance=ExtResource("10_gksmw")]
+position = Vector2(683, 548)
+
+[node name="cactus3" parent="." instance=ExtResource("10_gksmw")]
+position = Vector2(1942, 548)
+
+[node name="cactus4" parent="." instance=ExtResource("10_gksmw")]
+position = Vector2(1808, 93)
+
+[node name="spike9" parent="." instance=ExtResource("7_loe0e")]
+position = Vector2(1272, 119)
 
 [connection signal="body_entered" from="death_plane" to="character" method="_on_death_plane_body_entered"]

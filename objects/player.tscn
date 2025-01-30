@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8n7uuvd563n5"]
+[gd_scene load_steps=13 format=3 uid="uid://b8n7uuvd563n5"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4wv4n"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_kb0jn"]
+[ext_resource type="Texture2D" uid="uid://dnh8c3os02iu5" path="res://assets/shadow.png" id="3_4wmn1"]
+[ext_resource type="Script" path="res://objects/shadow.gd" id="3_176d0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d32xe"]
 atlas = ExtResource("2_kb0jn")
@@ -59,24 +61,33 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od7pg"]
-size = Vector2(19, 46)
+size = Vector2(19, 38)
 
 [node name="character" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_4wv4n")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("3_4wmn1")
+script = ExtResource("3_176d0")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l4evj")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 1)
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 5)
 shape = SubResource("RectangleShape2D_od7pg")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
 limit_bottom = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="raycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 750)

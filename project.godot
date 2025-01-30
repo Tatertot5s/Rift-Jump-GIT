@@ -23,6 +23,15 @@ Global="*res://scripts/global.gd"
 
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
+[gui]
+
+common/image=""
+common/show_image=true
+
 [input]
 
 fullscreen={
