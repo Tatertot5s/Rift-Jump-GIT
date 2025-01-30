@@ -8,7 +8,6 @@ var coyote_time = 0
 var jump_buffer = 0
 var debug_mode = false
 var debug_fly_speed = 15
-var deaths = 0
 
 func _ready() -> void:
 	$camera.limit_right = get_parent().get_node("camera_limit").position.x
@@ -16,12 +15,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_mode"):
 		debug_mode = !debug_mode
-		velocity.x = 0
-		velocity.y = 0
 
 	if not is_on_floor():
-		if !debug_mode:
-			velocity += get_gravity() * delta
+		velocity += get_gravity() * delta
 		coyote_time = move_toward(coyote_time, 0, 1)
 	else:
 		coyote_time = 9
@@ -45,25 +41,22 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, 40)
 		$sprite.animation = "idle"
-		
-	if !debug_mode:
-		move_and_slide()
-	
+			
 	#debug movment
-	if debug_mode:
-		if Input.is_action_pressed("ctrl")
-			if Input.is_action_pressed("debug_fly_left"):
-				position.x -= debug_fly_speed
-			if Input.is_action_pressed("debug_fly_right"):
-				position.x += debug_fly_speed
-			if Input.is_action_pressed("debug_fly_up"):
-				position.y -= debug_fly_speed
-			if Input.is_action_pressed("debug_fly_down"):
-				position.y += debug_fly_speed
+	if Input.is_action_pressed("shift"):
+		if Input.is_action_pressed("ui_left"):
+			position.x -= debug_fly_speed
+		if Input.is_action_pressed("ui_right"):
+			position.x += debug_fly_speed
+		if Input.is_action_pressed("ui_up"):
+			position.y -= debug_fly_speed
+		if Input.is_action_pressed("ui_down"):
+			position.y += debug_fly_speed
+	else:
+		move_and_slide()
 
-	# TODO: THIS RIGHT HERE
 	#debug, to test variables & timings.
-	if coyote_time > 0:
+	if false:
 		$sprite.modulate = "4880ff"
 	else:
 		$sprite.modulate = "ffffff"
@@ -73,4 +66,4 @@ func _on_death_plane_body_entered(body: Node2D) -> void:
 		self.position = $"../respawn_point".position
 		velocity = Vector2(0, 0)
 		coyote_time = 9
-		deaths += 1
+		Global.deaths += 1

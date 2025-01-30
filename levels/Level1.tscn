@@ -46,8 +46,10 @@ position = Vector2(42, -58)
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("6_1vkqn")]
 
 [node name="Stats" type="RichTextLabel" parent="CanvasLayer"]
-offset_right = 227.0
-offset_bottom = 86.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 1153.0
+offset_bottom = 645.0
 script = ExtResource("4_5xcnp")
 
 [node name="exit_portal" parent="." instance=ExtResource("4_a6jvp")]

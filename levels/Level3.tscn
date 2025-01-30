@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://b2y7ye3gexnl5"]
+[gd_scene load_steps=12 format=4 uid="uid://b2y7ye3gexnl5"]
 
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="1_3qtb1"]
 [ext_resource type="Texture2D" uid="uid://bs6rc1j8ik0w8" path="res://assets/backgrounds/ice_world.png" id="1_27n87"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="2_6fufu"]
 [ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/game functions/pause_menu.tscn" id="3_apnf3"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="3_hnrpx"]
+[ext_resource type="Script" path="res://scripts/stats.gd" id="5_0uxs1"]
 [ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/enemies/spike.tscn" id="6_0qg51"]
 [ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="6_616a1"]
 [ext_resource type="PackedScene" uid="uid://dqcrtsm4px36m" path="res://objects/enemies/snowman.tscn" id="7_t2cdi"]
@@ -49,6 +50,13 @@ position = Vector2(49, -24)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("3_apnf3")]
+
+[node name="Stats" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 1153.0
+offset_bottom = 645.0
+script = ExtResource("5_0uxs1")
 
 [node name="exit_portal" parent="." instance=ExtResource("3_hnrpx")]
 position = Vector2(1862, 281)
