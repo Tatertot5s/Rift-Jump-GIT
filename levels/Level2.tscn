@@ -23,8 +23,8 @@ position = Vector2(1, 0)
 motion_scale = Vector2(0.76, 0.76)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(1007, 327.5)
-scale = Vector2(0.847656, 0.847656)
+position = Vector2(1015.04, 325.5)
+scale = Vector2(0.852864, 0.852864)
 texture = ExtResource("1_3582e")
 
 [node name="world" type="TileMapLayer" parent="."]

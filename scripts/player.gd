@@ -4,10 +4,11 @@ const MAX_SPEED = 300.0
 const JUMP_VELOCITY = -475.0
 const ACCELERATION = 40.0
 
-var coyote_time = 9
+var coyote_time = 0
 var jump_buffer = 0
 var debug_mode = false
 var debug_fly_speed = 15
+var deaths = 0
 
 func _ready() -> void:
 	$camera.limit_right = get_parent().get_node("camera_limit").position.x
@@ -21,15 +22,15 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		if !debug_mode:
 			velocity += get_gravity() * delta
-		coyote_time += 1
+		coyote_time = move_toward(coyote_time, 0, 1)
 	else:
-		coyote_time = 0
+		coyote_time = 9
 	
 	#Jump
 	if Input.is_action_just_pressed("ui_up"):
 		jump_buffer = 5
 	if jump_buffer > 0:
-		if is_on_floor() or coyote_time <= 8:
+		if is_on_floor() or coyote_time > 0:
 			velocity.y = JUMP_VELOCITY
 	jump_buffer = move_toward(jump_buffer, 0, 1)
 
@@ -50,18 +51,19 @@ func _physics_process(delta: float) -> void:
 	
 	#debug movment
 	if debug_mode:
-		if Input.is_action_pressed("ui_left"):
-			position.x -= debug_fly_speed
-		if Input.is_action_pressed("ui_right"):
-			position.x += debug_fly_speed
-		if Input.is_action_pressed("ui_up"):
-			position.y -= debug_fly_speed
-		if Input.is_action_pressed("ui_down"):
-			position.y += debug_fly_speed
+		if Input.is_action_pressed("ctrl")
+			if Input.is_action_pressed("debug_fly_left"):
+				position.x -= debug_fly_speed
+			if Input.is_action_pressed("debug_fly_right"):
+				position.x += debug_fly_speed
+			if Input.is_action_pressed("debug_fly_up"):
+				position.y -= debug_fly_speed
+			if Input.is_action_pressed("debug_fly_down"):
+				position.y += debug_fly_speed
 
-
+	# TODO: THIS RIGHT HERE
 	#debug, to test variables & timings.
-	if debug_mode:
+	if coyote_time > 0:
 		$sprite.modulate = "4880ff"
 	else:
 		$sprite.modulate = "ffffff"
@@ -69,3 +71,6 @@ func _physics_process(delta: float) -> void:
 func _on_death_plane_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		self.position = $"../respawn_point".position
+		velocity = Vector2(0, 0)
+		coyote_time = 9
+		deaths += 1

@@ -1,11 +1,11 @@
 extends Node
 
 var fullscreen = false
+var timer : float = 0.0
+var wait_time : float = 1.0
+var time_total : int = 0
 
-func _ready() -> void:
-	pass
-
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fullscreen"):
 		if !fullscreen:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -26,3 +26,9 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_file("res://levels/Level4.tscn")
 	if Input.is_action_just_pressed("`"):
 		get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
+	
+	timer += delta
+	if timer >= wait_time:
+		timer = 0.0
+		time_total += 1
+		

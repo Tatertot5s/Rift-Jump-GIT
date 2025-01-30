@@ -30,7 +30,7 @@ scale = Vector2(0.875, 0.875)
 texture = ExtResource("1_1wnc3")
 
 [node name="character" parent="." instance=ExtResource("1_qrlc0")]
-position = Vector2(42, -28)
+position = Vector2(29, -41)
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(1.67424, 1.67424)
@@ -85,7 +85,7 @@ position = Vector2(1726, 643)
 shape = SubResource("RectangleShape2D_7k555")
 
 [node name="respawn_point" type="Node2D" parent="."]
-position = Vector2(51, -9)
+position = Vector2(38, -22)
 
 [node name="camera_limit" type="Node2D" parent="."]
 position = Vector2(3455, 304)

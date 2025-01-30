@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://bm0isoxid63pf"]
+[gd_scene load_steps=11 format=4 uid="uid://bm0isoxid63pf"]
 
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_qfq0r"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="3_1tms6"]
+[ext_resource type="Script" path="res://scripts/stats.gd" id="4_5xcnp"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="4_75va5"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="4_a6jvp"]
 [ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="5_llpif"]
@@ -43,6 +44,11 @@ position = Vector2(42, -58)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("6_1vkqn")]
+
+[node name="Stats" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 227.0
+offset_bottom = 86.0
+script = ExtResource("4_5xcnp")
 
 [node name="exit_portal" parent="." instance=ExtResource("4_a6jvp")]
 position = Vector2(3415, 200)
