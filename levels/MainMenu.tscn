@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://naqg0addupht"]
 
-[ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tile_set.tres" id="1_mn7he"]
+[ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_mn7he"]
 [ext_resource type="PackedScene" uid="uid://b6p5bwi2t0a2i" path="res://objects/game functions/menu_player.tscn" id="3_j30ns"]
 
 [node name="MainMenu" type="Node2D"]

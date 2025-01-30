@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgiupdf6nyx12"
-path="res://.godot/imported/turtle.png-d3981c4fb5fb8692ca8fff07864b688c.ctex"
+uid="uid://c1wi31svr6num"
+path="res://.godot/imported/flag.png-7eb5d2feb78a0cda3a0fc340e4d9047c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/turtle.png"
-dest_files=["res://.godot/imported/turtle.png-d3981c4fb5fb8692ca8fff07864b688c.ctex"]
+source_file="res://assets/objects/flag.png"
+dest_files=["res://.godot/imported/flag.png-7eb5d2feb78a0cda3a0fc340e4d9047c.ctex"]
 
 [params]
 

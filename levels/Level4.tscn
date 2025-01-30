@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://cu4so7175uumd"]
+[gd_scene load_steps=13 format=4 uid="uid://cu4so7175uumd"]
 
+[ext_resource type="Texture2D" uid="uid://nj7mn5bhlnvx" path="res://assets/backgrounds/nether_background.png" id="1_1wnc3"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="1_qrlc0"]
-[ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tile_set.tres" id="2_shxr8"]
+[ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="2_shxr8"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="3_j277c"]
 [ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/game functions/pause_menu.tscn" id="3_tm5v2"]
 [ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/enemies/spike.tscn" id="5_if4hr"]
@@ -18,11 +19,15 @@ size = Vector2(162, 20)
 
 [node name="Level4" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_right = 3460.0
-offset_bottom = 650.0
-color = Color(0.187349, 0, 0.00569312, 1)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(1.59, 1.59)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+position = Vector2(2689.88, 336)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("1_1wnc3")
 
 [node name="character" parent="." instance=ExtResource("1_qrlc0")]
 position = Vector2(42, -28)

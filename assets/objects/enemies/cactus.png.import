@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuwp0xrujlokb"
-path="res://.godot/imported/end_portal.png-920d8eb35656d6ca8503f7dd10780cc2.ctex"
+uid="uid://1ymv3r66oh1t"
+path="res://.godot/imported/cactus.png-0c0e48ad348fd08229583f9a10b7be6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/end_portal.png"
-dest_files=["res://.godot/imported/end_portal.png-920d8eb35656d6ca8503f7dd10780cc2.ctex"]
+source_file="res://assets/objects/enemies/cactus.png"
+dest_files=["res://.godot/imported/cactus.png-0c0e48ad348fd08229583f9a10b7be6b.ctex"]
 
 [params]
 

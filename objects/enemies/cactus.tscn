@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://1fonolhprumw"]
 
 [ext_resource type="Script" path="res://scripts/spike.gd" id="1_pysk8"]
-[ext_resource type="Texture2D" uid="uid://1ymv3r66oh1t" path="res://assets/cactus.png" id="2_nysho"]
+[ext_resource type="Texture2D" uid="uid://1ymv3r66oh1t" path="res://assets/objects/enemies/cactus.png" id="2_nysho"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auhdw"]
 size = Vector2(9, 28)

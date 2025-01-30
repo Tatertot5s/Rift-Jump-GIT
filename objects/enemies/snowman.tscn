@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqcrtsm4px36m"]
 
-[ext_resource type="Texture2D" uid="uid://b0icamf2taxb1" path="res://assets/snowman.png" id="1_q5ob0"]
+[ext_resource type="Texture2D" uid="uid://b0icamf2taxb1" path="res://assets/objects/enemies/snowman.png" id="1_q5ob0"]
 [ext_resource type="Script" path="res://scripts/spike.gd" id="1_yebqf"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdj0q"]
 size = Vector2(10, 26)

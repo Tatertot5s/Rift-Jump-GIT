@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://don4n52m65nh8"
-path="res://.godot/imported/lava_slime.png-052dc1bcf1ab3cfa1b721bc46ebe41a8.ctex"
+uid="uid://rde3vwg81a1t"
+path="res://.godot/imported/example_tilesheet.png-e781db22eb424e3d96821af25d768f61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lava_slime.png"
-dest_files=["res://.godot/imported/lava_slime.png-052dc1bcf1ab3cfa1b721bc46ebe41a8.ctex"]
+source_file="res://assets/tilesets/example_tilesheet.png"
+dest_files=["res://.godot/imported/example_tilesheet.png-e781db22eb424e3d96821af25d768f61.ctex"]
 
 [params]
 

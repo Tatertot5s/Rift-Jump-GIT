@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=13 format=3 uid="uid://5y0g25fp2pmg"]
 
-[ext_resource type="Texture2D" uid="uid://db8hg02ssx4yb" path="res://assets/clouds.png" id="1_3np6c"]
-[ext_resource type="Texture2D" uid="uid://rde3vwg81a1t" path="res://assets/example_tilesheet.png" id="2_ewhfk"]
-[ext_resource type="Texture2D" uid="uid://47c4p8ch4i8y" path="res://assets/grass.png" id="3_nn0t3"]
-[ext_resource type="Texture2D" uid="uid://c32nemiqqekdg" path="res://assets/ice.png" id="4_kkphj"]
+[ext_resource type="Texture2D" uid="uid://db8hg02ssx4yb" path="res://assets/tilesets/clouds.png" id="1_3np6c"]
+[ext_resource type="Texture2D" uid="uid://rde3vwg81a1t" path="res://assets/tilesets/example_tilesheet.png" id="2_ewhfk"]
+[ext_resource type="Texture2D" uid="uid://47c4p8ch4i8y" path="res://assets/tilesets/grass.png" id="3_nn0t3"]
+[ext_resource type="Texture2D" uid="uid://c32nemiqqekdg" path="res://assets/tilesets/ice.png" id="4_kkphj"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="5_esiuj"]
-[ext_resource type="Texture2D" uid="uid://ca5a4r0w0n2il" path="res://assets/lava.png" id="6_puxdx"]
+[ext_resource type="Texture2D" uid="uid://ca5a4r0w0n2il" path="res://assets/tilesets/lava.png" id="6_puxdx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jexu"]
 texture = ExtResource("1_3np6c")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rde3vwg81a1t"
-path="res://.godot/imported/example_tilesheet.png-3eb7a221f5513ea0f3a00e19c656c6dd.ctex"
+uid="uid://b0icamf2taxb1"
+path="res://.godot/imported/snowman.png-4283c509b8f941b3d02d24f1057457ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/example_tilesheet.png"
-dest_files=["res://.godot/imported/example_tilesheet.png-3eb7a221f5513ea0f3a00e19c656c6dd.ctex"]
+source_file="res://assets/objects/enemies/snowman.png"
+dest_files=["res://.godot/imported/snowman.png-4283c509b8f941b3d02d24f1057457ad.ctex"]
 
 [params]
 

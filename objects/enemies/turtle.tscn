@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://2r3baglcyxuq"]
 
 [ext_resource type="Script" path="res://scripts/spike.gd" id="1_kftqy"]
-[ext_resource type="Texture2D" uid="uid://cgiupdf6nyx12" path="res://assets/turtle.png" id="1_xqinu"]
+[ext_resource type="Texture2D" uid="uid://cgiupdf6nyx12" path="res://assets/objects/enemies/turtle.png" id="1_xqinu"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cakoc"]
 size = Vector2(15, 24.5)

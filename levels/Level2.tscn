@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://dcdp867f2rdir"]
+[gd_scene load_steps=12 format=4 uid="uid://dcdp867f2rdir"]
 
-[ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tile_set.tres" id="1_c7g2q"]
+[ext_resource type="Texture2D" uid="uid://6jduad7yqvql" path="res://assets/backgrounds/couldworldbg.png" id="1_3582e"]
+[ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_c7g2q"]
 [ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/game functions/pause_menu.tscn" id="2_0bmrl"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="3_w5op2"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="5_asg68"]
@@ -16,11 +17,15 @@ size = Vector2(2334, 28)
 [node name="Level2" type="Node2D"]
 position = Vector2(1, 0)
 
-[node name="background" type="ColorRect" parent="."]
-offset_right = 2328.44
-offset_bottom = 648.0
-color = Color(0.29855, 0.845148, 0.78024, 1)
-metadata/_edit_use_anchors_ = true
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.76, 0.76)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1007, 327.5)
+scale = Vector2(0.847656, 0.847656)
+texture = ExtResource("1_3582e")
 
 [node name="world" type="TileMapLayer" parent="."]
 scale = Vector2(1.67424, 1.67424)

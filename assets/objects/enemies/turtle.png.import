@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ymv3r66oh1t"
-path="res://.godot/imported/cactus.png-366c3b67d0b3dfc72dbc4a57fb23b7b9.ctex"
+uid="uid://cgiupdf6nyx12"
+path="res://.godot/imported/turtle.png-b4b009f15f7de30dacfc05bf9d31361f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cactus.png"
-dest_files=["res://.godot/imported/cactus.png-366c3b67d0b3dfc72dbc4a57fb23b7b9.ctex"]
+source_file="res://assets/objects/enemies/turtle.png"
+dest_files=["res://.godot/imported/turtle.png-b4b009f15f7de30dacfc05bf9d31361f.ctex"]
 
 [params]
 
