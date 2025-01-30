@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 300.0
+const MAX_SPEED = 320.0
 const JUMP_VELOCITY = -475.0
 const ACCELERATION = 40.0
+const DECELERATION = 18.0
 
 var coyote_time = 0
 var jump_buffer = 0
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		$sprite.flip_h = false
 		$sprite.animation = "walk"
 	else:
-		velocity.x = move_toward(velocity.x, 0, 40)
+		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		$sprite.animation = "idle"
 			
 	#debug movment
