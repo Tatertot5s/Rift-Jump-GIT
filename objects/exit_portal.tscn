@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbqwyjeqiuoif"]
 
-[ext_resource type="Script" path="res://scripts/exit_portal.gd" id="1_jl6uf"]
+[ext_resource type="Script" path="res://scripts/goal_portal.gd" id="1_ejv84"]
 [ext_resource type="Texture2D" uid="uid://cuwp0xrujlokb" path="res://assets/objects/end_portal.png" id="2_nk0j3"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr21c"]
 size = Vector2(28, 15)
@@ -15,7 +14,7 @@ size = Vector2(20, 206)
 
 [node name="exit_portal" type="StaticBody2D"]
 position = Vector2(0, 1)
-script = ExtResource("1_jl6uf")
+script = ExtResource("1_ejv84")
 
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(1.67562, 1.67562)

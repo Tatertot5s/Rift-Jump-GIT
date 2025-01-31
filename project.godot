@@ -13,6 +13,8 @@ config_version=5
 config/name="Rift Jump 2"
 run/main_scene="res://levels/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0, 0.827451, 1, 1)
+boot_splash/show_image=false
 config/icon="res://assets/icon.png"
 
 [autoload]
@@ -26,6 +28,15 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://levels/": "green",
+"res://objects/": "blue",
+"res://scripts/": "orange"
+}
 
 [gui]
 

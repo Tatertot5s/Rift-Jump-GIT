@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://dcdp867f2rdir"]
+[gd_scene load_steps=14 format=4 uid="uid://dcdp867f2rdir"]
 
 [ext_resource type="Texture2D" uid="uid://6jduad7yqvql" path="res://assets/backgrounds/couldworldbg.png" id="1_3582e"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_c7g2q"]
 [ext_resource type="PackedScene" uid="uid://yagjmv8qeslo" path="res://objects/game functions/pause_menu.tscn" id="2_0bmrl"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="3_w5op2"]
 [ext_resource type="Script" path="res://scripts/stats.gd" id="4_idkdk"]
+[ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="4_lji5s"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="5_asg68"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="5_wm48h"]
 [ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="6_ek7tn"]
@@ -54,8 +55,10 @@ offset_right = 1.0
 [node name="Stats" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 1153.0
+offset_right = 378.0
 offset_bottom = 645.0
+theme_override_fonts/normal_font = ExtResource("4_lji5s")
+theme_override_font_sizes/normal_font_size = 18
 script = ExtResource("4_idkdk")
 
 [node name="character" parent="." instance=ExtResource("3_w5op2")]

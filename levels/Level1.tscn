@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://bm0isoxid63pf"]
+[gd_scene load_steps=12 format=4 uid="uid://bm0isoxid63pf"]
 
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_qfq0r"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="3_1tms6"]
+[ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="3_pryxx"]
 [ext_resource type="Script" path="res://scripts/stats.gd" id="4_5xcnp"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="4_75va5"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="4_a6jvp"]
@@ -43,14 +44,16 @@ position = Vector2(42, -58)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("6_1vkqn")]
-
 [node name="Stats" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 6.0
 offset_top = 6.0
-offset_right = 1153.0
+offset_right = 378.0
 offset_bottom = 645.0
+theme_override_fonts/normal_font = ExtResource("3_pryxx")
+theme_override_font_sizes/normal_font_size = 18
 script = ExtResource("4_5xcnp")
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("6_1vkqn")]
 
 [node name="exit_portal" parent="." instance=ExtResource("4_a6jvp")]
 position = Vector2(3415, 200)

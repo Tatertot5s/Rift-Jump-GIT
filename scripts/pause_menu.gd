@@ -10,7 +10,20 @@ func _on_button_pressed() -> void:
 	self.visible = !self.visible
 
 func _on_button_2_pressed() -> void:
-	print("coming soon!")
+	get_tree().paused = !get_tree().paused
+	get_tree().reload_current_scene()
 
 func _on_button_3_pressed() -> void:
+	if !Global.fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		Global.fullscreen = !Global.fullscreen
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		Global.fullscreen = !Global.fullscreen
+
+func _on_texture_button_4_pressed():
+	get_tree().paused = !get_tree().paused
+	get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
+
+func _on_texture_button_5_pressed():
 	get_tree().quit()
