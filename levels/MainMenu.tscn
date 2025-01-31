@@ -17,6 +17,21 @@ size = Vector2(230.5, 75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sx8g"]
 size = Vector2(230, 6)
 
+[sub_resource type="Animation" id="Animation_3m4fa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(453, 264)]
+}
+
 [sub_resource type="Animation" id="Animation_63bdw"]
 resource_name = "menu_start"
 tracks/0/type = "value"
@@ -46,21 +61,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_3m4fa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(453, 264)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rgf3f"]
 _data = {
 "RESET": SubResource("Animation_3m4fa"),
@@ -76,6 +76,7 @@ offset_top = -26.0
 offset_right = 1511.0
 offset_bottom = 594.0
 color = Color(0, 0.827451, 1, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="world" type="TileMapLayer" parent="."]
 position = Vector2(-303, -307)
@@ -94,6 +95,7 @@ offset_top = 264.0
 offset_right = 683.0
 offset_bottom = 340.0
 texture_normal = ExtResource("3_objhl")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="start_button"]
 layout_mode = 0
@@ -104,6 +106,7 @@ theme_override_font_sizes/font_size = 30
 text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="start_button"]
 
@@ -128,6 +131,7 @@ offset_top = 82.0
 offset_right = 1132.0
 offset_bottom = 130.0
 texture_normal = ExtResource("6_qi11w")
+metadata/_edit_use_anchors_ = true
 
 [node name="exit_button" type="TextureButton" parent="."]
 offset_left = 1084.0
@@ -135,6 +139,7 @@ offset_top = 18.0
 offset_right = 1132.0
 offset_bottom = 66.0
 texture_normal = ExtResource("7_ypvi0")
+metadata/_edit_use_anchors_ = true
 
 [node name="info_button" type="TextureButton" parent="."]
 offset_left = 1084.0
@@ -142,6 +147,7 @@ offset_top = 585.0
 offset_right = 1132.0
 offset_bottom = 633.0
 texture_normal = ExtResource("6_u1nbv")
+metadata/_edit_use_anchors_ = true
 
 [node name="Menu_Player" parent="." groups=["Player"] instance=ExtResource("3_j30ns")]
 position = Vector2(-60, 487)
@@ -156,7 +162,7 @@ offset_left = -609.0
 offset_top = -349.0
 offset_right = 649.0
 offset_bottom = 389.0
-color = Color(0, 0, 0, 0.290196)
+color = Color(0, 0, 0, 0.486275)
 
 [node name="Background" type="Sprite2D" parent="CreditsMenu"]
 texture = ExtResource("9_1b0ox")

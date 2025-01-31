@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7w88rpvkibfa"]
+[gd_scene load_steps=12 format=3 uid="uid://b7w88rpvkibfa"]
 
 [ext_resource type="Texture2D" uid="uid://b233r8ld808nt" path="res://assets/house_interior.png" id="1_hn8yt"]
 [ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="2_t2kje"]
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="3_j7dr4"]
+[ext_resource type="Script" path="res://scripts/end_times.gd" id="4_6k6hq"]
 [ext_resource type="Texture2D" uid="uid://bnwf8ht8yym8a" path="res://assets/menus/MenuBlock.png" id="4_xty0e"]
-[ext_resource type="Script" path="res://levels/end_button.gd" id="5_3cda2"]
+[ext_resource type="Script" path="res://scripts/end_button.gd" id="5_3cda2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xwoe"]
 size = Vector2(529.164, 17)
@@ -78,19 +79,23 @@ text = "Thanks for Playing!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 16.2209
-offset_top = 21.1651
-offset_right = 246.221
-offset_bottom = 98.1651
+[node name="times" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 217.0
+offset_right = 296.0
+offset_bottom = 419.0
 theme_override_fonts/font = ExtResource("3_j7dr4")
-theme_override_font_sizes/font_size = 30
-text = "final time
-level1:
-level2:
-ect"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+text = "Final Time: X
+
+Level 1 Time: X
+Level 2 Time: X
+Level 3 Time: X
+Level 4 Time: X
+
+Total Deaths: X"
 vertical_alignment = 1
+script = ExtResource("4_6k6hq")
 
 [node name="end_button" type="TextureButton" parent="."]
 offset_left = 460.221

@@ -18,7 +18,7 @@
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="9_usjrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1lq0"]
-size = Vector2(21.2965, 36.1327)
+size = Vector2(5.51763, 34.0664)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vts8"]
 size = Vector2(36.1602, 102.693)
@@ -66,7 +66,7 @@ script = ExtResource("4_16vh6")
 LevelName = "house"
 
 [node name="collision" type="CollisionShape2D" parent="house/end hitbox"]
-position = Vector2(7.99089, 0)
+position = Vector2(-0.102661, -2.42484)
 shape = SubResource("RectangleShape2D_y1lq0")
 disabled = true
 

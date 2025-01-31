@@ -14,7 +14,7 @@ func _ready() -> void:
 	$camera.limit_right = get_parent().get_node("camera_limit").position.x
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("debug_mode"):
+	if Input.is_action_just_pressed("debug_mode") and Global.is_dev:
 		debug_mode = !debug_mode
 	
 	if not is_on_floor():
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		$sprite.animation = "idle"
 		
 	#debug movment
-	if Input.is_action_pressed("shift"):
+	if Input.is_action_pressed("shift") and Global.is_dev:
 		if Input.is_action_pressed("ui_left"):
 			position.x -= debug_fly_speed
 		if Input.is_action_pressed("ui_right"):

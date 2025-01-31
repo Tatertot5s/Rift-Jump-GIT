@@ -1,11 +1,20 @@
 extends Node
 
+var is_dev = false
+
 var fullscreen = false
+var deaths: int = 0
+
+#timer
 var timer : float = 0.0
 var wait_time : float = 1
 var time_total : int = 0
+var timer_paused = false
 
-var deaths: int = 0
+var level_1_time = 0
+var level_2_time = 0
+var level_3_time = 0
+var level_4_time = 0
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fullscreen"):
@@ -31,9 +40,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("`"):
 		get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
 	
-	
-	timer += delta
-	if timer >= wait_time:
-		timer = 0.0
-		time_total += 1
-		
+	if timer_paused == false:
+		timer += delta
+		if timer >= wait_time:
+			timer = 0.0
+			time_total += 1
