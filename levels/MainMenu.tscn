@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://naqg0addupht"]
+[gd_scene load_steps=16 format=4 uid="uid://naqg0addupht"]
 
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_mn7he"]
 [ext_resource type="PackedScene" uid="uid://b6p5bwi2t0a2i" path="res://objects/game functions/menu_player.tscn" id="3_j30ns"]
@@ -10,6 +10,62 @@
 [ext_resource type="Texture2D" uid="uid://k1mpemencklw" path="res://assets/menus/quit_button.png" id="7_ypvi0"]
 [ext_resource type="Texture2D" uid="uid://gnkehnmcly36" path="res://assets/menus/credits_menu.png" id="9_1b0ox"]
 [ext_resource type="Texture2D" uid="uid://dayw1m3brvjut" path="res://assets/menus/logo_vertical_color_light.png" id="10_eq05n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uawf"]
+size = Vector2(230.5, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sx8g"]
+size = Vector2(230, 6)
+
+[sub_resource type="Animation" id="Animation_63bdw"]
+resource_name = "menu_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(453, 264), Vector2(453, 253), Vector2(453, 264)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Menu_Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_start_button_pressed"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3m4fa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(453, 264)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgf3f"]
+_data = {
+"RESET": SubResource("Animation_3m4fa"),
+"menu_start": SubResource("Animation_63bdw")
+}
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(1, -1)
@@ -49,6 +105,23 @@ text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="StaticBody2D" type="StaticBody2D" parent="start_button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start_button/StaticBody2D"]
+position = Vector2(114.75, 37.5)
+shape = SubResource("RectangleShape2D_7uawf")
+
+[node name="Area2D" type="Area2D" parent="start_button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start_button/Area2D"]
+position = Vector2(115, 75)
+shape = SubResource("RectangleShape2D_3sx8g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="start_button"]
+libraries = {
+"": SubResource("AnimationLibrary_rgf3f")
+}
+
 [node name="fullscreen_button" type="TextureButton" parent="."]
 offset_left = 1084.0
 offset_top = 82.0
@@ -70,7 +143,7 @@ offset_right = 1132.0
 offset_bottom = 633.0
 texture_normal = ExtResource("6_u1nbv")
 
-[node name="Menu_Player" parent="." instance=ExtResource("3_j30ns")]
+[node name="Menu_Player" parent="." groups=["Player"] instance=ExtResource("3_j30ns")]
 position = Vector2(-60, 487)
 scale = Vector2(1.5, 1.5)
 
@@ -174,6 +247,7 @@ offset_bottom = -141.0
 texture_normal = ExtResource("7_ypvi0")
 
 [connection signal="pressed" from="start_button" to="Menu_Player" method="_on_start_button_pressed"]
+[connection signal="body_entered" from="start_button/Area2D" to="Menu_Player" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="fullscreen_button" to="Menu_Player" method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="exit_button" to="Menu_Player" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="info_button" to="Menu_Player" method="_on_info_button_pressed"]

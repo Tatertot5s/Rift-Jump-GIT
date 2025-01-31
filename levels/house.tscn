@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7w88rpvkibfa"]
+[gd_scene load_steps=11 format=3 uid="uid://b7w88rpvkibfa"]
 
 [ext_resource type="Texture2D" uid="uid://b233r8ld808nt" path="res://assets/house_interior.png" id="1_hn8yt"]
+[ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="2_t2kje"]
+[ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="3_j7dr4"]
+[ext_resource type="Texture2D" uid="uid://bnwf8ht8yym8a" path="res://assets/menus/MenuBlock.png" id="4_xty0e"]
+[ext_resource type="Script" path="res://levels/end_button.gd" id="5_3cda2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xwoe"]
+size = Vector2(529.164, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmvp3"]
+size = Vector2(7.59866, 214.116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y23hm"]
+size = Vector2(58.6301, 128.501)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2je5"]
+size = Vector2(18.033, 100.779)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ngsc"]
+size = Vector2(474.889, 20)
 
 [node name="house" type="Node2D"]
 
@@ -10,5 +29,109 @@ offset_bottom = 649.0
 color = Color(0, 0, 0, 1)
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(577, 325)
+position = Vector2(577.413, 325)
+scale = Vector2(1.48344, 1.48344)
 texture = ExtResource("1_hn8yt")
+
+[node name="character" parent="." instance=ExtResource("2_t2kje")]
+position = Vector2(326.908, 400)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 210.0
+offset_top = 341.0
+offset_right = 346.0
+offset_bottom = 425.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 203.93
+offset_top = 257.742
+offset_right = 339.93
+offset_bottom = 341.742
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 203.93
+offset_top = 257.742
+offset_right = 339.93
+offset_bottom = 341.742
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 340.0
+offset_top = 258.0
+offset_right = 346.0
+offset_bottom = 342.0
+color = Color(0.329412, 0.129412, 0.0352941, 1)
+
+[node name="camera_limit" type="Node2D" parent="."]
+position = Vector2(1152.82, 338.036)
+
+[node name="thank" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 17.0
+offset_right = 1154.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("3_j7dr4")
+theme_override_font_sizes/font_size = 30
+text = "Thanks for Playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 16.2209
+offset_top = 21.1651
+offset_right = 246.221
+offset_bottom = 98.1651
+theme_override_fonts/font = ExtResource("3_j7dr4")
+theme_override_font_sizes/font_size = 30
+text = "final time
+level1:
+level2:
+ect"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="end_button" type="TextureButton" parent="."]
+offset_left = 460.221
+offset_top = 502.165
+offset_right = 690.221
+offset_bottom = 578.165
+texture_normal = ExtResource("4_xty0e")
+script = ExtResource("5_3cda2")
+
+[node name="Label" type="Label" parent="end_button"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 230.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("3_j7dr4")
+theme_override_font_sizes/font_size = 30
+text = "Title Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(550.465, 432.843)
+shape = SubResource("RectangleShape2D_4xwoe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(811.078, 320.328)
+shape = SubResource("RectangleShape2D_lmvp3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(316.565, 277)
+shape = SubResource("RectangleShape2D_y23hm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(306.099, 383.056)
+shape = SubResource("RectangleShape2D_a2je5")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(574.693, 209.3)
+shape = SubResource("RectangleShape2D_4ngsc")
+
+[connection signal="pressed" from="end_button" to="end_button" method="_on_pressed"]

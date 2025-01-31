@@ -48,3 +48,7 @@ func _on_exit_button_pressed():
 
 func _on_info_button_pressed():
 	$"../CreditsMenu".visible = !$"../CreditsMenu".visible
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		$"../start_button/AnimationPlayer".play("menu_start")
