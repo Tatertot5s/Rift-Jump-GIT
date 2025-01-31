@@ -25,6 +25,9 @@ func _physics_process(delta: float) -> void:
 	if position.x >= 1240:
 		position.x = -72
 	
+	if Input.is_action_just_pressed("ui_cancel"):
+		$"../CreditsMenu".visible = false
+	
 	move_and_slide()
 
 func _on_start_button_pressed():
