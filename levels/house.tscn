@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7w88rpvkibfa"]
+
+[ext_resource type="Texture2D" uid="uid://b233r8ld808nt" path="res://assets/house_interior.png" id="1_hn8yt"]
+
+[node name="house" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(577, 325)
+texture = ExtResource("1_hn8yt")
