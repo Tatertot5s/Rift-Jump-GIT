@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://naqg0addupht"]
+[gd_scene load_steps=16 format=4 uid="uid://naqg0addupht"]
 
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_mn7he"]
 [ext_resource type="PackedScene" uid="uid://b6p5bwi2t0a2i" path="res://objects/game functions/menu_player.tscn" id="3_j30ns"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://k1mpemencklw" path="res://assets/menus/quit_button.png" id="7_ypvi0"]
 [ext_resource type="Texture2D" uid="uid://gnkehnmcly36" path="res://assets/menus/credits_menu.png" id="9_1b0ox"]
 [ext_resource type="Texture2D" uid="uid://dayw1m3brvjut" path="res://assets/menus/logo_vertical_color_light.png" id="10_eq05n"]
-[ext_resource type="Script" path="res://scripts/multiplayer_menu.gd" id="11_jtsfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uawf"]
 size = Vector2(230.5, 75)
@@ -150,14 +149,6 @@ offset_bottom = 633.0
 texture_normal = ExtResource("6_u1nbv")
 metadata/_edit_use_anchors_ = true
 
-[node name="multiplayer_settings" type="TextureButton" parent="."]
-offset_left = 32.0
-offset_top = 585.0
-offset_right = 80.0
-offset_bottom = 633.0
-texture_normal = ExtResource("6_u1nbv")
-metadata/_edit_use_anchors_ = true
-
 [node name="Menu_Player" parent="." groups=["Player"] instance=ExtResource("3_j30ns")]
 position = Vector2(-60, 487)
 scale = Vector2(1.5, 1.5)
@@ -261,55 +252,9 @@ offset_right = 283.0
 offset_bottom = -141.0
 texture_normal = ExtResource("7_ypvi0")
 
-[node name="MultiplayerMenu" type="Node2D" parent="."]
-position = Vector2(558, 311)
-script = ExtResource("11_jtsfo")
-
-[node name="background" type="Sprite2D" parent="MultiplayerMenu"]
-texture = ExtResource("9_1b0ox")
-
-[node name="Label" type="Label" parent="MultiplayerMenu"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Panel" type="Panel" parent="MultiplayerMenu"]
-offset_left = -154.0
-offset_top = -161.0
-offset_right = 152.0
-offset_bottom = 161.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MultiplayerMenu/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0424837
-anchor_top = 0.0403727
-anchor_right = 0.970588
-anchor_bottom = 0.959627
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Host" type="Button" parent="MultiplayerMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Host"
-
-[node name="Join" type="Button" parent="MultiplayerMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Join"
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://objects/multiplayer_player.tscn")
-spawn_path = NodePath("../players")
-spawn_limit = 2
-
-[node name="players" type="Node2D" parent="."]
-
 [connection signal="pressed" from="start_button" to="Menu_Player" method="_on_start_button_pressed"]
 [connection signal="body_entered" from="start_button/Area2D" to="Menu_Player" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="fullscreen_button" to="Menu_Player" method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="exit_button" to="Menu_Player" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="info_button" to="Menu_Player" method="_on_info_button_pressed"]
-[connection signal="pressed" from="multiplayer_settings" to="Menu_Player" method="_on_multiplayer_settings_pressed"]
 [connection signal="pressed" from="CreditsMenu/exit_button" to="Menu_Player" method="_on_info_button_pressed"]
-[connection signal="pressed" from="MultiplayerMenu/Panel/VBoxContainer/Host" to="MultiplayerMenu" method="_on_host_pressed"]
-[connection signal="pressed" from="MultiplayerMenu/Panel/VBoxContainer/Join" to="MultiplayerMenu" method="_on_join_pressed"]
