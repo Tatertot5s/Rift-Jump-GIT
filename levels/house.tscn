@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7w88rpvkibfa"]
+[gd_scene load_steps=11 format=3 uid="uid://b7w88rpvkibfa"]
 
 [ext_resource type="Texture2D" uid="uid://b233r8ld808nt" path="res://assets/house_interior.png" id="1_hn8yt"]
-[ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="2_t2kje"]
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="3_j7dr4"]
 [ext_resource type="Script" path="res://scripts/end_times.gd" id="4_6k6hq"]
 [ext_resource type="Texture2D" uid="uid://bnwf8ht8yym8a" path="res://assets/menus/MenuBlock.png" id="4_xty0e"]
@@ -30,14 +29,13 @@ offset_bottom = 649.0
 color = Color(0, 0, 0, 1)
 
 [node name="sprite" type="Sprite2D" parent="."]
+z_index = 4
 position = Vector2(577.413, 325)
 scale = Vector2(1.48344, 1.48344)
 texture = ExtResource("1_hn8yt")
 
-[node name="character" parent="." instance=ExtResource("2_t2kje")]
-position = Vector2(326.908, 400)
-
 [node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 10
 offset_left = 210.0
 offset_top = 341.0
 offset_right = 346.0
@@ -45,6 +43,7 @@ offset_bottom = 425.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+z_index = 10
 offset_left = 203.93
 offset_top = 257.742
 offset_right = 339.93
@@ -52,6 +51,7 @@ offset_bottom = 341.742
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
+z_index = 10
 offset_left = 203.93
 offset_top = 257.742
 offset_right = 339.93
@@ -59,13 +59,17 @@ offset_bottom = 341.742
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="."]
+z_index = 10
 offset_left = 340.0
 offset_top = 258.0
 offset_right = 346.0
 offset_bottom = 342.0
 color = Color(0.329412, 0.129412, 0.0352941, 1)
 
-[node name="camera_limit" type="Node2D" parent="."]
+[node name="respawn_point" type="Node2D" parent="." groups=["respawn_point"]]
+position = Vector2(326, 395)
+
+[node name="camera_limit" type="Node2D" parent="." groups=["camera_limit"]]
 position = Vector2(1152.82, 338.036)
 
 [node name="thank" type="Label" parent="."]
@@ -80,6 +84,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="times" type="Label" parent="."]
+z_index = 15
 offset_left = 44.0
 offset_top = 217.0
 offset_right = 296.0
@@ -116,26 +121,26 @@ text = "Title Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="collision" type="StaticBody2D" parent="."]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
 position = Vector2(550.465, 432.843)
 shape = SubResource("RectangleShape2D_4xwoe")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collision"]
 position = Vector2(811.078, 320.328)
 shape = SubResource("RectangleShape2D_lmvp3")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="collision"]
 position = Vector2(316.565, 277)
 shape = SubResource("RectangleShape2D_y23hm")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="collision"]
 position = Vector2(306.099, 383.056)
 shape = SubResource("RectangleShape2D_a2je5")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="collision"]
 position = Vector2(574.693, 209.3)
 shape = SubResource("RectangleShape2D_4ngsc")
 

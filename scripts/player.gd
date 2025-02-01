@@ -10,9 +10,6 @@ var jump_buffer = 0
 var debug_mode = false
 var debug_fly_speed = 15
 
-func _ready() -> void:
-	$camera.limit_right = get_parent().get_node("camera_limit").position.x
-
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_mode") and Global.is_dev:
 		debug_mode = !debug_mode
@@ -41,7 +38,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		$sprite.animation = "idle"
-		
+	
+	var camera_limits = get_tree().get_nodes_in_group("camera_limit")
+	if camera_limits.size() > 0:
+		var limit_node = camera_limits[0]
+		if limit_node is Node2D:
+			if $camera:
+				$camera.limit_right = limit_node.position.x
+	
 	#debug movment
 	if Input.is_action_pressed("shift") and Global.is_dev:
 		if Input.is_action_pressed("ui_left"):
@@ -64,8 +68,19 @@ func _physics_process(delta: float) -> void:
 		$sprite.modulate = "ffffff"
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player") and !Input.is_action_pressed("shift"):
-		self.position = $"../respawn_point".position
+	if body.is_in_group("Player"): #and !Input.is_action_pressed("shift"):
+		var respawn_points = get_tree().get_nodes_in_group("respawn_point")
+		if respawn_points.size() > 0:
+			self.position = respawn_points[0].position
 		velocity = Vector2(0, 0)
-		coyote_time = 9
+		coyote_time = 0
 		Global.deaths += 1
+
+func respawn(body):
+	await get_tree().process_frame
+	$camera.position_smoothing_enabled = false
+	self._on_death_plane_body_entered(body)
+	Global.deaths -= 1
+	await get_tree().process_frame
+	$camera.position_smoothing_enabled = true
+	

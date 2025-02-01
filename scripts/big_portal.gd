@@ -4,21 +4,21 @@ var in_nether = true
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		$"../world".visible = !$"../world".visible
-		$"../world2".visible = !$"../world2".visible
-		$"../ParallaxBackground/Parallax2D/Sprite2D".visible = !$"../ParallaxBackground/Parallax2D/Sprite2D".visible
-		$"../ColorRect".visible = !$"../ColorRect".visible
+		$"../../world".visible = !$"../../world".visible
+		$"../../world2".visible = !$"../../world2".visible
+		$"../../ParallaxBackground".visible = !$"../../ParallaxBackground".visible
+		$"../../ColorRect".visible = !$"../../ColorRect".visible
+
+		$"../../Enemies/spike".visible = !$"../../Enemies/spike"
+		$"../../Enemies/spike2".visible = !$"../../Enemies/spike2"
+		$"../../Enemies/spike3".visible = !$"../../Enemies/spike3"
+		$"../../Enemies/spike4".visible = !$"../../Enemies/spike4"
+		$"../../Enemies/spike5".visible = !$"../../Enemies/spike5"
+		$"../../Enemies/spike6".visible = !$"../../Enemies/spike6"
 		
-		$"../spike".visible = !$"../spike"
-		$"../spike2".visible = !$"../spike2"
-		$"../spike3".visible = !$"../spike3"
-		$"../spike4".visible = !$"../spike4"
-		$"../spike5".visible = !$"../spike5"
-		$"../spike6".visible = !$"../spike6"
-		
-		$"../lavaBubble6".visible = !$"../lavaBubble6"
-		$"../lavaBubble7".visible = !$"../lavaBubble7"
-		$"../lavaBubble8".visible = !$"../lavaBubble8"
+		$"../../Enemies/lavaBubble6".visible = !$"../../Enemies/lavaBubble6"
+		$"../../Enemies/lavaBubble7".visible = !$"../../Enemies/lavaBubble7"
+		$"../../Enemies/lavaBubble8".visible = !$"../../Enemies/lavaBubble8"
 		
 		$"../moving_box3".visible = !$"../moving_box3"
 		$"../moving_box6".visible = !$"../moving_box6"

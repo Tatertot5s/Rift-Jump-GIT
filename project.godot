@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rift Jump 2"
-run/main_scene="res://levels/MainMenu.tscn"
+run/main_scene="res://levels/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0.827451, 1, 1)
 boot_splash/show_image=false
@@ -23,6 +23,7 @@ Global="*res://scripts/global.gd"
 
 [display]
 
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -37,6 +38,11 @@ folder_colors={
 "res://objects/": "blue",
 "res://scripts/": "orange"
 }
+
+[global_group]
+
+camera_limit=""
+respawn_point=""
 
 [gui]
 

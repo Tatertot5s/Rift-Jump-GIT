@@ -1,8 +1,8 @@
 extends TextureButton
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
+		Global.call_load_level("MainMenu")
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
+	Global.call_load_level("MainMenu")

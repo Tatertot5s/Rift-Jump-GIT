@@ -1,10 +1,13 @@
 extends Node
 
-var is_dev = true
+signal load_level(level_name)
+
+var is_dev = false
 var fullscreen = false
 var deaths: int = 0
 
-#timer
+var player
+
 var timer : float = 0.0
 var wait_time : float = 1
 var time_total : int = 0
@@ -28,20 +31,28 @@ func _process(delta: float) -> void:
 	
 	if is_dev == true:
 		if Input.is_action_just_pressed("1"):
-			get_tree().change_scene_to_file("res://levels/Level1.tscn")
+			Global.call_load_level("Level1")
+			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("2"):
-			get_tree().change_scene_to_file("res://levels/Level2.tscn")
+			Global.call_load_level("Level2")
+			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("3"):
-			get_tree().change_scene_to_file("res://levels/Level3.tscn")
+			Global.call_load_level("Level3")
+			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("4"):
-			get_tree().change_scene_to_file("res://levels/Level4.tscn")
+			Global.call_load_level("Level4")
+			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("5"):
-			get_tree().change_scene_to_file("res://levels/house.tscn")
+			Global.call_load_level("house")
+			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("`"):
-			get_tree().change_scene_to_file("res://levels/MainMenu.tscn")
+			Global.call_load_level("MainMenu")
 	
 	if timer_paused == false:
 		timer += delta
 		if timer >= wait_time:
 			timer = 0.0
 			time_total += 1
+			
+func call_load_level(level_name):
+	load_level.emit(level_name)

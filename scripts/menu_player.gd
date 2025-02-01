@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://levels/Level1.tscn")
+	Global.call_load_level("Level1")
 	Global.time_total = 0
 	Global.deaths = 0
 
