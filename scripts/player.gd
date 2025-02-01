@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			position.y += debug_fly_speed
 	else:
 		move_and_slide()
-	if Input.is_action_just_released("shift") and Global.is_dev:
+	if Input.is_action_just_released("shift"):
 		velocity.x = 0
 		velocity.y = 0
 	
