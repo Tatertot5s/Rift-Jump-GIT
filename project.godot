@@ -20,6 +20,7 @@ config/icon="res://assets/menus/icon.png"
 [autoload]
 
 Global="*res://scripts/global.gd"
+Multiplayer="*res://scripts/multiplayer.gd"
 
 [display]
 

@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7y2i3ekvey28"]
+
+[ext_resource type="Script" path="res://objects/multiplayer_controller.gd" id="1_1lmn1"]
+[ext_resource type="Texture2D" uid="uid://dnh8c3os02iu5" path="res://assets/shadow.png" id="2_m63ve"]
+[ext_resource type="Script" path="res://scripts/shadow.gd" id="3_epqt4"]
+[ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="4_7n2lj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d32xe"]
+atlas = ExtResource("4_7n2lj")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xss4u"]
+atlas = ExtResource("4_7n2lj")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrwa1"]
+atlas = ExtResource("4_7n2lj")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbrgc"]
+atlas = ExtResource("4_7n2lj")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jfk2"]
+atlas = ExtResource("4_7n2lj")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx0nm"]
+atlas = ExtResource("4_7n2lj")
+region = Rect2(64, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ydpyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d32xe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xss4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrwa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbrgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jfk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx0nm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dg1n"]
+size = Vector2(19, 38)
+
+[node name="MultiplayerPlayer" type="CharacterBody2D"]
+script = ExtResource("1_1lmn1")
+
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2_m63ve")
+script = ExtResource("3_epqt4")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ydpyd")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 5)
+shape = SubResource("RectangleShape2D_7dg1n")
+
+[node name="camera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="raycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 750)
