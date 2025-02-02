@@ -44,13 +44,15 @@ position = Vector2(2343, 321)
 
 [node name="moving_box" parent="objects" instance=ExtResource("3_1tms6")]
 position = Vector2(361, 388)
-MAX_TRAVEL = 89
+MAX_TRAVEL = 45
 
 [node name="moving_box2" parent="objects" instance=ExtResource("3_1tms6")]
-position = Vector2(2826, 361)
+position = Vector2(2825, 362)
+MAX_TRAVEL = 80
 
 [node name="moving_box3" parent="objects" instance=ExtResource("3_1tms6")]
 position = Vector2(3361, 602)
+MAX_TRAVEL = 90
 
 [node name="death_plane" type="Area2D" parent="objects"]
 script = ExtResource("1_1u0uc")

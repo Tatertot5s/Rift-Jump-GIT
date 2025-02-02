@@ -14,7 +14,8 @@ config/name="Rift Jump 2"
 run/main_scene="res://levels/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0.827451, 1, 1)
-boot_splash/show_image=false
+boot_splash/image="res://assets/rift_jump_logo_small.png"
+boot_splash/fullsize=false
 config/icon="res://assets/menus/icon.png"
 
 [autoload]

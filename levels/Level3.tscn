@@ -102,6 +102,7 @@ position = Vector2(1210, 561)
 
 [node name="moving_boxes_3" parent="Objects" instance=ExtResource("8_f46s5")]
 position = Vector2(416, 203)
+TRAVEL_SPEED = 5
 
 [node name="death_plane" type="Area2D" parent="Objects"]
 position = Vector2(42, -30)

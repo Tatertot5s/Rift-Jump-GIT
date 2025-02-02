@@ -70,26 +70,36 @@ position = Vector2(1487, 200)
 
 [node name="moving_box" parent="Objects" instance=ExtResource("5_asg68")]
 position = Vector2(602, 392)
-MAX_TRAVEL = 90
-TRAVEL_SPEED = 5
+MAX_TRAVEL = 37
+TRAVEL_SPEED = 6
 
 [node name="moving_box1" parent="Objects" instance=ExtResource("5_asg68")]
 position = Vector2(1220, 495)
+MAX_TRAVEL = 100
+TRAVEL_SPEED = -2
 
 [node name="moving_box2" parent="Objects" instance=ExtResource("5_asg68")]
 position = Vector2(1651, 495)
 
 [node name="moving_box3" parent="Objects" instance=ExtResource("5_asg68")]
 position = Vector2(2184, 495)
+MAX_TRAVEL = 68
+TRAVEL_SPEED = 2
 
 [node name="moving_boxes1" parent="Objects" instance=ExtResource("6_wp5v3")]
 position = Vector2(2065, 495)
+MAX_TRAVEL = 300
+TRAVEL_SPEED = -1
 
 [node name="moving_boxes2" parent="Objects" instance=ExtResource("6_wp5v3")]
 position = Vector2(1930, 495)
+MAX_TRAVEL = 300
+TRAVEL_SPEED = -1
 
 [node name="moving_box4" parent="Objects" instance=ExtResource("5_asg68")]
-position = Vector2(1059, 335)
+position = Vector2(1058, 335)
+MAX_TRAVEL = 25
+TRAVEL_SPEED = 5
 
 [node name="flag" parent="Objects" instance=ExtResource("6_ek7tn")]
 position = Vector2(1177, 185)

@@ -9,7 +9,7 @@ var travel = 0
 var running = false
 var paused = false
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta) -> void:
 	if running and not paused:
 		if travel < MAX_TRAVEL:
 			travel = move_toward(travel, MAX_TRAVEL, 1)

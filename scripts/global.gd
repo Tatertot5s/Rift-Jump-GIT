@@ -2,7 +2,7 @@ extends Node
 
 signal load_level(level_name)
 
-var is_dev = false
+var is_dev = true
 var fullscreen = false
 var deaths: int = 0
 
@@ -32,18 +32,23 @@ func _process(delta: float) -> void:
 	if is_dev == true:
 		if Input.is_action_just_pressed("1"):
 			Global.call_load_level("Level1")
+			await get_tree().process_frame
 			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("2"):
 			Global.call_load_level("Level2")
+			await get_tree().process_frame
 			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("3"):
 			Global.call_load_level("Level3")
+			await get_tree().process_frame
 			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("4"):
 			Global.call_load_level("Level4")
+			await get_tree().process_frame
 			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("5"):
 			Global.call_load_level("house")
+			await get_tree().process_frame
 			Global.player.respawn(Global.player)
 		if Input.is_action_just_pressed("`"):
 			Global.call_load_level("MainMenu")
