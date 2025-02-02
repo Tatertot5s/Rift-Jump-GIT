@@ -22,6 +22,7 @@ func load_level(level_name: String):
 	var level_path := "res://levels/%s.tscn" % level_name
 	var level_resource := load(level_path)
 	if (level_resource):
+		await get_tree().process_frame
 		level_instance = level_resource.instantiate()
 		self.add_child(level_instance)
 	

@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 1.2 * delta
 	
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up") and $"../CreditsMenu".visible == false:
 		jump_buffer = 5
 	if jump_buffer > 0:
 		if is_on_floor():
@@ -25,30 +25,4 @@ func _physics_process(delta: float) -> void:
 	if position.x >= 1240:
 		position.x = -72
 	
-	if Input.is_action_just_pressed("ui_cancel"):
-		$"../CreditsMenu".visible = false
-	
 	move_and_slide()
-
-func _on_start_button_pressed():
-	Global.call_load_level("Level1")
-	Global.time_total = 0
-	Global.deaths = 0
-
-func _on_fullscreen_button_pressed():
-	if !Global.fullscreen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		Global.fullscreen = !Global.fullscreen
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		Global.fullscreen = !Global.fullscreen
-
-func _on_exit_button_pressed():
-	get_tree().quit()
-
-func _on_info_button_pressed():
-	$"../CreditsMenu".visible = !$"../CreditsMenu".visible
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		$"../start_button/AnimationPlayer".play("menu_start")

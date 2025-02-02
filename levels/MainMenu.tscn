@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://naqg0addupht"]
+[gd_scene load_steps=17 format=4 uid="uid://naqg0addupht"]
 
+[ext_resource type="Script" path="res://levels/main_menu.gd" id="1_11doy"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_mn7he"]
 [ext_resource type="PackedScene" uid="uid://b6p5bwi2t0a2i" path="res://objects/game functions/menu_player.tscn" id="3_j30ns"]
 [ext_resource type="Texture2D" uid="uid://bnwf8ht8yym8a" path="res://assets/menus/MenuBlock.png" id="3_objhl"]
@@ -49,15 +50,15 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Menu_Player")
+tracks/1/path = NodePath("../..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.333333),
+"times": PackedFloat32Array(0.533333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_on_start_button_pressed"
+"method": &"start_button"
 }]
 }
 
@@ -69,6 +70,7 @@ _data = {
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(1, -1)
+script = ExtResource("1_11doy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -351.0
@@ -89,7 +91,9 @@ position = Vector2(575, 138)
 scale = Vector2(0.78125, 0.78125)
 texture = ExtResource("5_wtm0n")
 
-[node name="start_button" type="TextureButton" parent="."]
+[node name="buttons" type="Node" parent="."]
+
+[node name="start_button" type="TextureButton" parent="buttons"]
 offset_left = 453.0
 offset_top = 264.0
 offset_right = 683.0
@@ -97,7 +101,7 @@ offset_bottom = 340.0
 texture_normal = ExtResource("3_objhl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="start_button"]
+[node name="Label" type="Label" parent="buttons/start_button"]
 layout_mode = 0
 offset_right = 230.0
 offset_bottom = 77.0
@@ -108,44 +112,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="start_button"]
+[node name="box" type="StaticBody2D" parent="buttons/start_button"]
+position = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="start_button/StaticBody2D"]
+[node name="collision" type="CollisionShape2D" parent="buttons/start_button/box"]
 position = Vector2(114.75, 37.5)
 shape = SubResource("RectangleShape2D_7uawf")
 
-[node name="Area2D" type="Area2D" parent="start_button"]
+[node name="Area2D" type="Area2D" parent="buttons/start_button"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="start_button/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/start_button/Area2D"]
 position = Vector2(115, 75)
 shape = SubResource("RectangleShape2D_3sx8g")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="start_button"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="buttons/start_button"]
 libraries = {
 "": SubResource("AnimationLibrary_rgf3f")
 }
 
-[node name="fullscreen_button" type="TextureButton" parent="."]
-offset_left = 1084.0
-offset_top = 82.0
-offset_right = 1132.0
-offset_bottom = 130.0
+[node name="fullscreen_button" type="TextureButton" parent="buttons"]
+offset_left = 1085.0
+offset_top = 81.0
+offset_right = 1133.0
+offset_bottom = 129.0
 texture_normal = ExtResource("6_qi11w")
 metadata/_edit_use_anchors_ = true
 
-[node name="exit_button" type="TextureButton" parent="."]
-offset_left = 1084.0
-offset_top = 18.0
-offset_right = 1132.0
-offset_bottom = 66.0
+[node name="exit_button" type="TextureButton" parent="buttons"]
+offset_left = 1085.0
+offset_top = 17.0
+offset_right = 1133.0
+offset_bottom = 65.0
 texture_normal = ExtResource("7_ypvi0")
 metadata/_edit_use_anchors_ = true
 
-[node name="info_button" type="TextureButton" parent="."]
-offset_left = 1084.0
-offset_top = 585.0
-offset_right = 1132.0
-offset_bottom = 633.0
+[node name="credits_button" type="TextureButton" parent="buttons"]
+offset_left = 1085.0
+offset_top = 584.0
+offset_right = 1133.0
+offset_bottom = 632.0
 texture_normal = ExtResource("6_u1nbv")
 metadata/_edit_use_anchors_ = true
 
@@ -155,6 +160,7 @@ scale = Vector2(1.5, 1.5)
 
 [node name="CreditsMenu" type="Node2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(558, 311)
 
 [node name="ColorRect" type="ColorRect" parent="CreditsMenu"]
@@ -243,18 +249,18 @@ offset_right = -156.0
 offset_bottom = -167.0
 theme_override_fonts/font = ExtResource("4_vb4ux")
 theme_override_font_sizes/font_size = 14
-text = "v0.2.12"
+text = "v0.4.1"
 
-[node name="exit_button" type="TextureButton" parent="CreditsMenu"]
+[node name="exit_info" type="TextureButton" parent="CreditsMenu"]
 offset_left = 235.0
 offset_top = -189.0
 offset_right = 283.0
 offset_bottom = -141.0
 texture_normal = ExtResource("7_ypvi0")
 
-[connection signal="pressed" from="start_button" to="Menu_Player" method="_on_start_button_pressed"]
-[connection signal="body_entered" from="start_button/Area2D" to="Menu_Player" method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="fullscreen_button" to="Menu_Player" method="_on_fullscreen_button_pressed"]
-[connection signal="pressed" from="exit_button" to="Menu_Player" method="_on_exit_button_pressed"]
-[connection signal="pressed" from="info_button" to="Menu_Player" method="_on_info_button_pressed"]
-[connection signal="pressed" from="CreditsMenu/exit_button" to="Menu_Player" method="_on_info_button_pressed"]
+[connection signal="pressed" from="buttons/start_button" to="." method="start_button"]
+[connection signal="body_entered" from="buttons/start_button/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="buttons/fullscreen_button" to="." method="fullscreen_button"]
+[connection signal="pressed" from="buttons/exit_button" to="." method="exit_button"]
+[connection signal="pressed" from="buttons/credits_button" to="." method="credits_button"]
+[connection signal="pressed" from="CreditsMenu/exit_info" to="." method="credits_button"]
