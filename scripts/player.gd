@@ -61,14 +61,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("shift") and Global.is_dev:
 		velocity.x = 0
 		velocity.y = 0
-	
-	if false:
-		$sprite.modulate = "4880ff"
-	else:
-		$sprite.modulate = "ffffff"
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"): #and !Input.is_action_pressed("shift"):
+	if body.is_in_group("Player"):
 		var respawn_points = get_tree().get_nodes_in_group("respawn_point")
 		if respawn_points.size() > 0:
 			self.position = respawn_points[0].position

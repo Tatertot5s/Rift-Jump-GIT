@@ -1,0 +1,102 @@
+extends CharacterBody2D
+
+const MAX_SPEED = 320.0
+const JUMP_VELOCITY = -475.0
+const ACCELERATION = 40.0
+const DECELERATION = 25.0
+
+var coyote_time = 0
+var jump_buffer = 0
+var debug_mode = false
+var debug_fly_speed = 15
+
+var direction = 1
+var do_jump = false
+var _is_on_floor = true
+var camera_limit
+
+@export var player_id := 1:
+	set(id):
+		player_id = id
+		$InputSynchronizer.set_multiplayer_authority(id)
+
+func _ready():
+	if multiplayer.get_unique_id() == player_id:
+		$camera.make_current()
+
+func apply_animations(_delta):
+	if direction < 0:
+		$sprite.flip_h = true
+		$sprite.animation = "walk"
+	elif direction > 0:
+		$sprite.flip_h = false
+		$sprite.animation = "walk"
+	else:
+		$sprite.animation = "idle"
+
+func _apply_movment_from_input(delta):
+	direction = $InputSynchronizer.input_direction
+	
+	if Input.is_action_just_pressed("debug_mode") and Global.is_dev:
+		debug_mode = !debug_mode
+	
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		coyote_time = move_toward(coyote_time, 0, 1)
+	else:
+		coyote_time = 9
+	
+	if do_jump:
+		jump_buffer = 5
+		do_jump = false
+	if jump_buffer > 0:
+		if is_on_floor() or coyote_time > 0:
+			velocity.y = JUMP_VELOCITY
+	jump_buffer = move_toward(jump_buffer, 0, 1)
+	
+	if direction < 0:
+		velocity.x = move_toward(velocity.x, -MAX_SPEED, ACCELERATION)
+	elif direction > 0:
+		velocity.x = move_toward(velocity.x, MAX_SPEED, ACCELERATION)
+	else:
+		velocity.x = move_toward(velocity.x, 0, DECELERATION)
+	
+	if $InputSynchronizer.camera_limit:
+		camera_limit = $InputSynchronizer.camera_limit
+		$camera.limit_right = camera_limit
+	
+	move_and_slide()
+
+func _on_death_plane_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		var respawn_points = get_tree().get_nodes_in_group("respawn_point")
+		if respawn_points.size() > 0:
+			self.position = respawn_points[0].position
+		velocity = Vector2(0, 0)
+		coyote_time = 0
+		Global.deaths += 1
+
+func respawn(body):
+	await get_tree().process_frame
+	$camera.position_smoothing_enabled = false
+	self._on_death_plane_body_entered(body)
+	Global.deaths -= 1
+	await get_tree().process_frame
+	$camera.position_smoothing_enabled = true
+
+func respawn_all():
+	await get_tree().process_frame
+	$camera.position_smoothing_enabled = false
+	var respawn_points = get_tree().get_nodes_in_group("respawn_point")
+	var tps = get_tree().get_nodes_in_group("Player")
+	for running in tps:
+		running.position = respawn_points[0].position
+	velocity = Vector2(0, 0)
+	await get_tree().process_frame
+	$camera.position_smoothing_enabled = true
+
+func _physics_process(delta):
+	if multiplayer.is_server():
+		_apply_movment_from_input(delta)
+	if not multiplayer.is_server() || MultiplayerManager.host_mode_enabled == true:
+		apply_animations(delta)

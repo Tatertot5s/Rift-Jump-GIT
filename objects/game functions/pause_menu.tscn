@@ -56,8 +56,24 @@ offset_top = 106.79
 offset_right = 78.0
 offset_bottom = 154.79
 
+[node name="host" type="Button" parent="Sprite2D"]
+offset_left = -332.842
+offset_top = -50.6669
+offset_right = -234.842
+offset_bottom = 4.33315
+text = "host"
+
+[node name="join" type="Button" parent="Sprite2D"]
+offset_left = -337.0
+offset_top = 17.0
+offset_right = -236.0
+offset_bottom = 74.0
+text = "join"
+
 [connection signal="pressed" from="Sprite2D/TextureButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Sprite2D/TextureButton2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Sprite2D/TextureButton3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Sprite2D/TextureButton4" to="." method="_on_texture_button_4_pressed"]
 [connection signal="pressed" from="Sprite2D/TextureButton5" to="." method="_on_texture_button_5_pressed"]
+[connection signal="pressed" from="Sprite2D/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Sprite2D/join" to="." method="_on_join_pressed"]

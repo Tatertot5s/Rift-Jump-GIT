@@ -11,4 +11,7 @@ func _on_portal_area_body_entered(body):
 		Global.level_3_time = Global.time_total - (Global.level_1_time + Global.level_2_time)
 	if body.is_in_group("Player"):
 		Global.call_load_level(LevelName)
-		Global.player.respawn(Global.player)
+		if !MultiplayerManager.multiplayer_mode_enabled:
+			Global.player.respawn(body)
+		else:
+			body.respawn_all()

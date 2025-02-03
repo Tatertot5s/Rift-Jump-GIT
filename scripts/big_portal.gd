@@ -27,3 +27,8 @@ func _on_body_entered(body):
 		$"../house/StaticBody2D/collision".set_deferred("disabled", !$"../house/StaticBody2D/collision".disabled)
 		$"../house/StaticBody2D/collision2".set_deferred("disabled", !$"../house/StaticBody2D/collision2".disabled)
 		$"../house/end hitbox/collision".set_deferred("disabled", !$"../house/end hitbox/collision".disabled)
+		
+		if MultiplayerManager.multiplayer_mode_enabled:
+			var tps = get_tree().get_nodes_in_group("Player")
+			for running in tps:
+				running.position = self.position + Vector2(100,0)

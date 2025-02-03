@@ -8,4 +8,7 @@ func _on_portal_area_body_entered(body):
 		Global.timer_paused = true
 	if body.is_in_group("Player"):
 		Global.call_load_level(LevelName)
-		Global.player.respawn(Global.player)
+		if !MultiplayerManager.multiplayer_mode_enabled:
+			body.respawn(body)
+		else:
+			body.respawn_all()

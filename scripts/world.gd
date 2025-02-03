@@ -38,13 +38,14 @@ func load_level(level_name: String):
 			menu_instance = null
 	
 	#adds characters to levels with them
-	var levels_with_character = ["Level1","Level2","Level3","Level4", "house"]
+	#var levels_with_character = ["Level1","Level2","Level3","Level4", "house"]
+	var levels_with_character = ["Level1"]
 	if level_name in levels_with_character:
 		if not player_instance:
 			player_instance = player_scene.instantiate()
 			add_child(player_instance)
 	else:
-		if player_instance:
+		if player_instance && !MultiplayerManager.multiplayer_mode_enabled:
 			player_instance.queue_free()
 			player_instance = null
 	Global.player = player_instance
