@@ -1,7 +1,14 @@
 extends Node2D
 
+var player_to_remove
+
+func _process(delta):
+	player_to_remove = get_tree().get_nodes_in_group("Player")
+	if player_to_remove:
+		player_to_remove[0].queue_free()
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("menu_player"):
 		$buttons/start_button/AnimationPlayer.play("menu_start")
 
 func start_button():

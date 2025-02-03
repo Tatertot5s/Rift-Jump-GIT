@@ -153,7 +153,7 @@ offset_bottom = 632.0
 texture_normal = ExtResource("6_u1nbv")
 metadata/_edit_use_anchors_ = true
 
-[node name="Menu_Player" parent="." groups=["Player"] instance=ExtResource("3_j30ns")]
+[node name="Menu_Player" parent="." groups=["menu_player"] instance=ExtResource("3_j30ns")]
 position = Vector2(-60, 487)
 scale = Vector2(1.5, 1.5)
 

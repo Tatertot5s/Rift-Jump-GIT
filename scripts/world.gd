@@ -8,6 +8,8 @@ var menu_instance
 @export var player_scene: PackedScene
 var player_instance
 
+var levels_with_character
+
 func _ready():
 	load_level("MainMenu")
 	Global.connect("load_level", _on_load_level_signal)
@@ -38,8 +40,10 @@ func load_level(level_name: String):
 			menu_instance = null
 	
 	#adds characters to levels with them
-	#var levels_with_character = ["Level1","Level2","Level3","Level4", "house"]
-	var levels_with_character = ["Level1"]
+	if MultiplayerManager.multiplayer_mode_enabled == false:
+		levels_with_character = ["Level1","Level2","Level3","Level4", "house"]
+	else:
+		levels_with_character = ["Level1"]
 	if level_name in levels_with_character:
 		if not player_instance:
 			player_instance = player_scene.instantiate()

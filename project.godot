@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Rift Jump 2"
+config/name="Rift Jump"
+config/version="0.5.1"
 run/main_scene="res://levels/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0.827451, 1, 1)
