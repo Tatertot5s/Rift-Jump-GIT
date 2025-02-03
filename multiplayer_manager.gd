@@ -1,8 +1,9 @@
 extends Node
 
-const SERVER_PORT = 8080
-const SERVER_IP = "127.0.0.1"
-#const SERVER_IP = "taterserver.ddns.net"
+var SERVER_IP = "127.0.0.1"
+var SERVER_PORT = 8080
+
+#"taterserver.ddns.net"
 
 var host_mode_enabled = false
 var multiplayer_mode_enabled = false
@@ -18,6 +19,11 @@ func become_host():
 	multiplayer_mode_enabled = true
 	
 	var server_peer = ENetMultiplayerPeer.new()
+	
+	var port_edit_node = get_tree().get_nodes_in_group("server_port_input")
+	if port_edit_node[0].text != "":
+		SERVER_PORT = int(port_edit_node[0].text)
+
 	server_peer.create_server(SERVER_PORT)
 	
 	multiplayer.multiplayer_peer = server_peer
@@ -31,7 +37,17 @@ func become_host():
 func join_as_player_2():
 	multiplayer_mode_enabled = true
 	var client_peer = ENetMultiplayerPeer.new()
+	
+	var server_edit_node = get_tree().get_nodes_in_group("server_IP_input")
+	if server_edit_node[0].text != "":
+		SERVER_IP = server_edit_node[0].text
+	
+	var port_edit_node = get_tree().get_nodes_in_group("server_port_input")
+	if port_edit_node[0].text != "":
+		SERVER_PORT = int(port_edit_node[0].text)
+	
 	client_peer.create_client(SERVER_IP, SERVER_PORT)
+	print(SERVER_IP, "   ",SERVER_PORT)
 	
 	multiplayer.multiplayer_peer = client_peer
 	

@@ -64,7 +64,6 @@ func _apply_movment_from_input(delta):
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 	
 	$camera.limit_right = camera_limit
-	print("Updated camera limit:", $camera.limit_right)
 	
 	move_and_slide()
 
