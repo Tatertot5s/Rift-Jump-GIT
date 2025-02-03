@@ -2,15 +2,15 @@ extends Control
 
 func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
-		#get_tree().paused = !get_tree().paused
+		pause_game()
 		self.visible = !self.visible
 
 func _on_button_pressed() -> void:
-	#get_tree().paused = !get_tree().paused
+	pause_game()
 	self.visible = !self.visible
 
 func _on_button_2_pressed() -> void:
-	#get_tree().paused = !get_tree().paused
+	pause_game()
 	Global.player.respawn(Global.player)
 	self.visible = !self.visible
 
@@ -23,7 +23,7 @@ func _on_button_3_pressed() -> void:
 		Global.fullscreen = !Global.fullscreen
 
 func _on_texture_button_4_pressed():
-	#get_tree().paused = !get_tree().paused
+	pause_game()
 	Global.call_load_level("MainMenu")
 
 func _on_texture_button_5_pressed():
@@ -31,10 +31,17 @@ func _on_texture_button_5_pressed():
 	
 func _on_host_pressed():
 	self.visible = !self.visible
-	#get_tree().paused = !get_tree().paused
+	pause_game()
 	MultiplayerManager.become_host()
 
 func _on_join_pressed():
 	self.visible = !self.visible
-	#get_tree().paused = !get_tree().paused
+	pause_game()
 	MultiplayerManager.join_as_player_2()
+
+func pause_game():
+	if MultiplayerManager.multiplayer_mode_enabled == false:
+		get_tree().paused = !get_tree().paused
+	else:
+		get_tree().paused = false
+		$ColorRect.visible = false

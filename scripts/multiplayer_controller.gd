@@ -13,7 +13,8 @@ var debug_fly_speed = 15
 var direction = 1
 var do_jump = false
 var _is_on_floor = true
-var camera_limit
+
+@export var camera_limit : float = 0.0
 
 @export var player_id := 1:
 	set(id):
@@ -36,6 +37,7 @@ func apply_animations(_delta):
 
 func _apply_movment_from_input(delta):
 	direction = $InputSynchronizer.input_direction
+	camera_limit = $InputSynchronizer.camera_limit
 	
 	if Input.is_action_just_pressed("debug_mode") and Global.is_dev:
 		debug_mode = !debug_mode
@@ -61,9 +63,8 @@ func _apply_movment_from_input(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 	
-	if $InputSynchronizer.camera_limit:
-		camera_limit = $InputSynchronizer.camera_limit
-		$camera.limit_right = camera_limit
+	$camera.limit_right = camera_limit
+	print("Updated camera limit:", $camera.limit_right)
 	
 	move_and_slide()
 

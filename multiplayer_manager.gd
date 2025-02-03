@@ -1,7 +1,8 @@
 extends Node
 
 const SERVER_PORT = 8080
-const SERVER_IP = "taterserver.ddns.net"
+const SERVER_IP = "127.0.0.1"
+#const SERVER_IP = "taterserver.ddns.net"
 
 var host_mode_enabled = false
 var multiplayer_mode_enabled = false
