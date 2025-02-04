@@ -17,6 +17,8 @@ func start_button():
 	Global.time_total = 0
 	Global.deaths = 0
 	Global.timer_paused = false
+	if MultiplayerManager.multiplayer_mode_enabled == true:
+		MultiplayerManager._add_player_to_game(1)
 
 func exit_button():
 	get_tree().quit()
@@ -35,3 +37,11 @@ func credits_button():
 func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$CreditsMenu.visible = !$CreditsMenu.visible
+		
+func _on_host_pressed():
+	$multiplayer.visible = false
+	MultiplayerManager.become_host()
+
+func _on_join_pressed():
+	$multiplayer.visible = false
+	MultiplayerManager.join_as_player_2()
