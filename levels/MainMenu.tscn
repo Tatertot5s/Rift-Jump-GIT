@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://naqg0addupht"]
+[gd_scene load_steps=18 format=4 uid="uid://naqg0addupht"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_11doy"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_mn7he"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://k1mpemencklw" path="res://assets/menus/quit_button.png" id="7_ypvi0"]
 [ext_resource type="Texture2D" uid="uid://gnkehnmcly36" path="res://assets/menus/credits_menu.png" id="9_1b0ox"]
 [ext_resource type="Texture2D" uid="uid://dayw1m3brvjut" path="res://assets/menus/logo_vertical_color_light.png" id="10_eq05n"]
+[ext_resource type="Script" path="res://levels/splash.gd" id="12_rmp12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uawf"]
 size = Vector2(230.5, 75)
@@ -256,22 +257,20 @@ offset_right = 283.0
 offset_bottom = -141.0
 texture_normal = ExtResource("7_ypvi0")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 220.0
-offset_top = 258.0
-offset_right = 1568.0
-offset_bottom = 311.0
+[node name="splash" type="Label" parent="."]
+offset_left = 337.0
+offset_top = 239.0
+offset_right = 1446.0
+offset_bottom = 295.0
 rotation = -0.156711
-theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.337368, 0.337368, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_vb4ux")
-theme_override_font_sizes/normal_font_size = 42
-text = "Splish Splash!"
-
-[node name="Label" type="Label" parent="RichTextLabel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_vb4ux")
+theme_override_font_sizes/font_size = 32
+text = "[Empty Splash]"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("12_rmp12")
 
 [connection signal="pressed" from="buttons/start_button" to="." method="start_button"]
 [connection signal="body_entered" from="buttons/start_button/Area2D" to="." method="_on_area_2d_body_entered"]
