@@ -39,6 +39,7 @@ color = Color(0, 0.827451, 1, 1)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+z_index = -1
 scroll_scale = Vector2(1.59, 1.59)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]

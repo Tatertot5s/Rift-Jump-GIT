@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://naqg0addupht"]
+[gd_scene load_steps=21 format=4 uid="uid://naqg0addupht"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_11doy"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_mn7he"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://k1mpemencklw" path="res://assets/menus/quit_button.png" id="7_ypvi0"]
 [ext_resource type="Texture2D" uid="uid://gnkehnmcly36" path="res://assets/menus/credits_menu.png" id="9_1b0ox"]
 [ext_resource type="Texture2D" uid="uid://dayw1m3brvjut" path="res://assets/menus/logo_vertical_color_light.png" id="10_eq05n"]
-[ext_resource type="Script" path="res://levels/splash.gd" id="12_rmp12"]
+[ext_resource type="Script" path="res://scripts/splash.gd" id="12_rmp12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uawf"]
 size = Vector2(230.5, 75)
@@ -69,10 +69,49 @@ _data = {
 "menu_start": SubResource("Animation_63bdw")
 }
 
+[sub_resource type="Animation" id="Animation_27o2g"]
+resource_name = "splash"
+length = 0.9
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_tl0hr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.47, 1.47)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnd64"]
+_data = {
+"RESET": SubResource("Animation_tl0hr"),
+"splash": SubResource("Animation_27o2g")
+}
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_11doy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 offset_left = -351.0
 offset_top = -26.0
 offset_right = 1511.0
@@ -163,10 +202,10 @@ z_index = 1
 position = Vector2(558, 311)
 
 [node name="ColorRect" type="ColorRect" parent="CreditsMenu"]
-offset_left = -609.0
-offset_top = -349.0
-offset_right = 649.0
-offset_bottom = 389.0
+offset_left = -565.0
+offset_top = -318.0
+offset_right = 600.0
+offset_bottom = 345.0
 color = Color(0, 0, 0, 0.486275)
 
 [node name="Background" type="Sprite2D" parent="CreditsMenu"]
@@ -204,40 +243,40 @@ horizontal_alignment = 1
 
 [node name="playtesting" type="Label" parent="CreditsMenu"]
 offset_left = -208.0
-offset_top = -33.0
+offset_top = -44.0
 offset_right = -91.0
-offset_bottom = -1.0
+offset_bottom = -12.0
 theme_override_fonts/font = ExtResource("4_vb4ux")
 theme_override_font_sizes/font_size = 17
 text = "Playtesting"
 
 [node name="people" type="Label" parent="CreditsMenu"]
 offset_left = -237.0
-offset_top = 2.0
+offset_top = -9.0
 offset_right = -71.0
-offset_bottom = 167.0
+offset_bottom = 201.0
 theme_override_fonts/font = ExtResource("4_vb4ux")
 theme_override_font_sizes/font_size = 14
-text = "	Rex Farr
-	Pierce Hoffer
-	Lennon Paul
-	Tyler Emery
-	Lourdes Belido
-	Seth Reitz
-	Eli Reitz
-	Dad"
+text = "Rex Farr
+Pierce Hoffer
+Lennon Paul
+Tyler Emery
+Lourdes Belido
+Seth Reitz
+Eli Reitz
+Luke Shawley"
 
 [node name="made with" type="Label" parent="CreditsMenu"]
 offset_left = 74.0
-offset_top = -37.0
+offset_top = -48.0
 offset_right = 206.0
-offset_bottom = -5.0
+offset_bottom = -16.0
 theme_override_fonts/font = ExtResource("4_vb4ux")
 theme_override_font_sizes/font_size = 23
 text = "Made With:"
 
 [node name="godot" type="Sprite2D" parent="CreditsMenu"]
-position = Vector2(140, 88)
+position = Vector2(140, 77)
 scale = Vector2(0.205882, 0.205882)
 texture = ExtResource("10_eq05n")
 
@@ -248,7 +287,7 @@ offset_right = -156.0
 offset_bottom = -167.0
 theme_override_fonts/font = ExtResource("4_vb4ux")
 theme_override_font_sizes/font_size = 14
-text = "v0.4.1"
+text = "v0.5.5"
 
 [node name="exit_info" type="TextureButton" parent="CreditsMenu"]
 offset_left = 235.0
@@ -258,19 +297,33 @@ offset_bottom = -141.0
 texture_normal = ExtResource("7_ypvi0")
 
 [node name="splash" type="Label" parent="."]
-offset_left = 337.0
-offset_top = 239.0
-offset_right = 1446.0
-offset_bottom = 295.0
-rotation = -0.156711
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 193.913
+offset_top = 183.664
+offset_right = 1486.91
+offset_bottom = 233.664
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.117431
+scale = Vector2(1.47, 1.47)
+pivot_offset = Vector2(649.842, 28.9224)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.337368, 0.337368, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_vb4ux")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "[Empty Splash]"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("12_rmp12")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="splash"]
+libraries = {
+"": SubResource("AnimationLibrary_lnd64")
+}
 
 [connection signal="pressed" from="buttons/start_button" to="." method="start_button"]
 [connection signal="body_entered" from="buttons/start_button/Area2D" to="." method="_on_area_2d_body_entered"]

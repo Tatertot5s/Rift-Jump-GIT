@@ -6,7 +6,7 @@ var time = 0
 func _process(_delta: float) -> void:
 	self.text = "Time: %d:%02d \nDeaths: %d" % [Global.time_total / 60, Global.time_total % 60, Global.deaths]
 
-	#if Global.player and Global.player.debug_mode:
+	#if Global.player and Global.player.debug_mode and MultiplayerManager.multiplayer_mode_enabled == false:
 	#	self.text = self.text + "\n"
 	#	self.text = self.text + "\ndebug_mode: " + str(Global.player.debug_mode)
 	#	self.text = self.text + "\nposition.x: " + str(Global.player.position.x)

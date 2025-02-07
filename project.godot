@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rift Jump"
-config/version="0.5.1"
+config/version="0.5.5"
 run/main_scene="res://levels/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0.827451, 1, 1)
@@ -22,11 +22,10 @@ config/icon="res://assets/menus/icon.png"
 [autoload]
 
 Global="*res://scripts/global.gd"
-MultiplayerManager="*res://multiplayer_manager.gd"
+MultiplayerManager="*res://scripts/multiplayer_manager.gd"
 
 [display]
 
-window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
 [file_customization]
