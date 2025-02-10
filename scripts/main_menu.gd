@@ -2,7 +2,7 @@ extends Node2D
 
 var player_to_remove
 
-func _process(delta):
+func _process(_delta):
 	#player_to_remove = get_tree().get_nodes_in_group("Player")
 	#if player_to_remove:
 	#	player_to_remove[0].queue_free()

@@ -1,7 +1,11 @@
 extends Control
 
+func _ready():
+	if !OS.has_feature("windows"):
+		$multiplayer.visible = !$multiplayer.visible
+
 func _input(_event):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") or !OS.has_feature("windows") and Input.is_action_just_pressed("exit"):
 		pause_game()
 		self.visible = !self.visible
 

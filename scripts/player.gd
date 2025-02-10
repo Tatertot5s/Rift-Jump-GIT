@@ -61,6 +61,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("shift") and Global.is_dev:
 		velocity.x = 0
 		velocity.y = 0
+	
+	if not is_on_floor():
+		if velocity.y < 0:
+			$sprite.animation = "jump_start"
+		else:
+			$sprite.animation = "jump_fall"
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

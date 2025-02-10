@@ -47,7 +47,6 @@ func join_as_player_2():
 		SERVER_PORT = int(port_edit_node[0].text)
 	
 	client_peer.create_client(SERVER_IP, SERVER_PORT)
-	print(SERVER_IP, "   ",SERVER_PORT)
 	
 	multiplayer.multiplayer_peer = client_peer
 	

@@ -25,4 +25,12 @@ func _physics_process(delta: float) -> void:
 	if position.x >= 1240:
 		position.x = -72
 	
+	if not is_on_floor():
+		if velocity.y < 0:
+			$sprite.animation = "jump_start"
+		else:
+			$sprite.animation = "jump_fall"
+	else:
+		$sprite.animation = "walk"
+	
 	move_and_slide()

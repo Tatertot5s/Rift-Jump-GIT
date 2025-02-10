@@ -34,6 +34,11 @@ func apply_animations(_delta):
 		$sprite.animation = "walk"
 	else:
 		$sprite.animation = "idle"
+	if not _is_on_floor:
+		if velocity.y < 0:
+			$sprite.animation = "jump_start"
+		else:
+			$sprite.animation = "jump_fall"
 
 func _apply_movment_from_input(delta):
 	direction = $InputSynchronizer.input_direction
@@ -97,6 +102,7 @@ func respawn_all():
 
 func _physics_process(delta):
 	if multiplayer.is_server():
+		_is_on_floor = is_on_floor()
 		_apply_movment_from_input(delta)
 	if not multiplayer.is_server() || MultiplayerManager.host_mode_enabled == true:
 		apply_animations(delta)

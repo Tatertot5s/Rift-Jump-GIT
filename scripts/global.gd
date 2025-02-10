@@ -26,10 +26,10 @@ func _process(delta: float) -> void:
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			fullscreen = !fullscreen
-	if Input.is_action_just_pressed("exit"):
+	if Input.is_action_just_pressed("exit") and OS.has_feature("windows"):
 		get_tree().quit()
 	
-	if is_dev == true:
+	if false: #is_dev == true:
 		if Input.is_action_just_pressed("1"):
 			Global.call_load_level("Level1")
 			await get_tree().process_frame
