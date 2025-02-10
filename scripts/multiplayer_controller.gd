@@ -13,7 +13,7 @@ var debug_fly_speed = 15
 var direction = 1
 var do_jump = false
 var _is_on_floor = true
-var skin = 0
+var skin = "1"
 
 @export var camera_limit : float = 0.0
 
@@ -28,34 +28,20 @@ func _ready():
 
 func apply_animations(_delta):
 	skin = $InputSynchronizer.skin
-	if skin == 0:
-		if direction < 0:
-			$sprite.flip_h = true
-			$sprite.animation = "walk"
-		elif direction > 0:
-			$sprite.flip_h = false
-			$sprite.animation = "walk"
+	
+	if direction < 0:
+		$sprite.flip_h = true
+		$sprite.animation = "%s_walk" % skin
+	elif direction > 0:
+		$sprite.flip_h = false
+		$sprite.animation = "%s_walk" % skin
+	else:
+		$sprite.animation = "%s_idle" % skin
+	if not _is_on_floor:
+		if velocity.y < 0:
+			$sprite.animation = "%s_jump_start" % skin
 		else:
-			$sprite.animation = "idle"
-		if not _is_on_floor:
-			if velocity.y < 0:
-				$sprite.animation = "jump_start"
-			else:
-				$sprite.animation = "jump_fall"
-	elif skin == 1:
-		if direction < 0:
-			$sprite.flip_h = true
-			$sprite.animation = "gadgetman_walk"
-		elif direction > 0:
-			$sprite.flip_h = false
-			$sprite.animation = "gadgetman_walk"
-		else:
-			$sprite.animation = "gadgetman_idle"
-		if not _is_on_floor:
-			if velocity.y < 0:
-				$sprite.animation = "gadgetman_jump_start"
-			else:
-				$sprite.animation = "gadgetman_jump_fall"
+			$sprite.animation = "%s_jump_fall" % skin
 	
 
 func _apply_movment_from_input(delta):

@@ -6,6 +6,8 @@ const ACCELERATION = 40.0*1.5
 
 var jump_buffer = 0
 
+var skin = "1"
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
@@ -27,10 +29,10 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		if velocity.y < 0:
-			$sprite.animation = "jump_start"
+			$sprite.animation = "%s_jump_start" % skin
 		else:
-			$sprite.animation = "jump_fall"
+			$sprite.animation = "%s_jump_fall" % skin
 	else:
-		$sprite.animation = "walk"
+		$sprite.animation = "%s_walk" % skin
 	
 	move_and_slide()
