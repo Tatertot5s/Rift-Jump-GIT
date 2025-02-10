@@ -4,6 +4,7 @@ extends MultiplayerSynchronizer
 var input_direction
 var camera_limit
 var camera_limit_node
+var skin = 0
 
 func _ready():
 	if get_multiplayer_authority() != multiplayer.get_unique_id():
@@ -20,6 +21,9 @@ func _ready():
 	camera_limit_node = get_tree().get_nodes_in_group("camera_limit")
 	camera_limit = camera_limit_node[0].position.x
 
+	if Input.is_action_just_pressed("ui_undo"):
+		skin = 1
+
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
 		input_direction = -1
@@ -31,18 +35,14 @@ func _physics_process(_delta):
 	camera_limit_node = get_tree().get_nodes_in_group("camera_limit")
 	camera_limit = camera_limit_node[0].position.x
 	
+	if Input.is_action_just_pressed("ui_undo"):
+		skin = 1
+	
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_up"):
 		jump.rpc()
-	update_camera.rpc()
-
+	
 @rpc("call_local")
 func jump():
 	if multiplayer.is_server():
 		player.do_jump = true
-
-@rpc("call_local")
-func update_camera():
-	if multiplayer.is_server():
-		player.camera_limit = camera_limit
-		
