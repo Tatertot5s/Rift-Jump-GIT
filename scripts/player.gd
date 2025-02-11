@@ -45,15 +45,6 @@ func _physics_process(delta: float) -> void:
 	apply_animations(delta)
 
 func apply_animations(_delta):
-	if Input.is_action_just_pressed("`"):
-		skin = "gadgetman"
-	if Input.is_action_just_pressed("1"):
-		skin = "1"
-	if Input.is_action_just_pressed("2"):
-		skin = "2"
-	if Input.is_action_just_pressed("3"):
-		skin = "3"
-	
 	if direction < 0:
 		$sprite.flip_h = true
 		$sprite.animation = "%s_walk" % skin

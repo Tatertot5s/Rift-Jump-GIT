@@ -4,7 +4,7 @@ extends MultiplayerSynchronizer
 var input_direction
 var camera_limit
 var camera_limit_node
-var skin = 1
+var skin = "1"
 
 func _ready():
 	if get_multiplayer_authority() != multiplayer.get_unique_id():
@@ -29,17 +29,10 @@ func _physics_process(_delta):
 	else:
 		input_direction = 0
 	
+	skin = Global.skin
+
 	camera_limit_node = get_tree().get_nodes_in_group("camera_limit")
 	camera_limit = camera_limit_node[0].position.x
-	
-	if Input.is_action_just_pressed("`"):
-		skin = "gadgetman"
-	if Input.is_action_just_pressed("1"):
-		skin = "1"
-	if Input.is_action_just_pressed("2"):
-		skin = "2"
-	if Input.is_action_just_pressed("3"):
-		skin = "3"
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_up"):

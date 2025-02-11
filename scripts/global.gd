@@ -7,6 +7,7 @@ var fullscreen = false
 var deaths: int = 0
 
 var player
+var skin = "1"
 
 var timer : float = 0.0
 var wait_time : float = 1
