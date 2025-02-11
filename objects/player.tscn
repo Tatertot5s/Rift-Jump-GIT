@@ -21,7 +21,7 @@ script = ExtResource("3_176d0")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("4_lmlc1")
-animation = &"gadgetman_walk"
+animation = &"2_idle"
 autoplay = "1_idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
