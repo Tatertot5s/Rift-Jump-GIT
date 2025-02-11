@@ -32,3 +32,4 @@ func _on_body_entered(body):
 			var tps = get_tree().get_nodes_in_group("Player")
 			for running in tps:
 				running.position = self.position + Vector2(100,0)
+				await get_tree().create_timer(0.1).timeout

@@ -33,7 +33,7 @@ tile_map_data = PackedByteArray("AAD+////AAADAAEAAAD+/wAAAAADAAEAAAD+/wEAAAADAAE
 tile_set = ExtResource("1_c7g2q")
 
 [node name="respawn_point" type="Node2D" parent="." groups=["respawn_point"]]
-position = Vector2(19, -39)
+position = Vector2(52, -27)
 
 [node name="camera_limit" type="Node2D" parent="." groups=["camera_limit"]]
 position = Vector2(2303, 260)

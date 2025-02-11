@@ -97,6 +97,7 @@ func respawn_all():
 	var tps = get_tree().get_nodes_in_group("Player")
 	for running in tps:
 		running.position = respawn_points[0].position
+		await get_tree().create_timer(0.1).timeout
 	velocity = Vector2(0, 0)
 	await get_tree().process_frame
 	$camera.position_smoothing_enabled = true
