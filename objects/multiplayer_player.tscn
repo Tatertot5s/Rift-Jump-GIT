@@ -66,8 +66,8 @@ script = ExtResource("3_c5m8r")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("5_rk3ou")
-animation = &"2_idle"
-autoplay = "idle"
+animation = &"1_idle"
+autoplay = "1_idle"
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 5)

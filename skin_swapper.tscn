@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4wd5d2ng88ob"]
+
+[ext_resource type="Script" path="res://scripts/skin_swapper.gd" id="1_ew5ri"]
+[ext_resource type="Texture2D" uid="uid://d1xxlt0r4kru0" path="res://assets/menus/skin_swapper.png" id="2_hqtqp"]
+[ext_resource type="SpriteFrames" uid="uid://db8a62xdu5iop" path="res://assets/player/player_frames.tres" id="3_qp7yh"]
+
+[node name="skin_swapper" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ew5ri")
+
+[node name="player_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_hqtqp")
+
+[node name="sprite" type="AnimatedSprite2D" parent="player_sprite"]
+position = Vector2(0, -11)
+scale = Vector2(6.75, 6.75)
+sprite_frames = ExtResource("3_qp7yh")
+animation = &"1_walk"
+autoplay = "1_walk"
+frame_progress = 0.504981
+
+[node name="apply" type="TextureButton" parent="player_sprite"]
+offset_left = -40.0
+offset_top = 97.0
+offset_right = 39.0
+offset_bottom = 125.0
+
+[node name="left" type="TextureButton" parent="player_sprite"]
+offset_left = -102.0
+offset_top = -26.0
+offset_right = -79.0
+offset_bottom = -2.0
+
+[node name="right" type="TextureButton" parent="player_sprite"]
+offset_left = 80.0
+offset_top = -26.0
+offset_right = 103.0
+offset_bottom = -2.0
+
+[connection signal="pressed" from="player_sprite/apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="player_sprite/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="player_sprite/right" to="." method="_on_right_pressed"]
