@@ -1,13 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://yagjmv8qeslo"]
+[gd_scene load_steps=12 format=3 uid="uid://yagjmv8qeslo"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_22fjo"]
+[ext_resource type="Texture2D" uid="uid://d1xxlt0r4kru0" path="res://assets/menus/skin_swapper.png" id="2_56rfd"]
+[ext_resource type="Texture2D" uid="uid://dyeeb6d3hu71t" path="res://assets/menus/settings_menu.png" id="2_lmtn7"]
 [ext_resource type="Texture2D" uid="uid://1qdwio2ngx7c" path="res://assets/menus/pause_menu.png" id="2_wakl4"]
-[ext_resource type="PackedScene" uid="uid://b4wd5d2ng88ob" path="res://objects/game functions/skin_swapper.tscn" id="3_5j0jj"]
+[ext_resource type="Script" path="res://scripts/skin_swapper.gd" id="3_cwt7f"]
+[ext_resource type="SpriteFrames" uid="uid://db8a62xdu5iop" path="res://assets/player/player_frames.tres" id="3_n3lsu"]
+[ext_resource type="Texture2D" uid="uid://cph34irtlkggl" path="res://assets/menus/pause_selection.png" id="3_yqxao"]
+[ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="4_7whqa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5166"]
+atlas = ExtResource("3_yqxao")
+region = Rect2(0, 0, 169, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxput"]
+atlas = ExtResource("3_yqxao")
+region = Rect2(0, 61, 169, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ej780"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5166")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxput")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="pause_menu" type="Control"]
 process_mode = 3
 process_priority = 100
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,40 +48,152 @@ offset_right = 1153.0
 offset_bottom = 649.0
 color = Color(0, 0, 0, 0.294118)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="skin_swapper" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(577, 324)
+scale = Vector2(1.58822, 1.58822)
+texture = ExtResource("2_56rfd")
+script = ExtResource("3_cwt7f")
+
+[node name="sprite" type="AnimatedSprite2D" parent="skin_swapper"]
+position = Vector2(0, -11)
+scale = Vector2(6.75, 6.75)
+sprite_frames = ExtResource("3_n3lsu")
+animation = &"1_walk"
+autoplay = "1_walk"
+frame_progress = 0.504981
+
+[node name="apply" type="TextureButton" parent="skin_swapper"]
+offset_left = -40.0
+offset_top = 97.0
+offset_right = 39.0
+offset_bottom = 125.0
+metadata/_edit_use_anchors_ = true
+
+[node name="left" type="TextureButton" parent="skin_swapper"]
+offset_left = -102.0
+offset_top = -26.0
+offset_right = -79.0
+offset_bottom = -2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="right" type="TextureButton" parent="skin_swapper"]
+offset_left = 80.0
+offset_top = -26.0
+offset_right = 103.0
+offset_bottom = -2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="skinText" type="Label" parent="skin_swapper"]
+offset_left = -61.0
+offset_top = -136.0
+offset_right = 61.0
+offset_bottom = -106.0
+theme_override_fonts/font = ExtResource("4_7whqa")
+theme_override_font_sizes/font_size = 24
+text = "Skin"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="applyText" type="Label" parent="skin_swapper"]
+offset_left = -61.0
+offset_top = 99.0
+offset_right = 61.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("4_7whqa")
+theme_override_font_sizes/font_size = 16
+text = "Apply"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="settings_sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(577, 324)
+scale = Vector2(1.28289, 1.28289)
+texture = ExtResource("2_lmtn7")
+
+[node name="controls" type="TextureButton" parent="settings_sprite"]
+offset_left = -77.0
+offset_top = -164.0
+offset_right = 78.0
+offset_bottom = -117.0
+
+[node name="sound" type="TextureButton" parent="settings_sprite"]
+offset_left = -77.0
+offset_top = -109.0
+offset_right = 78.0
+offset_bottom = -62.0
+
+[node name="multiplayer" type="TextureButton" parent="settings_sprite"]
+offset_left = -77.0
+offset_top = -54.0
+offset_right = 78.0
+offset_bottom = -7.0
+
+[node name="skins" type="TextureButton" parent="settings_sprite"]
+offset_left = -77.0
+offset_top = 0.999985
+offset_right = 78.0
+offset_bottom = 48.0
+
+[node name="fullscreen" type="TextureButton" parent="settings_sprite"]
+offset_left = -77.0
+offset_top = 56.0
+offset_right = 78.0
+offset_bottom = 103.0
+
+[node name="done" type="TextureButton" parent="settings_sprite"]
+offset_left = -77.1695
+offset_top = 111.467
+offset_right = 77.8305
+offset_bottom = 158.467
+
+[node name="selection" type="AnimatedSprite2D" parent="settings_sprite"]
+position = Vector2(0.77948, -89.6414)
+sprite_frames = SubResource("SpriteFrames_ej780")
+autoplay = "default"
+frame_progress = 0.991673
+
+[node name="menu_sprite" type="Sprite2D" parent="."]
 position = Vector2(577, 324)
 scale = Vector2(1.28289, 1.28289)
 texture = ExtResource("2_wakl4")
 
-[node name="TextureButton" type="TextureButton" parent="Sprite2D"]
+[node name="resume" type="TextureButton" parent="menu_sprite"]
 offset_left = -79.0
 offset_top = -113.805
 offset_right = 78.0
 offset_bottom = -65.8051
 
-[node name="TextureButton2" type="TextureButton" parent="Sprite2D"]
+[node name="respawn" type="TextureButton" parent="menu_sprite"]
 offset_left = -79.0
 offset_top = -58.4615
 offset_right = 78.0
 offset_bottom = -10.4615
 
-[node name="TextureButton3" type="TextureButton" parent="Sprite2D"]
+[node name="fullscreen" type="TextureButton" parent="menu_sprite"]
 offset_left = -79.0
 offset_top = -3.11795
 offset_right = 78.0
 offset_bottom = 44.882
 
-[node name="TextureButton4" type="TextureButton" parent="Sprite2D"]
+[node name="quit_to_title" type="TextureButton" parent="menu_sprite"]
 offset_left = -79.0
 offset_top = 51.4462
 offset_right = 78.0
 offset_bottom = 99.4462
 
-[node name="TextureButton5" type="TextureButton" parent="Sprite2D"]
+[node name="quit_game" type="TextureButton" parent="menu_sprite"]
 offset_left = -79.0
 offset_top = 106.79
 offset_right = 78.0
 offset_bottom = 154.79
+
+[node name="selection" type="AnimatedSprite2D" parent="menu_sprite"]
+position = Vector2(0.77948, -89.6414)
+sprite_frames = SubResource("SpriteFrames_ej780")
+autoplay = "default"
+frame_progress = 0.991673
 
 [node name="multiplayer" type="Node2D" parent="."]
 
@@ -87,14 +225,12 @@ offset_right = 262.0
 offset_bottom = 98.0
 placeholder_text = "8080"
 
-[node name="skin_swapper" parent="." instance=ExtResource("3_5j0jj")]
-position = Vector2(954, 337)
-scale = Vector2(1.02998, 1.02998)
-
-[connection signal="pressed" from="Sprite2D/TextureButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Sprite2D/TextureButton2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Sprite2D/TextureButton3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="Sprite2D/TextureButton4" to="." method="_on_texture_button_4_pressed"]
-[connection signal="pressed" from="Sprite2D/TextureButton5" to="." method="_on_texture_button_5_pressed"]
+[connection signal="button_down" from="skin_swapper/apply" to="skin_swapper" method="_on_apply_pressed"]
+[connection signal="button_down" from="skin_swapper/left" to="skin_swapper" method="_on_left_pressed"]
+[connection signal="button_down" from="menu_sprite/resume" to="." method="_on_resume_button_down"]
+[connection signal="button_down" from="menu_sprite/respawn" to="." method="_on_respawn_button_down"]
+[connection signal="button_down" from="menu_sprite/fullscreen" to="." method="_on_setting_button_down"]
+[connection signal="button_down" from="menu_sprite/quit_to_title" to="." method="_on_quit_to_title_button_down"]
+[connection signal="button_down" from="menu_sprite/quit_game" to="." method="_on_quit_game_button_down"]
 [connection signal="pressed" from="multiplayer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="multiplayer/join" to="." method="_on_join_pressed"]

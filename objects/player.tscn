@@ -29,6 +29,7 @@ position = Vector2(1.5, 5)
 shape = SubResource("RectangleShape2D_od7pg")
 
 [node name="camera" type="Camera2D" parent="."]
+scale = Vector2(1.00184, 0.986358)
 limit_left = 0
 limit_top = 0
 limit_bottom = 0
