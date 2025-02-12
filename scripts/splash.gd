@@ -4,7 +4,7 @@ func _ready():
 	random_item()
 	$AnimationPlayer.current_animation = "splash"
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_released("ui_undo"):
 		random_item()
 

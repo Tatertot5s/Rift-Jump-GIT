@@ -9,7 +9,7 @@ func _ready():
 	self.visible = false
 
 func _input(_event):
-	if Input.is_action_just_pressed("ui_cancel") or !OS.has_feature("windows") and Input.is_action_just_pressed("exit"):
+	if Input.is_action_just_pressed("pause") or !OS.has_feature("windows") and Input.is_action_just_pressed("exit"):
 		pause_game()
 		self.visible = !self.visible
 		on_button = 0
@@ -24,8 +24,14 @@ func _input(_event):
 			input_logic(1)
 		if Input.is_action_just_pressed("ui_up"):
 			input_logic(-1)
-		if Input.is_action_just_pressed("ui_right"):
+		if Input.is_action_just_pressed("ui_accept"):
 			button_pressed()
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		if on_menu == 0:
+			_on_resume_button_down()
+		if on_menu == 1:
+			_on_done_button_down()
 
 #Button Functions
 #Pause

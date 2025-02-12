@@ -17,17 +17,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		coyote_time = 9
 	
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump"):
 		jump_buffer = 5
 	if jump_buffer > 0:
 		if is_on_floor() or coyote_time > 0:
 			velocity.y = JUMP_VELOCITY
 	jump_buffer = move_toward(jump_buffer, 0, 1)
 	
-	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
 		velocity.x = move_toward(velocity.x, -MAX_SPEED, ACCELERATION)
 		direction = -1
-	elif Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 		velocity.x = move_toward(velocity.x, MAX_SPEED, ACCELERATION)
 		direction = 1
 	else:
