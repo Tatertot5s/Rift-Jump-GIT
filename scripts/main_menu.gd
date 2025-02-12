@@ -2,6 +2,19 @@ extends Node2D
 
 var player_to_remove
 
+func _ready():
+	$buttons/exit_button.position.x = get_viewport().get_visible_rect().size.x - 65
+	$buttons/fullscreen_button.position.x = get_viewport().get_visible_rect().size.x - 65
+	$buttons/credits_button.position.x = get_viewport().get_visible_rect().size.x - 65
+	if OS.has_feature("android"):
+		$buttons/fullscreen_button.visible = false
+	
+	$logo.position.x = get_viewport().get_visible_rect().size.x/2
+	$buttons/start_button.position.x = (get_viewport().get_visible_rect().size.x/2) - 115
+	$splash.position.x = (get_viewport().get_visible_rect().size.x/2) - 432
+	print()
+
+
 func _process(_delta):
 	#player_to_remove = get_tree().get_nodes_in_group("Player")
 	#if player_to_remove:

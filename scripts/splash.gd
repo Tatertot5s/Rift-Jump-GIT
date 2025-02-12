@@ -4,10 +4,6 @@ func _ready():
 	random_item()
 	$AnimationPlayer.current_animation = "splash"
 
-func _process(_delta):
-	if Input.is_action_just_released("ui_undo"):
-		random_item()
-
 func random_item():
 	var file = "res://splash.txt"
 	var list = FileAccess.open(file, FileAccess.READ)

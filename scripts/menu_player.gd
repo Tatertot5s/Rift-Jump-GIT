@@ -9,13 +9,13 @@ var jump_buffer = 0
 var skin = "1"
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("exit"):
+	if Input.is_action_just_pressed("exit") && get_window().has_focus():
 		get_tree().quit()
 	
 	if not is_on_floor():
 		velocity += get_gravity() * 1.2 * delta
 	
-	if Input.is_action_just_pressed("jump") and $"../CreditsMenu".visible == false:
+	if Input.is_action_just_pressed("jump") && get_window().has_focus() and $"../CreditsMenu".visible == false:
 		jump_buffer = 5
 	if jump_buffer > 0:
 		if is_on_floor():

@@ -24,10 +24,10 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 	jump_buffer = move_toward(jump_buffer, 0, 1)
 	
-	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+	if Input.is_action_pressed("left") and not Input.is_action_pressed("right") && get_window().has_focus():
 		velocity.x = move_toward(velocity.x, -MAX_SPEED, ACCELERATION)
 		direction = -1
-	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left") && get_window().has_focus():
 		velocity.x = move_toward(velocity.x, MAX_SPEED, ACCELERATION)
 		direction = 1
 	else:

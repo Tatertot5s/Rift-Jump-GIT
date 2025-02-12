@@ -11,9 +11,9 @@ func _ready():
 		set_process(false)
 		set_physics_process(false)
 		
-	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+	if Input.is_action_pressed("left") and not Input.is_action_pressed("right") && get_window().has_focus() && Global.is_paused == false:
 		input_direction = -1
-	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left") && get_window().has_focus() && Global.is_paused == false:
 		input_direction = 1
 	else:
 		input_direction = 0
@@ -22,9 +22,9 @@ func _ready():
 	camera_limit = camera_limit_node[0].position.x
 
 func _physics_process(_delta):
-	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+	if Input.is_action_pressed("left") and not Input.is_action_pressed("right") && get_window().has_focus() && Global.is_paused == false:
 		input_direction = -1
-	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left") && get_window().has_focus() && Global.is_paused == false:
 		input_direction = 1
 	else:
 		input_direction = 0
@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	camera_limit = camera_limit_node[0].position.x
 
 func _process(_delta):
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") && get_window().has_focus() && Global.is_paused == false:
 		jump.rpc()
 	
 @rpc("call_local")
