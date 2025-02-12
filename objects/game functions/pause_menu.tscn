@@ -107,7 +107,6 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="settings_sprite" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(577, 324)
 scale = Vector2(1.28289, 1.28289)
 texture = ExtResource("2_lmtn7")
@@ -149,12 +148,13 @@ offset_right = 77.8305
 offset_bottom = 158.467
 
 [node name="selection" type="AnimatedSprite2D" parent="settings_sprite"]
-position = Vector2(0.77948, -89.6414)
+position = Vector2(0.779477, -140.308)
 sprite_frames = SubResource("SpriteFrames_ej780")
 autoplay = "default"
 frame_progress = 0.991673
 
 [node name="menu_sprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(577, 324)
 scale = Vector2(1.28289, 1.28289)
 texture = ExtResource("2_wakl4")
@@ -190,7 +190,7 @@ offset_right = 78.0
 offset_bottom = 154.79
 
 [node name="selection" type="AnimatedSprite2D" parent="menu_sprite"]
-position = Vector2(0.77948, -89.6414)
+position = Vector2(0.5, -89.5)
 sprite_frames = SubResource("SpriteFrames_ej780")
 autoplay = "default"
 frame_progress = 0.991673
@@ -227,6 +227,9 @@ placeholder_text = "8080"
 
 [connection signal="button_down" from="skin_swapper/apply" to="skin_swapper" method="_on_apply_pressed"]
 [connection signal="button_down" from="skin_swapper/left" to="skin_swapper" method="_on_left_pressed"]
+[connection signal="button_down" from="settings_sprite/skins" to="." method="_on_skins_button_down"]
+[connection signal="button_down" from="settings_sprite/fullscreen" to="." method="_on_fullscreen_button_down"]
+[connection signal="pressed" from="settings_sprite/done" to="." method="_on_done_button_down"]
 [connection signal="button_down" from="menu_sprite/resume" to="." method="_on_resume_button_down"]
 [connection signal="button_down" from="menu_sprite/respawn" to="." method="_on_respawn_button_down"]
 [connection signal="button_down" from="menu_sprite/fullscreen" to="." method="_on_setting_button_down"]

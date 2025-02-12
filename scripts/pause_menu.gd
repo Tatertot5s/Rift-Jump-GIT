@@ -17,7 +17,7 @@ func _input(_event):
 		$menu_sprite.visible = true
 		$settings_sprite.visible = false
 		$skin_swapper.visible = false
-		$menu_sprite/selection.position.y = ((1+on_button)*53)-140
+		$menu_sprite/selection.position.y = ((on_button)* 55.38) - 89.5
 	
 	if self.visible == true:
 		if Input.is_action_just_pressed("ui_down"):
@@ -28,6 +28,7 @@ func _input(_event):
 			button_pressed()
 
 #Button Functions
+#Pause
 func _on_resume_button_down():
 	pause_game()
 	self.visible = !self.visible
@@ -40,13 +41,13 @@ func _on_setting_button_down():
 	on_button = 0
 	$menu_sprite.visible = false
 	$settings_sprite.visible = true
-	$settings_sprite/selection.position.y = ((1 + on_button) * 53) - 185
+	$settings_sprite/selection.position.y = ((1 + on_button) * 54.564) - 194.872
 func _on_quit_to_title_button_down():
 	pause_game()
 	Global.call_load_level("MainMenu")
 func _on_quit_game_button_down():
 	get_tree().quit()
-
+#Options
 func _on_controls_button_down():
 	pass
 func _on_sound_button_down():
@@ -87,14 +88,14 @@ func input_logic(direction):
 			on_button = 0
 		if on_button <= -1:
 			on_button = 4
-		$menu_sprite/selection.position.y = ((1+on_button)*53)-140
+		$menu_sprite/selection.position.y = ((on_button)* 55.38) - 89.5
 	
 	if on_menu == 1:
 		if on_button >= 6:
 			on_button = 0
 		if on_button <= -1:
 			on_button = 5
-		$settings_sprite/selection.position.y = ((1 + on_button) * 53) - 185
+		$settings_sprite/selection.position.y = ((1 + on_button) * 54.564) - 194.872
 func button_pressed():
 	if on_menu == 0:
 		if on_button == 0:
