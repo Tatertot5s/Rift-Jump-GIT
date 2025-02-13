@@ -4,11 +4,10 @@ var on_button: int = 0
 var on_menu: int = 0
 
 func _ready():
-	#if !OS.has_feature("windows"):
-	#	$multiplayer.visible = !$multiplayer.visible
 	self.visible = false
 	$skin_swapper.position = get_viewport().get_visible_rect().size / 2
 	$settings_sprite.position = get_viewport().get_visible_rect().size / 2
+	$multiplayer_menu.position = get_viewport().get_visible_rect().size / 2
 	$menu_sprite.position = get_viewport().get_visible_rect().size / 2
 
 func _input(_event):
@@ -35,7 +34,7 @@ func _input(_event):
 			if on_menu == 1:
 				_on_done_button_down()
 
-func _process(delta):
+func _process(_delta):
 	if self.visible == true:
 		Global.is_paused = true
 	else:
@@ -66,7 +65,10 @@ func _on_controls_button_down():
 func _on_sound_button_down():
 	pass
 func _on_multiplayer_button_down():
-	pass
+	on_button = 0
+	on_menu = 3
+	$settings_sprite.visible = false
+	$multiplayer_menu.visible = true
 func _on_skins_button_down():
 	on_button = 0
 	on_menu = 2
