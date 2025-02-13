@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Rift Jump"
+config/name="Rift-jump-git-main"
 config/version="0.6.7"
 run/main_scene="res://levels/world.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.3")
 boot_splash/bg_color=Color(0, 0.827451, 1, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false

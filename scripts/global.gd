@@ -9,6 +9,7 @@ var is_paused = false
 
 var player
 var skin = "1"
+var username
 
 var timer : float = 0.0
 var wait_time : float = 1
@@ -30,6 +31,9 @@ func _process(delta: float) -> void:
 			fullscreen = !fullscreen
 	if Input.is_action_just_pressed("exit") && get_window().has_focus() and OS.has_feature("windows"):
 		get_tree().quit()
+	
+	var username_edit_node = get_tree().get_nodes_in_group("username_input")
+	username = str(username_edit_node[0].text)
 	
 	if timer_paused == false:
 		timer += delta

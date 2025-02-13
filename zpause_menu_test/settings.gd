@@ -3,7 +3,7 @@ extends Node
 var on_button: int = 0
 
 func _process(_delta):
-	if $"..".on_menu == 1:
+	if $"..".on_menu == "options":
 		if Input.is_action_just_pressed("ui_up"):
 			input_logic(-1)
 		if Input.is_action_just_pressed("ui_down"):
@@ -17,16 +17,11 @@ func _on_sound_button_down():
 	pass
 func _on_multiplayer_button_down():
 	on_button = 0
-	$"..".on_menu = 3
-	self.visible = false
-	$"../multiplayer_menu".visible = true
+	$"..".on_menu = "multiplayer"
 func _on_skins_button_down():
 	on_button = 0
-	$"..".on_menu = 2
-	await get_tree().process_frame
-	await get_tree().process_frame
-	self.visible = false
-	$"../skin_swapper".visible = true
+	$"..".on_menu = "skins"
+
 func _on_fullscreen_button_down():
 	if !Global.fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -36,9 +31,7 @@ func _on_fullscreen_button_down():
 		Global.fullscreen = !Global.fullscreen
 func _on_done_button_down():
 	on_button = 0
-	$"..".on_menu = 0
-	$"../menu_sprite".visible = true
-	self.visible = false
+	$"..".on_menu = "pause"
 	$"../menu_sprite/selection".position.y = ((1+on_button)*53)-140
 
 

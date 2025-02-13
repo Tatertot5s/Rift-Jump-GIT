@@ -35,6 +35,9 @@ limit_top = 0
 limit_bottom = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+drag_horizontal_enabled = true
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
 
 [node name="raycast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 750)
