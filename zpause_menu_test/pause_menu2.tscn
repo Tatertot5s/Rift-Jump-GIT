@@ -258,6 +258,7 @@ alignment = 1
 [connection signal="button_down" from="menu_sprite/settings" to="menu_sprite" method="_on_settings_button_down"]
 [connection signal="button_down" from="menu_sprite/quit_to_title" to="menu_sprite" method="_on_quit_to_title_button_down"]
 [connection signal="button_down" from="menu_sprite/quit_game" to="menu_sprite" method="_on_quit_game_button_down"]
+[connection signal="button_down" from="settings_sprite/multiplayer" to="settings_sprite" method="_on_multiplayer_button_down"]
 [connection signal="button_down" from="settings_sprite/skins" to="settings_sprite" method="_on_skins_button_down"]
 [connection signal="button_down" from="settings_sprite/fullscreen" to="settings_sprite" method="_on_fullscreen_button_down"]
 [connection signal="button_down" from="settings_sprite/done" to="settings_sprite" method="_on_done_button_down"]
