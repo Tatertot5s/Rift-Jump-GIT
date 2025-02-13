@@ -3,7 +3,7 @@ extends Node
 var on_button: int = 0
 
 func _process(_delta):
-	if $"..".on_menu == 0:
+	if $"..".on_menu == "pause":
 		if Input.is_action_just_pressed("ui_up"):
 			input_logic(-1)
 		if Input.is_action_just_pressed("ui_down"):
@@ -13,16 +13,14 @@ func _process(_delta):
 
 func _on_resume_button_down():
 	pause_game()
-	$"..".visible = !$"..".visible
+	$"..".on_menu = "none"
 func _on_respawn_button_down():
 	pause_game()
 	Global.player.respawn(Global.player)
-	$"..".visible = !$"..".visible
+	$"..".on_menu = "none"
 func _on_settings_button_down():
-	$"..".on_menu = 1
+	$"..".on_menu = "options"
 	on_button = 0
-	self.visible = false
-	$"../settings_sprite".visible = true
 	$"../settings_sprite/selection".position.y = ((1 + on_button) * 54.564) - 194.872
 func _on_quit_to_title_button_down():
 	pause_game()

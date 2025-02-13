@@ -108,3 +108,8 @@ func _physics_process(delta):
 		_apply_movment_from_input(delta)
 	if not multiplayer.is_server() || MultiplayerManager.host_mode_enabled == true:
 		apply_animations(delta)
+	
+	if Global.username:
+		$username.text = Global.username
+	if !Global.username:
+		$username.text = ""

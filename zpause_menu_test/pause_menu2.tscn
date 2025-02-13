@@ -95,6 +95,7 @@ autoplay = "default"
 frame_progress = 0.991673
 
 [node name="settings_sprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(577, 324)
 scale = Vector2(1.28289, 1.28289)
 texture = ExtResource("4_4ix1u")
@@ -243,7 +244,7 @@ text = "Apply"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit" type="LineEdit" parent="skin_swapper"]
+[node name="username" type="LineEdit" parent="skin_swapper" groups=["username_input"]]
 offset_left = -66.0
 offset_top = -84.0
 offset_right = 67.0
@@ -252,6 +253,7 @@ theme_override_fonts/font = ExtResource("6_6lk1x")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rbu0j")
 placeholder_text = "Username"
 alignment = 1
+max_length = 10
 
 [connection signal="button_down" from="menu_sprite/resume" to="menu_sprite" method="_on_resume_button_down"]
 [connection signal="button_down" from="menu_sprite/respawn" to="menu_sprite" method="_on_respawn_button_down"]

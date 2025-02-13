@@ -1,6 +1,6 @@
 extends Node2D
 
-var on_menu: int = 0
+var on_menu: String = "none"
 
 func _ready():
 	self.visible = false
@@ -13,13 +13,38 @@ func _input(_event):
 	if Input.is_action_just_pressed("pause") && get_window().has_focus() or !OS.has_feature("windows") and Input.is_action_just_pressed("exit"):
 		pause_game()
 		self.visible = !self.visible
-		on_menu = 0
-		$menu_sprite.visible = true
-		$settings_sprite.visible = false
-		$skin_swapper.visible = false
-		$multiplayer_menu.visible = false
+		on_menu = "pause"
 
 		$menu_sprite/selection.position.y = (($menu_sprite.on_button)* 55.38) - 89.5
+
+func _process(delta: float) -> void:
+	match on_menu:
+		"pause":
+			$menu_sprite.visible = true
+			$settings_sprite.visible = false
+			$skin_swapper.visible = false
+			$multiplayer_menu.visible = false
+		"options":
+			$menu_sprite.visible = false
+			$settings_sprite.visible = true
+			$skin_swapper.visible = false
+			$multiplayer_menu.visible = false
+		"multiplayer":
+			$menu_sprite.visible = false
+			$settings_sprite.visible = false
+			$skin_swapper.visible = false
+			$multiplayer_menu.visible = true
+		"skins":
+			$menu_sprite.visible = false
+			$settings_sprite.visible = false
+			$skin_swapper.visible = true
+			$multiplayer_menu.visible = false
+		"none":
+			$menu_sprite.visible = false
+			$settings_sprite.visible = false
+			$skin_swapper.visible = false
+			$multiplayer_menu.visible = false
+			self.visible = false
 
 func pause_game():
 	if MultiplayerManager.multiplayer_mode_enabled == false:
