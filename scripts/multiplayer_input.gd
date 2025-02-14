@@ -5,6 +5,7 @@ var input_direction
 var camera_limit
 var camera_limit_node
 var skin = "1"
+var username = ""
 
 func _ready():
 	if get_multiplayer_authority() != multiplayer.get_unique_id():
@@ -30,6 +31,7 @@ func _physics_process(_delta):
 		input_direction = 0
 	
 	skin = Global.skin
+	username = Global.username
 
 	camera_limit_node = get_tree().get_nodes_in_group("camera_limit")
 	camera_limit = camera_limit_node[0].position.x

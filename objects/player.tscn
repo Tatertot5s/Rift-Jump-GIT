@@ -18,12 +18,6 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_4wmn1")
 script = ExtResource("3_176d0")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
-sprite_frames = ExtResource("4_lmlc1")
-animation = &"1_idle"
-autoplay = "1_idle"
-
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 5)
 shape = SubResource("RectangleShape2D_od7pg")
@@ -41,3 +35,9 @@ drag_bottom_margin = 0.05
 
 [node name="raycast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 750)
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("4_lmlc1")
+animation = &"1_idle"
+autoplay = "1_idle"
