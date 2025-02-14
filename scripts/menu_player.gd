@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity += get_gravity() * 1.2 * delta
-	
+		
 	if Input.is_action_just_pressed("jump") && get_window().has_focus() and $"../CreditsMenu".visible == false:
 		jump_buffer = 5
 	if jump_buffer > 0:
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = move_toward(velocity.x, MAX_SPEED, ACCELERATION)
 	
-	if position.x >= 1240:
+	if position.x >= (get_viewport().get_visible_rect().size.x + 50):
 		position.x = -72
 	
 	if not is_on_floor():
@@ -36,3 +36,7 @@ func _physics_process(delta: float) -> void:
 		$sprite.animation = "%s_walk" % skin
 	
 	move_and_slide()
+
+func _input(event):
+	if event is InputEventScreenTouch && event.is_pressed():
+		jump_buffer = 5

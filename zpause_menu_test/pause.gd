@@ -46,7 +46,7 @@ func input_logic(direction):
 		on_button = 0
 	if on_button <= -1:
 		on_button = 4
-	$selection.position.y = ((on_button)* 55.38) - 89.5
+	$selection.position.y = ((on_button) * 55.38) - 89.5
 
 func pause_game():
 	if MultiplayerManager.multiplayer_mode_enabled == false:

@@ -10,7 +10,7 @@ func _on_join_button_down():
 	MultiplayerManager.join_as_player_2()
 
 func _on_cancel_pressed():
-	$"..".on_menu = 1
+	$"..".on_menu = "options"
 	$"../settings_sprite".visible = true
 	self.visible = false
 	$"../settings_sprite/selection".position.y = ((1 + $"../settings_sprite".on_button) * 54.564) - 194.872

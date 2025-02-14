@@ -33,7 +33,8 @@ func _process(delta: float) -> void:
 		get_tree().quit()
 	
 	var username_edit_node = get_tree().get_nodes_in_group("username_input")
-	username = str(username_edit_node[0].text)
+	if username_edit_node:
+		username = str(username_edit_node[0].text)
 	
 	if timer_paused == false:
 		timer += delta

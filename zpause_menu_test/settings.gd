@@ -21,7 +21,6 @@ func _on_multiplayer_button_down():
 func _on_skins_button_down():
 	on_button = 0
 	$"..".on_menu = "skins"
-
 func _on_fullscreen_button_down():
 	if !Global.fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

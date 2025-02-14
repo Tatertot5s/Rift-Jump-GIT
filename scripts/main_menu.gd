@@ -12,8 +12,9 @@ func _ready():
 	$logo.position.x = get_viewport().get_visible_rect().size.x/2
 	$buttons/start_button.position.x = (get_viewport().get_visible_rect().size.x/2) - 115
 	$splash.position.x = (get_viewport().get_visible_rect().size.x/2) - 432
-	print()
+	$CreditsMenu.position.x = (get_viewport().get_visible_rect().size.x/2)
 
+	$buttons/start_button/AnimationPlayer
 
 func _process(_delta):
 	#player_to_remove = get_tree().get_nodes_in_group("Player")
@@ -50,11 +51,3 @@ func credits_button():
 func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		$CreditsMenu.visible = !$CreditsMenu.visible
-		
-func _on_host_pressed():
-	$multiplayer.visible = false
-	MultiplayerManager.become_host()
-
-func _on_join_pressed():
-	$multiplayer.visible = false
-	MultiplayerManager.join_as_player_2()

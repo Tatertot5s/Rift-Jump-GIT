@@ -4,10 +4,10 @@ var on_menu: String = "none"
 
 func _ready():
 	self.visible = false
-	$skin_swapper.position = get_viewport().get_visible_rect().size / 2
+	$menu_sprite.position = get_viewport().get_visible_rect().size / 2
 	$settings_sprite.position = get_viewport().get_visible_rect().size / 2
 	$multiplayer_menu.position = get_viewport().get_visible_rect().size / 2
-	$menu_sprite.position = get_viewport().get_visible_rect().size / 2
+	$skin_swapper.position = get_viewport().get_visible_rect().size / 2
 
 func _input(_event):
 	if Input.is_action_just_pressed("pause") && get_window().has_focus() or !OS.has_feature("windows") and Input.is_action_just_pressed("exit"):
@@ -17,7 +17,7 @@ func _input(_event):
 
 		$menu_sprite/selection.position.y = (($menu_sprite.on_button)* 55.38) - 89.5
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match on_menu:
 		"pause":
 			$menu_sprite.visible = true
@@ -45,6 +45,7 @@ func _process(delta: float) -> void:
 			$skin_swapper.visible = false
 			$multiplayer_menu.visible = false
 			self.visible = false
+			get_tree().paused = false
 
 func pause_game():
 	if MultiplayerManager.multiplayer_mode_enabled == false:
