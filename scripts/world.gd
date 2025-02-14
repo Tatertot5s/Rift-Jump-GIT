@@ -29,7 +29,7 @@ func load_level(level_name: String):
 		self.add_child(level_instance)
 	
 	#adds menus to levels with them
-	var levels_with_menu = ["Level1","Level2","Level3","Level4"]
+	var levels_with_menu = ["Level1","Level2","Level3","Level4", "house"]
 	if level_name in levels_with_menu:
 		if not menu_instance:
 			menu_instance = menu_scene.instantiate()
