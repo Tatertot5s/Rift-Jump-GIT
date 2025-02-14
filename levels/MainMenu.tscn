@@ -212,6 +212,7 @@ texture_normal = ExtResource("6_u1nbv")
 metadata/_edit_use_anchors_ = true
 
 [node name="CreditsMenu" type="Node2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(558, 311)
 
