@@ -18,3 +18,11 @@ autoplay = "1_walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_pmi4h")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 32.0
+offset_bottom = 33.0
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]

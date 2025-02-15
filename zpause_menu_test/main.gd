@@ -12,8 +12,10 @@ func _ready():
 func _input(_event):
 	if Input.is_action_just_pressed("pause") && get_window().has_focus() or !OS.has_feature("windows") and Input.is_action_just_pressed("exit"):
 		pause_game()
-		self.visible = !self.visible
-		on_menu = "pause"
+		if on_menu == "none":
+			on_menu = "pause"
+		else:
+			on_menu = "none"
 
 		$menu_sprite/selection.position.y = (($menu_sprite.on_button)* 55.38) - 89.5
 
@@ -24,28 +26,38 @@ func _process(_delta: float) -> void:
 			$settings_sprite.visible = false
 			$skin_swapper.visible = false
 			$multiplayer_menu.visible = false
+			self.visible = true
+			Global.is_paused = true
 		"options":
 			$menu_sprite.visible = false
 			$settings_sprite.visible = true
 			$skin_swapper.visible = false
 			$multiplayer_menu.visible = false
+			self.visible = true
+			Global.is_paused = true
 		"multiplayer":
 			$menu_sprite.visible = false
 			$settings_sprite.visible = false
 			$skin_swapper.visible = false
 			$multiplayer_menu.visible = true
+			self.visible = true
+			Global.is_paused = true
 		"skins":
 			$menu_sprite.visible = false
 			$settings_sprite.visible = false
 			$skin_swapper.visible = true
 			$multiplayer_menu.visible = false
+			self.visible = true
+			Global.is_paused = true
 		"none":
 			$menu_sprite.visible = false
 			$settings_sprite.visible = false
 			$skin_swapper.visible = false
 			$multiplayer_menu.visible = false
 			self.visible = false
+			Global.is_paused = false
 			get_tree().paused = false
+	Global.on_menu = on_menu
 
 func pause_game():
 	if MultiplayerManager.multiplayer_mode_enabled == false:

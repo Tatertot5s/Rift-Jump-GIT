@@ -15,6 +15,7 @@ var do_jump = false
 var _is_on_floor = true
 var skin = "1"
 var username = ""
+var multiplayer_respawn = false
 
 @export var camera_limit : float = 0.0
 
@@ -29,12 +30,8 @@ func _ready():
 
 func apply_animations(_delta):
 	skin = $InputSynchronizer.skin
-	username = $InputSynchronizer.username
-	if username:
-		$username.text = username
-	else:
-		$username.text = ""
-
+	
+	#Skin Code
 	if direction < 0:
 		$sprite.flip_h = true
 		$sprite.animation = "%s_walk" % skin
@@ -49,6 +46,13 @@ func apply_animations(_delta):
 		else:
 			$sprite.animation = "%s_jump_fall" % skin
 	
+	#Username Code
+	username = $InputSynchronizer.username
+	if username:
+		$username.text = username
+	else:
+		$username.text = ""
+
 
 func _apply_movment_from_input(delta):
 	direction = $InputSynchronizer.input_direction
@@ -112,6 +116,11 @@ func _physics_process(delta):
 	if multiplayer.is_server():
 		_is_on_floor = is_on_floor()
 		_apply_movment_from_input(delta)
+	
 	if not multiplayer.is_server() || MultiplayerManager.host_mode_enabled == true:
 		apply_animations(delta)
 	
+	multiplayer_respawn = $InputSynchronizer.multiplayer_respawn
+	if multiplayer_respawn:
+		respawn(self)
+		Global.multiplayer_respawn = false

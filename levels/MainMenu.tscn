@@ -344,5 +344,5 @@ libraries = {
 [connection signal="body_entered" from="buttons/start_button/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="buttons/fullscreen_button" to="." method="fullscreen_button"]
 [connection signal="pressed" from="buttons/exit_button" to="." method="exit_button"]
-[connection signal="pressed" from="buttons/credits_button" to="." method="credits_button"]
+[connection signal="button_down" from="buttons/credits_button" to="." method="credits_button"]
 [connection signal="pressed" from="CreditsMenu/exit_info" to="." method="credits_button"]

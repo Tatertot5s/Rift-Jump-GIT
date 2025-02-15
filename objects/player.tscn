@@ -18,10 +18,6 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_4wmn1")
 script = ExtResource("3_176d0")
 
-[node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 5)
-shape = SubResource("RectangleShape2D_od7pg")
-
 [node name="camera" type="Camera2D" parent="."]
 scale = Vector2(1.00184, 0.986358)
 limit_left = 0
@@ -29,9 +25,6 @@ limit_top = 0
 limit_bottom = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
-drag_horizontal_enabled = true
-drag_right_margin = 0.05
-drag_bottom_margin = 0.05
 
 [node name="raycast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 750)
@@ -39,5 +32,9 @@ target_position = Vector2(0, 750)
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("4_lmlc1")
-animation = &"1_idle"
+animation = &"4_idle"
 autoplay = "1_idle"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 5)
+shape = SubResource("RectangleShape2D_od7pg")

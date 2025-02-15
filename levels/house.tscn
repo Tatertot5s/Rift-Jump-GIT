@@ -13,13 +13,13 @@ size = Vector2(529.164, 17)
 size = Vector2(7.59866, 214.116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y23hm"]
-size = Vector2(58.6301, 128.501)
+size = Vector2(58.6301, 141.251)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2je5"]
-size = Vector2(18.033, 100.779)
+size = Vector2(117.016, 242)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ngsc"]
-size = Vector2(474.889, 20)
+size = Vector2(478.752, 20)
 
 [node name="house" type="Node2D"]
 
@@ -34,26 +34,18 @@ texture = ExtResource("1_hn8yt")
 
 [node name="ColorRect2" type="ColorRect" parent="room"]
 z_index = 10
-offset_left = -624.0
+offset_left = -248.0
 offset_top = 21.0
 offset_right = -242.0
 offset_bottom = 105.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="room"]
-z_index = 10
-offset_left = -384.0
-offset_top = -62.2583
-offset_right = -248.0
-offset_bottom = 21.7417
-color = Color(0, 0, 0, 1)
-
 [node name="ColorRect4" type="ColorRect" parent="room"]
 z_index = 10
-offset_left = -384.0
-offset_top = 6.0
+offset_left = -460.0
+offset_top = -119.0
 offset_right = -248.0
-offset_bottom = 22.0
+offset_bottom = 116.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="room"]
@@ -64,15 +56,39 @@ offset_right = -242.0
 offset_bottom = 22.0
 color = Color(0.329412, 0.129412, 0.0352941, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -775.0
-offset_top = -92.0
-offset_right = 1928.0
-offset_bottom = 741.0
+[node name="collision" type="StaticBody2D" parent="room"]
+z_index = 10
+position = Vector2(-588, -318)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/collision"]
+position = Vector2(550.465, 432.843)
+shape = SubResource("RectangleShape2D_4xwoe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room/collision"]
+position = Vector2(811.078, 320.328)
+shape = SubResource("RectangleShape2D_lmvp3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room/collision"]
+position = Vector2(316.565, 270.625)
+shape = SubResource("RectangleShape2D_y23hm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room/collision"]
+position = Vector2(227.508, 321)
+shape = SubResource("RectangleShape2D_a2je5")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room/collision"]
+position = Vector2(576.624, 209.3)
+shape = SubResource("RectangleShape2D_4ngsc")
+
+[node name="background" type="ColorRect" parent="."]
+offset_left = -780.0
+offset_top = -68.0
+offset_right = 1923.0
+offset_bottom = 765.0
 color = Color(0, 0, 0, 1)
 
 [node name="respawn_point" type="Node2D" parent="." groups=["respawn_point"]]
-position = Vector2(326, 395)
+position = Vector2(327, 390)
 
 [node name="camera_limit" type="Node2D" parent="." groups=["camera_limit"]]
 position = Vector2(1152.82, 338.036)
@@ -134,28 +150,5 @@ theme_override_font_sizes/font_size = 30
 text = "Title Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="collision" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
-position = Vector2(550.465, 432.843)
-shape = SubResource("RectangleShape2D_4xwoe")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="collision"]
-position = Vector2(811.078, 320.328)
-shape = SubResource("RectangleShape2D_lmvp3")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="collision"]
-position = Vector2(316.565, 277)
-shape = SubResource("RectangleShape2D_y23hm")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="collision"]
-position = Vector2(277, 383.056)
-shape = SubResource("RectangleShape2D_a2je5")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="collision"]
-position = Vector2(574.693, 209.3)
-shape = SubResource("RectangleShape2D_4ngsc")
 
 [connection signal="pressed" from="end_button" to="end_button" method="_on_pressed"]

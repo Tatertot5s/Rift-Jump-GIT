@@ -14,14 +14,15 @@ func _ready():
 	$splash.position.x = (get_viewport().get_visible_rect().size.x/2) - 432
 	$CreditsMenu.position.x = (get_viewport().get_visible_rect().size.x/2)
 
-	$buttons/start_button/AnimationPlayer
-
 func _process(_delta):
+	if Input.is_action_just_pressed("pause"):
+		credits_button()
+	
 	#player_to_remove = get_tree().get_nodes_in_group("Player")
 	#if player_to_remove:
 	#	player_to_remove[0].queue_free()
-	pass
 	
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("menu_player"):
 		$buttons/start_button/AnimationPlayer.play("menu_start")
@@ -47,7 +48,3 @@ func fullscreen_button():
 
 func credits_button():
 	$CreditsMenu.visible = !$CreditsMenu.visible
-
-func _input(_event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		$CreditsMenu.visible = !$CreditsMenu.visible

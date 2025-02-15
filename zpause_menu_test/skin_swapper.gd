@@ -1,7 +1,14 @@
 extends Node2D
 
-var skin: Array = ["1", "2", "3", "gadgetman"]
+var skin: Array = ["1", "2", "3", "4", "gadgetman"]
 var skin_num = 0
+
+func _ready():
+	if Global.skin_num:
+		skin_num = Global.skin_num
+		await get_tree().process_frame
+		Global.player.skin = skin[skin_num]
+		$sprite.animation = "%s_walk" % skin[skin_num]
 
 func _process(_delta):
 	if self.visible == true:
@@ -14,9 +21,13 @@ func _process(_delta):
 		if Input.is_action_just_pressed("ui_cancel") && get_window().has_focus():
 			_on_cancel_pressed()
 
+	if MultiplayerManager.multiplayer_mode_enabled:
+		Global.skin = skin[skin_num]
+
 func _on_apply_pressed() -> void:
-	if MultiplayerManager.multiplayer_mode_enabled == false:
+	if !MultiplayerManager.multiplayer_mode_enabled:
 		Global.player.skin = skin[skin_num]
+		Global.skin_num = skin_num
 	else:
 		Global.skin = skin[skin_num]
 	$"..".on_menu = "options"

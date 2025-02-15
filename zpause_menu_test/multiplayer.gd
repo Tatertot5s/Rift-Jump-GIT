@@ -1,11 +1,11 @@
 extends Node
 
 func _on_host_button_down():
-	$"..".visible = !$"..".visible
+	$"..".on_menu = "none"
 	pause_game()
 	MultiplayerManager.become_host()
 func _on_join_button_down():
-	$"..".visible = !$"..".visible
+	$"..".on_menu = "none"
 	pause_game()
 	MultiplayerManager.join_as_player_2()
 

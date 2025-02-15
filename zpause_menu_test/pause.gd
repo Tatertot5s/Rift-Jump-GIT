@@ -16,7 +16,10 @@ func _on_resume_button_down():
 	$"..".on_menu = "none"
 func _on_respawn_button_down():
 	pause_game()
-	Global.player.respawn(Global.player)
+	if !MultiplayerManager.multiplayer_mode_enabled:
+		Global.player.respawn(Global.player)
+	else:
+		Global.multiplayer_respawn = true
 	$"..".on_menu = "none"
 func _on_settings_button_down():
 	$"..".on_menu = "options"

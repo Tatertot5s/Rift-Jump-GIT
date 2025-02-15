@@ -1,6 +1,6 @@
 extends Node2D
 
-var skin: Array = ["1", "2", "3", "gadgetman"]
+var skin: Array = ["1", "2", "3", "4", "gadgetman"]
 var skin_num = 0
 
 func _process(delta):

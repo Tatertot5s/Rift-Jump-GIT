@@ -39,7 +39,7 @@ script = ExtResource("1_bqsyw")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_sx4yo")
-animation = &"off"
+animation = &"on"
 autoplay = "off"
 
 [node name="collision" type="CollisionShape2D" parent="."]
