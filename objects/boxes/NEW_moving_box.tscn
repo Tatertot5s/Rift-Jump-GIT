@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6yrqxta0jsg8"]
+
+[ext_resource type="Script" path="res://objects/boxes/new_moving_box.gd" id="1_r6tgo"]
+[ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_ottrd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2fia"]
+atlas = ExtResource("2_ottrd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lkda"]
+size = Vector2(27, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcfpf"]
+size = Vector2(27, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cykbs"]
+size = Vector2(29, 18.75)
+
+[node name="moving_box" type="AnimatableBody2D"]
+script = ExtResource("1_r6tgo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0.499978, 0.500002)
+scale = Vector2(1.6875, 1.6875)
+texture = SubResource("AtlasTexture_e2fia")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_7lkda")
+
+[node name="top_player_detection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="top_player_detection"]
+position = Vector2(0.5, -16)
+shape = SubResource("RectangleShape2D_xcfpf")
+
+[node name="bottom_squish_protection" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="bottom_squish_protection"]
+position = Vector2(0.5, 19.625)
+shape = SubResource("RectangleShape2D_cykbs")
+
+[connection signal="body_entered" from="top_player_detection" to="." method="interact" binds= [true, true]]
+[connection signal="body_exited" from="top_player_detection" to="." method="interact" binds= [true, false]]
+[connection signal="body_entered" from="bottom_squish_protection" to="." method="interact" binds= [false, true]]
+[connection signal="body_exited" from="bottom_squish_protection" to="." method="interact" binds= [false, false]]

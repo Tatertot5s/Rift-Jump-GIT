@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyvijqrr2gkd0"]
+[gd_scene load_steps=5 format=3 uid="uid://bko307ntw47s7"]
 
-[ext_resource type="Script" path="res://scripts/spike.gd" id="1_s2xhx"]
-[ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_vcty8"]
+[ext_resource type="Script" path="res://scripts/spike.gd" id="1_j6700"]
+[ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_cbljl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxepu"]
-atlas = ExtResource("2_vcty8")
+atlas = ExtResource("2_cbljl")
 region = Rect2(64, 112, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ysbw"]
 size = Vector2(8, 9)
 
 [node name="spike" type="Area2D"]
-script = ExtResource("1_s2xhx")
+rotation = 3.14159
+script = ExtResource("1_j6700")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_sxepu")

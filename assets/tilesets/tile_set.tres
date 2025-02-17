@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://5y0g25fp2pmg"]
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://5y0g25fp2pmg"]
 
 [ext_resource type="Texture2D" uid="uid://db8hg02ssx4yb" path="res://assets/tilesets/clouds.png" id="1_3np6c"]
 [ext_resource type="Texture2D" uid="uid://rde3vwg81a1t" path="res://assets/tilesets/example_tilesheet.png" id="2_ewhfk"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://c32nemiqqekdg" path="res://assets/tilesets/ice.png" id="4_kkphj"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="5_esiuj"]
 [ext_resource type="Texture2D" uid="uid://ca5a4r0w0n2il" path="res://assets/tilesets/lava.png" id="6_puxdx"]
+[ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="8_vorfa"]
+[ext_resource type="PackedScene" uid="uid://1fonolhprumw" path="res://objects/enemies/cactus.tscn" id="9_tv87f"]
+[ext_resource type="PackedScene" uid="uid://mj7jwss48lkj" path="res://objects/enemies/lava_bubble.tscn" id="10_c8pqq"]
+[ext_resource type="PackedScene" uid="uid://dqcrtsm4px36m" path="res://objects/enemies/snowman.tscn" id="11_dukyg"]
+[ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/enemies/spike.tscn" id="12_tuefj"]
+[ext_resource type="PackedScene" uid="uid://bko307ntw47s7" path="res://objects/enemies/upside_down_spike.tscn" id="13_b5d5s"]
+[ext_resource type="PackedScene" uid="uid://2r3baglcyxuq" path="res://objects/enemies/turtle.tscn" id="13_tmnkn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jexu"]
 texture = ExtResource("1_3np6c")
@@ -1037,6 +1044,15 @@ texture = ExtResource("6_puxdx")
 1:0/0 = 0
 0:0/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_y6oun"]
+scenes/2/scene = ExtResource("8_vorfa")
+scenes/3/scene = ExtResource("9_tv87f")
+scenes/4/scene = ExtResource("10_c8pqq")
+scenes/5/scene = ExtResource("11_dukyg")
+scenes/6/scene = ExtResource("12_tuefj")
+scenes/7/scene = ExtResource("13_tmnkn")
+scenes/8/scene = ExtResource("13_b5d5s")
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -1054,3 +1070,4 @@ sources/0 = SubResource("TileSetAtlasSource_6jexu")
 sources/3 = SubResource("TileSetAtlasSource_pah40")
 sources/4 = SubResource("TileSetAtlasSource_u5omk")
 sources/5 = SubResource("TileSetAtlasSource_5ggo2")
+sources/6 = SubResource("TileSetScenesCollectionSource_y6oun")

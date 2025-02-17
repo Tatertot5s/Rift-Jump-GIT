@@ -9,17 +9,6 @@ func _on_body_entered(body):
 		$"../../ParallaxBackground".visible = !$"../../ParallaxBackground".visible
 		$"../../ColorRect".visible = !$"../../ColorRect".visible
 
-		$"../../Enemies/spike".visible = !$"../../Enemies/spike"
-		$"../../Enemies/spike2".visible = !$"../../Enemies/spike2"
-		$"../../Enemies/spike3".visible = !$"../../Enemies/spike3"
-		$"../../Enemies/spike4".visible = !$"../../Enemies/spike4"
-		$"../../Enemies/spike5".visible = !$"../../Enemies/spike5"
-		$"../../Enemies/spike6".visible = !$"../../Enemies/spike6"
-		
-		$"../../Enemies/lavaBubble6".visible = !$"../../Enemies/lavaBubble6"
-		$"../../Enemies/lavaBubble7".visible = !$"../../Enemies/lavaBubble7"
-		$"../../Enemies/lavaBubble8".visible = !$"../../Enemies/lavaBubble8"
-		
 		$"../moving_box3".visible = !$"../moving_box3"
 		$"../moving_box6".visible = !$"../moving_box6"
 		

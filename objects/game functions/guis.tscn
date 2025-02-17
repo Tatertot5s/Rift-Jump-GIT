@@ -26,6 +26,7 @@ visible = false
 
 [node name="touch" type="Node2D" parent="."]
 visible = false
+z_index = 20
 script = ExtResource("4_ncnfv")
 
 [node name="options" type="TouchScreenButton" parent="touch"]
@@ -33,6 +34,7 @@ modulate = Color(1, 1, 1, 0.356863)
 position = Vector2(1060, 8)
 scale = Vector2(1.667, 1.667)
 texture_normal = ExtResource("8_ud32j")
+passby_press = true
 action = "pause"
 
 [node name="left" type="TouchScreenButton" parent="touch"]

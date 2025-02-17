@@ -31,19 +31,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11bof"]
-size = Vector2(18, 51.5)
+size = Vector2(10, 23.75)
 
 [node name="flag" type="Area2D"]
 script = ExtResource("1_bqsyw")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3.5, 3.5)
+position = Vector2(0, -5)
+scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_sx4yo")
-animation = &"on"
+animation = &"off"
 autoplay = "off"
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(5, 1.75)
+position = Vector2(2, -4)
 shape = SubResource("RectangleShape2D_11bof")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

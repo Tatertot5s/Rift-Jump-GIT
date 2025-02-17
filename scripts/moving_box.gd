@@ -1,8 +1,6 @@
 extends AnimatableBody2D
 
-## The max amount that the platform is allowed to travel
 @export var MAX_TRAVEL = 100
-## The speed the platform travels at
 @export var TRAVEL_SPEED = 3
 
 var travel = 0

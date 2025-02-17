@@ -4,34 +4,34 @@
 [ext_resource type="Texture2D" uid="uid://cuwp0xrujlokb" path="res://assets/objects/end_portal.png" id="2_nk0j3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr21c"]
-size = Vector2(28, 15)
+size = Vector2(16, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtw2e"]
-size = Vector2(28, 15)
+size = Vector2(16, 9.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vp0w4"]
-size = Vector2(20, 206)
+size = Vector2(11, 121)
 
 [node name="exit_portal" type="StaticBody2D"]
 position = Vector2(0, 1)
+scale = Vector2(1.676, 1.676)
 script = ExtResource("1_ejv84")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(1.67562, 1.67562)
 texture = ExtResource("2_nk0j3")
 
 [node name="top_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -113.5)
+position = Vector2(0, -67.5)
 shape = SubResource("RectangleShape2D_fr21c")
 
 [node name="bottom_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 113.5)
+position = Vector2(0, 67.25)
 shape = SubResource("RectangleShape2D_qtw2e")
 
 [node name="portal_area" type="Area2D" parent="."]
 
 [node name="colission" type="CollisionShape2D" parent="portal_area"]
-position = Vector2(1, 0)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_vp0w4")
 
 [connection signal="body_entered" from="portal_area" to="." method="_on_portal_area_body_entered"]

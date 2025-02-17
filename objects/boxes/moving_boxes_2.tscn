@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/moving_box.gd" id="1_b0jm2"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_vt08j"]
 
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_55pin"]
 atlas = ExtResource("2_vt08j")
 region = Rect2(32, 0, 16, 16)
