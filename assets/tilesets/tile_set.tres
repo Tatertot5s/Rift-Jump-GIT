@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://5y0g25fp2pmg"]
+[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://5y0g25fp2pmg"]
 
 [ext_resource type="Texture2D" uid="uid://db8hg02ssx4yb" path="res://assets/tilesets/clouds.png" id="1_3np6c"]
 [ext_resource type="Texture2D" uid="uid://rde3vwg81a1t" path="res://assets/tilesets/example_tilesheet.png" id="2_ewhfk"]
@@ -6,13 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://c32nemiqqekdg" path="res://assets/tilesets/ice.png" id="4_kkphj"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="5_esiuj"]
 [ext_resource type="Texture2D" uid="uid://ca5a4r0w0n2il" path="res://assets/tilesets/lava.png" id="6_puxdx"]
+[ext_resource type="PackedScene" uid="uid://8u4plwsat4hv" path="res://objects/boxes/moving_boxes_2.tscn" id="7_li3nq"]
+[ext_resource type="PackedScene" uid="uid://c4uhj155si4rc" path="res://objects/boxes/moving_boxes_3.tscn" id="8_dohgj"]
 [ext_resource type="PackedScene" uid="uid://dwvlulmydbilk" path="res://objects/flag.tscn" id="8_vorfa"]
+[ext_resource type="PackedScene" uid="uid://y6o8n7vigh8j" path="res://objects/boxes/moving_boxes_6.tscn" id="9_rrbt4"]
 [ext_resource type="PackedScene" uid="uid://1fonolhprumw" path="res://objects/enemies/cactus.tscn" id="9_tv87f"]
 [ext_resource type="PackedScene" uid="uid://mj7jwss48lkj" path="res://objects/enemies/lava_bubble.tscn" id="10_c8pqq"]
 [ext_resource type="PackedScene" uid="uid://dqcrtsm4px36m" path="res://objects/enemies/snowman.tscn" id="11_dukyg"]
 [ext_resource type="PackedScene" uid="uid://cyvijqrr2gkd0" path="res://objects/enemies/spike.tscn" id="12_tuefj"]
 [ext_resource type="PackedScene" uid="uid://bko307ntw47s7" path="res://objects/enemies/upside_down_spike.tscn" id="13_b5d5s"]
 [ext_resource type="PackedScene" uid="uid://2r3baglcyxuq" path="res://objects/enemies/turtle.tscn" id="13_tmnkn"]
+[ext_resource type="PackedScene" uid="uid://b6yrqxta0jsg8" path="res://objects/boxes/NEW_moving_box.tscn" id="17_4ove4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jexu"]
 texture = ExtResource("1_3np6c")
@@ -1052,6 +1056,10 @@ scenes/5/scene = ExtResource("11_dukyg")
 scenes/6/scene = ExtResource("12_tuefj")
 scenes/7/scene = ExtResource("13_tmnkn")
 scenes/8/scene = ExtResource("13_b5d5s")
+scenes/9/scene = ExtResource("17_4ove4")
+scenes/10/scene = ExtResource("7_li3nq")
+scenes/11/scene = ExtResource("8_dohgj")
+scenes/12/scene = ExtResource("9_rrbt4")
 
 [resource]
 physics_layer_0/collision_layer = 1

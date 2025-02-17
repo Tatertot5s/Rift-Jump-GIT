@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://bm0isoxid63pf"]
+[gd_scene load_steps=6 format=4 uid="uid://bm0isoxid63pf"]
 
 [ext_resource type="Script" path="res://scripts/spike.gd" id="1_1u0uc"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_qfq0r"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="3_1tms6"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="4_a6jvp"]
-[ext_resource type="PackedScene" uid="uid://b6yrqxta0jsg8" path="res://objects/boxes/NEW_moving_box.tscn" id="4_ho3vm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ed4v"]
 size = Vector2(3475.5, 20)
@@ -49,10 +48,6 @@ script = ExtResource("1_1u0uc")
 [node name="collision" type="CollisionShape2D" parent="objects/death_plane"]
 position = Vector2(1719.25, 673)
 shape = SubResource("RectangleShape2D_0ed4v")
-
-[node name="moving_box" parent="." instance=ExtResource("4_ho3vm")]
-position = Vector2(187, 506)
-num_platforms = 3
 
 [node name="exit_portal" parent="." instance=ExtResource("4_a6jvp")]
 position = Vector2(3416, 201)

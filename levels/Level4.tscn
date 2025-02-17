@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cu4so7175uumd"]
+[gd_scene load_steps=16 format=4 uid="uid://cu4so7175uumd"]
 
 [ext_resource type="Texture2D" uid="uid://nj7mn5bhlnvx" path="res://assets/backgrounds/nether_background.png" id="1_1wnc3"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="2_shxr8"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://scripts/spike.gd" id="7_twbh2"]
 [ext_resource type="PackedScene" uid="uid://c4uhj155si4rc" path="res://objects/boxes/moving_boxes_3.tscn" id="8_68w2s"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="9_oovss"]
-[ext_resource type="PackedScene" uid="uid://b8n7uuvd563n5" path="res://objects/player.tscn" id="12_s3c0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk3je"]
 size = Vector2(1952, 28)
@@ -164,22 +163,19 @@ position = Vector2(-12.33, -60.6521)
 shape = SubResource("RectangleShape2D_5vts8")
 disabled = true
 
-[node name="player" parent="." instance=ExtResource("12_s3c0r")]
-position = Vector2(2347, 84)
-
 [connection signal="body_entered" from="world/Node2D" to="world/Node2D" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224849" to="world/@Area2D@224849" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224850" to="world/@Area2D@224850" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224851" to="world/@Area2D@224851" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224852" to="world/@Area2D@224852" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224853" to="world/@Area2D@224853" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224854" to="world/@Area2D@224854" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224855" to="world/@Area2D@224855" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18065" to="world/@Area2D@18065" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18066" to="world/@Area2D@18066" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18067" to="world/@Area2D@18067" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18068" to="world/@Area2D@18068" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18069" to="world/@Area2D@18069" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18070" to="world/@Area2D@18070" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18071" to="world/@Area2D@18071" method="_on_body_entered"]
 [connection signal="body_entered" from="world/spike" to="world/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224856" to="world/@Area2D@224856" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224857" to="world/@Area2D@224857" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224858" to="world/@Area2D@224858" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224859" to="world/@Area2D@224859" method="_on_body_entered"]
-[connection signal="body_entered" from="world/@Area2D@224860" to="world/@Area2D@224860" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18072" to="world/@Area2D@18072" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18073" to="world/@Area2D@18073" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18074" to="world/@Area2D@18074" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18075" to="world/@Area2D@18075" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18076" to="world/@Area2D@18076" method="_on_body_entered"]
 [connection signal="body_entered" from="Objects/death_plane" to="Objects/death_plane" method="_on_body_entered"]
 [connection signal="body_entered" from="Objects/house/end hitbox" to="Objects/house/end hitbox" method="_on_portal_area_body_entered"]
