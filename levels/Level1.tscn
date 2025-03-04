@@ -53,4 +53,19 @@ shape = SubResource("RectangleShape2D_0ed4v")
 position = Vector2(3416, 201)
 LevelName = "Level2"
 
+[connection signal="body_entered" from="world/flag" to="world/flag" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18065" to="world/@Area2D@18065" method="_on_body_entered"]
+[connection signal="body_entered" from="world/cactus" to="world/cactus" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18066" to="world/@Area2D@18066" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18067" to="world/@Area2D@18067" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18068" to="world/@Area2D@18068" method="_on_body_entered"]
+[connection signal="body_entered" from="world/spike" to="world/spike" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18069" to="world/@Area2D@18069" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18070" to="world/@Area2D@18070" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18071" to="world/@Area2D@18071" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18072" to="world/@Area2D@18072" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18073" to="world/@Area2D@18073" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18074" to="world/@Area2D@18074" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18075" to="world/@Area2D@18075" method="_on_body_entered"]
+[connection signal="body_entered" from="world/@Area2D@18076" to="world/@Area2D@18076" method="_on_body_entered"]
 [connection signal="body_entered" from="objects/death_plane" to="objects/death_plane" method="_on_body_entered"]
