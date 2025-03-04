@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://nj7mn5bhlnvx" path="res://assets/backgrounds/nether_background.png" id="1_1wnc3"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="2_shxr8"]
-[ext_resource type="Script" path="res://scripts/end_hitbox.gd" id="4_16vh6"]
+[ext_resource type="Script" uid="uid://ci2ahkkfmo22r" path="res://scripts/end_hitbox.gd" id="4_16vh6"]
 [ext_resource type="Texture2D" uid="uid://sk2c6ea8522h" path="res://assets/house.png" id="4_eoe22"]
 [ext_resource type="PackedScene" uid="uid://ctslt57wuohr1" path="res://objects/big_portal.tscn" id="4_vdbvt"]
 [ext_resource type="Texture2D" uid="uid://iahc7g4yagoc" path="res://assets/window.png" id="5_gtlnm"]
 [ext_resource type="TileSet" uid="uid://clh2dg5371x4o" path="res://assets/tilesets/tile_setNOCOLLISION.tres" id="6_748yx"]
 [ext_resource type="PackedScene" uid="uid://y6o8n7vigh8j" path="res://objects/boxes/moving_boxes_6.tscn" id="7_8h5b4"]
-[ext_resource type="Script" path="res://scripts/spike.gd" id="7_twbh2"]
+[ext_resource type="Script" uid="uid://dy7v076gio7e2" path="res://scripts/spike.gd" id="7_twbh2"]
 [ext_resource type="PackedScene" uid="uid://c4uhj155si4rc" path="res://objects/boxes/moving_boxes_3.tscn" id="8_68w2s"]
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="9_oovss"]
 

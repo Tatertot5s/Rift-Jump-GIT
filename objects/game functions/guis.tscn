@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://ednp12af4hbk"]
 
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="1_7dh6h"]
-[ext_resource type="Script" path="res://scripts/stats.gd" id="2_1rswe"]
+[ext_resource type="Script" uid="uid://b6awtabcujdvn" path="res://scripts/stats.gd" id="2_1rswe"]
 [ext_resource type="PackedScene" uid="uid://qp1kxjafvog4" path="res://zpause_menu_test/pause_menu2.tscn" id="3_2otgp"]
-[ext_resource type="Script" path="res://objects/game functions/touch.gd" id="4_ncnfv"]
+[ext_resource type="Script" uid="uid://xl8jetstkmhn" path="res://objects/game functions/touch.gd" id="4_ncnfv"]
 [ext_resource type="Texture2D" uid="uid://c1bx4lgx4emhq" path="res://assets/menus/right_button.png" id="5_ap5pd"]
 [ext_resource type="Texture2D" uid="uid://bpembturvynby" path="res://assets/menus/left.png" id="6_5mboj"]
 [ext_resource type="Texture2D" uid="uid://ct71vodlnncuv" path="res://assets/menus/up.png" id="7_glqua"]

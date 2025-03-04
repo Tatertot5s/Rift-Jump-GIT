@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="2_6fufu"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="3_hnrpx"]
 [ext_resource type="PackedScene" uid="uid://c4uhj155si4rc" path="res://objects/boxes/moving_boxes_3.tscn" id="8_f46s5"]
-[ext_resource type="Script" path="res://scripts/spike.gd" id="8_mbh2l"]
+[ext_resource type="Script" uid="uid://dy7v076gio7e2" path="res://scripts/spike.gd" id="8_mbh2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj8o8"]
 size = Vector2(1934, 28)

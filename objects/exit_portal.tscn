@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbqwyjeqiuoif"]
 
-[ext_resource type="Script" path="res://scripts/goal_portal.gd" id="1_ejv84"]
+[ext_resource type="Script" uid="uid://cyxd57ai4iw05" path="res://scripts/goal_portal.gd" id="1_ejv84"]
 [ext_resource type="Texture2D" uid="uid://cuwp0xrujlokb" path="res://assets/objects/end_portal.png" id="2_nk0j3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr21c"]

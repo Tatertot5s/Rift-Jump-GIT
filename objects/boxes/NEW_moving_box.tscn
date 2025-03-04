@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6yrqxta0jsg8"]
 
-[ext_resource type="Script" path="res://objects/boxes/new_moving_box.gd" id="1_r6tgo"]
+[ext_resource type="Script" uid="uid://ch84bxg02txj6" path="res://objects/boxes/new_moving_box.gd" id="1_r6tgo"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_ottrd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2fia"]

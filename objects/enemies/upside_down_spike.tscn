@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bko307ntw47s7"]
 
-[ext_resource type="Script" path="res://scripts/spike.gd" id="1_j6700"]
+[ext_resource type="Script" uid="uid://dy7v076gio7e2" path="res://scripts/spike.gd" id="1_j6700"]
 [ext_resource type="Texture2D" uid="uid://ck21dil3sl1ag" path="res://assets/tilesheet.png" id="2_cbljl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxepu"]

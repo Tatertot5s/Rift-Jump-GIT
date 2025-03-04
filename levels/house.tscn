@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b233r8ld808nt" path="res://assets/house_interior.png" id="1_hn8yt"]
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="3_j7dr4"]
-[ext_resource type="Script" path="res://scripts/end_times.gd" id="4_6k6hq"]
+[ext_resource type="Script" uid="uid://bq8j0aw2370aw" path="res://scripts/end_times.gd" id="4_6k6hq"]
 [ext_resource type="Texture2D" uid="uid://bnwf8ht8yym8a" path="res://assets/menus/MenuBlock.png" id="4_xty0e"]
-[ext_resource type="Script" path="res://scripts/end_button.gd" id="5_3cda2"]
+[ext_resource type="Script" uid="uid://d3godnjpxl5m" path="res://scripts/end_button.gd" id="5_3cda2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xwoe"]
 size = Vector2(529.164, 17)
@@ -88,7 +88,7 @@ offset_bottom = 765.0
 color = Color(0, 0, 0, 1)
 
 [node name="respawn_point" type="Node2D" parent="." groups=["respawn_point"]]
-position = Vector2(327, 390)
+position = Vector2(312, 394)
 
 [node name="camera_limit" type="Node2D" parent="." groups=["camera_limit"]]
 position = Vector2(1152.82, 338.036)

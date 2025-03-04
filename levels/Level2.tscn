@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://js05wn8k1swk" path="res://objects/boxes/moving_box.tscn" id="5_asg68"]
 [ext_resource type="PackedScene" uid="uid://bbqwyjeqiuoif" path="res://objects/exit_portal.tscn" id="5_wm48h"]
 [ext_resource type="PackedScene" uid="uid://8u4plwsat4hv" path="res://objects/boxes/moving_boxes_2.tscn" id="6_wp5v3"]
-[ext_resource type="Script" path="res://scripts/spike.gd" id="9_ocvs2"]
+[ext_resource type="Script" uid="uid://dy7v076gio7e2" path="res://scripts/spike.gd" id="9_ocvs2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmsk4"]
 size = Vector2(2334, 28)

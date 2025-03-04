@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://yagjmv8qeslo"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_22fjo"]
+[ext_resource type="Script" uid="uid://chre8kv6r2a5v" path="res://scripts/pause_menu.gd" id="1_22fjo"]
 [ext_resource type="Texture2D" uid="uid://d1xxlt0r4kru0" path="res://assets/menus/skin_swapper.png" id="2_56rfd"]
 [ext_resource type="Texture2D" uid="uid://dyeeb6d3hu71t" path="res://assets/menus/settings_menu.png" id="2_lmtn7"]
 [ext_resource type="Texture2D" uid="uid://1qdwio2ngx7c" path="res://assets/menus/pause_menu.png" id="2_wakl4"]
-[ext_resource type="Script" path="res://scripts/skin_swapper.gd" id="3_cwt7f"]
+[ext_resource type="Script" uid="uid://dt0ahh5g0tayu" path="res://scripts/skin_swapper.gd" id="3_cwt7f"]
 [ext_resource type="SpriteFrames" uid="uid://db8a62xdu5iop" path="res://assets/player/player_frames.tres" id="3_n3lsu"]
 [ext_resource type="Texture2D" uid="uid://cph34irtlkggl" path="res://assets/menus/pause_selection.png" id="3_yqxao"]
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="4_7whqa"]

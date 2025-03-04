@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://naqg0addupht"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_11doy"]
+[ext_resource type="Script" uid="uid://3iw334t78m4x" path="res://scripts/main_menu.gd" id="1_11doy"]
 [ext_resource type="TileSet" uid="uid://5y0g25fp2pmg" path="res://assets/tilesets/tile_set.tres" id="1_mn7he"]
 [ext_resource type="PackedScene" uid="uid://b6p5bwi2t0a2i" path="res://objects/game functions/menu_player.tscn" id="3_j30ns"]
 [ext_resource type="Texture2D" uid="uid://bnwf8ht8yym8a" path="res://assets/menus/MenuBlock.png" id="3_objhl"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://k1mpemencklw" path="res://assets/menus/quit_button.png" id="7_ypvi0"]
 [ext_resource type="Texture2D" uid="uid://gnkehnmcly36" path="res://assets/menus/credits_menu.png" id="9_1b0ox"]
 [ext_resource type="Texture2D" uid="uid://dayw1m3brvjut" path="res://assets/menus/logo_vertical_color_light.png" id="10_eq05n"]
-[ext_resource type="Script" path="res://scripts/splash.gd" id="12_rmp12"]
+[ext_resource type="Script" uid="uid://c3wbb6vt1o7m1" path="res://scripts/splash.gd" id="12_rmp12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uawf"]
 size = Vector2(230.5, 75)
@@ -78,8 +78,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rgf3f"]
 _data = {
-"RESET": SubResource("Animation_3m4fa"),
-"menu_start": SubResource("Animation_63bdw")
+&"RESET": SubResource("Animation_3m4fa"),
+&"menu_start": SubResource("Animation_63bdw")
 }
 
 [sub_resource type="Animation" id="Animation_tl0hr"]
@@ -116,8 +116,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lnd64"]
 _data = {
-"RESET": SubResource("Animation_tl0hr"),
-"splash": SubResource("Animation_27o2g")
+&"RESET": SubResource("Animation_tl0hr"),
+&"splash": SubResource("Animation_27o2g")
 }
 
 [node name="MainMenu" type="Node2D"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://b88udlu2lcv3w"]
 
-[ext_resource type="Script" path="res://scripts/multiplayer_controller.gd" id="1_g2b1j"]
-[ext_resource type="Script" path="res://scripts/multiplayer_input.gd" id="2_em0ut"]
+[ext_resource type="Script" uid="uid://dbn2ur2o5tu8w" path="res://scripts/multiplayer_controller.gd" id="1_g2b1j"]
+[ext_resource type="Script" uid="uid://ci4mktlfikss3" path="res://scripts/multiplayer_input.gd" id="2_em0ut"]
 [ext_resource type="Texture2D" uid="uid://dnh8c3os02iu5" path="res://assets/player/shadow.png" id="2_ihixv"]
-[ext_resource type="Script" path="res://scripts/shadow.gd" id="3_c5m8r"]
+[ext_resource type="Script" uid="uid://cu3vho0fmk5t8" path="res://scripts/shadow.gd" id="3_c5m8r"]
 [ext_resource type="SpriteFrames" uid="uid://db8a62xdu5iop" path="res://assets/player/player_frames.tres" id="5_rk3ou"]
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="6_2xiqq"]
 
