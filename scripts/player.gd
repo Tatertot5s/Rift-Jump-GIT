@@ -45,19 +45,21 @@ func _physics_process(delta: float) -> void:
 	apply_animations(delta)
 
 func apply_animations(_delta):
-	if direction < 0:
-		$sprite.flip_h = true
-		$sprite.animation = "%s_walk" % skin
-	elif direction > 0:
-		$sprite.flip_h = false
-		$sprite.animation = "%s_walk" % skin
-	else:
-		$sprite.animation = "%s_idle" % skin
 	if not is_on_floor():
 		if velocity.y < 0:
 			$sprite.animation = "%s_jump_start" % skin
 		else:
 			$sprite.animation = "%s_jump_fall" % skin
+	else:
+		if direction < 0:
+			$sprite.flip_h = true
+			$sprite.animation = "%s_walk" % skin
+		elif direction > 0:
+			$sprite.flip_h = false
+			$sprite.animation = "%s_walk" % skin
+		else:
+			$sprite.animation = "%s_idle" % skin
+
 	
 func _on_death_plane_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

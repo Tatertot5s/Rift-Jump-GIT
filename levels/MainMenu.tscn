@@ -184,7 +184,7 @@ shape = SubResource("RectangleShape2D_3sx8g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="buttons/start_button"]
 libraries = {
-"": SubResource("AnimationLibrary_rgf3f")
+&"": SubResource("AnimationLibrary_rgf3f")
 }
 
 [node name="fullscreen_button" type="TextureButton" parent="buttons"]
@@ -337,7 +337,7 @@ script = ExtResource("12_rmp12")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="splash"]
 libraries = {
-"": SubResource("AnimationLibrary_lnd64")
+&"": SubResource("AnimationLibrary_lnd64")
 }
 
 [connection signal="pressed" from="buttons/start_button" to="." method="start_button"]
