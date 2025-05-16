@@ -22,6 +22,8 @@ func _physics_process(delta: float) -> void:
 	if jump_buffer > 0:
 		if is_on_floor() or coyote_time > 0:
 			velocity.y = JUMP_VELOCITY
+			$JumpAudioPlayer.pitch_scale = randf_range(0.9, 1.1)
+			$JumpAudioPlayer.play()
 	jump_buffer = move_toward(jump_buffer, 0, 1)
 	
 	if Input.is_action_pressed("left") and not Input.is_action_pressed("right") && get_window().has_focus():
@@ -68,6 +70,7 @@ func _on_death_plane_body_entered(body: Node2D) -> void:
 			self.position = respawn_points[0].position
 		velocity = Vector2(0, 0)
 		coyote_time = 0
+		$DieAudioPlayer.play()
 		Global.deaths += 1
 
 func respawn(body):
