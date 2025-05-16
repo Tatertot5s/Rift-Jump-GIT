@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dyeeb6d3hu71t" path="res://assets/menus/settings_menu.png" id="4_4ix1u"]
 [ext_resource type="Texture2D" uid="uid://d2a6d85q34wgh" path="res://assets/menus/multiplayer.png" id="5_2gfx5"]
 [ext_resource type="FontFile" uid="uid://mm4b2boot0jf" path="res://assets/minecraftfont.woff" id="6_6lk1x"]
-[ext_resource type="Script" uid="uid://51tyt3qxnoxd" path="res://zpause_menu_test/settings.gd" id="6_354fr"]
+[ext_resource type="Script" uid="uid://uqkdxi4buein" path="res://zpause_menu_test/settings.gd" id="6_354fr"]
 [ext_resource type="Texture2D" uid="uid://d1xxlt0r4kru0" path="res://assets/menus/skin_swapper.png" id="7_voqcp"]
 [ext_resource type="Script" uid="uid://ks2ro51v56mb" path="res://zpause_menu_test/multiplayer.gd" id="8_07vwh"]
 [ext_resource type="SpriteFrames" uid="uid://db8a62xdu5iop" path="res://assets/player/player_frames.tres" id="9_3uxlc"]

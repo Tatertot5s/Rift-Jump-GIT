@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://k1mpemencklw" path="res://assets/menus/quit_button.png" id="7_ypvi0"]
 [ext_resource type="Texture2D" uid="uid://gnkehnmcly36" path="res://assets/menus/credits_menu.png" id="9_1b0ox"]
 [ext_resource type="Texture2D" uid="uid://dayw1m3brvjut" path="res://assets/menus/logo_vertical_color_light.png" id="10_eq05n"]
-[ext_resource type="Script" uid="uid://c3wbb6vt1o7m1" path="res://scripts/splash.gd" id="12_rmp12"]
+[ext_resource type="Script" uid="uid://crouiwtmmb6jt" path="res://scripts/splash.gd" id="12_rmp12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uawf"]
 size = Vector2(230.5, 75)
@@ -298,11 +298,11 @@ texture = ExtResource("10_eq05n")
 [node name="version" type="Label" parent="CreditsMenu"]
 offset_left = -288.0
 offset_top = -199.0
-offset_right = -156.0
-offset_bottom = -167.0
+offset_right = -174.0
+offset_bottom = -146.0
 theme_override_fonts/font = ExtResource("4_vb4ux")
 theme_override_font_sizes/font_size = 14
-text = "v0.7.2"
+text = "v0.7.8"
 
 [node name="exit_info" type="TextureButton" parent="CreditsMenu"]
 offset_left = 235.0
