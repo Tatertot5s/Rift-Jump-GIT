@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -475.0 * 1.5
 const ACCELERATION = 40.0 * 1.5
 
 var jump_buffer = 0
+var gravity = Vector2(0.0, 980.0)
 
 var skin: Array = ["1", "2", "3", "4", "gadgetman"]
 var skin_num = 0
@@ -13,10 +14,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit") && get_window().has_focus():
 		get_tree().quit()
 	
-	#Movement
+		#Movement
+	if Input.is_action_pressed("jump"):
+		gravity = Vector2(0.0, 980.0)
+	else:
+		gravity = Vector2(0.0, 1250.0)
+	
 	if not is_on_floor():
-		velocity += get_gravity() * 1.2 * delta
-		
+		velocity += gravity * 1.2 * delta
+	
 	if Input.is_action_just_pressed("jump") && get_window().has_focus() and $"../CreditsMenu".visible == false:
 		jump_buffer = 5
 	if jump_buffer > 0:

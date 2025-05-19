@@ -9,10 +9,16 @@ var coyote_time = 0
 var jump_buffer = 0
 var skin = "1"
 var direction = 0
+var gravity = Vector2(0.0, 980.0)
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("jump"):
+		gravity = Vector2(0.0, 980.0)
+	else:
+		gravity = Vector2(0.0, 1250.0)
+	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += gravity * delta
 		coyote_time = move_toward(coyote_time, 0, 1)
 	else:
 		coyote_time = 9
